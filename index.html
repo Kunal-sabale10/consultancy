@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Anagh Financial Consultancy | AI-Powered Financial Solutions</title>
+    <meta name="description" content="AI-driven Insurance, Mutual Funds & Loan Consultancy with personalized financial planning">
+    <meta name="keywords" content="financial advisor, AI investment, insurance, mutual funds, loans, fintech">
+    <meta name="robots" content="index, follow">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
+</head>
+
+<body>
+    <!-- Header -->
+    <header id="mainHeader">
+        <div class="logo-container">
+            <div class="logo">
+                <i class="fas fa-chart-line"></i>
+                <span class="logo-text">Anagh Financial</span>
+            </div>
+        </div>
+        
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="fas fa-bars"></i>
+        </button>
+        
+        <nav class="nav-links" id="navLinks">
+            <a href="#home" class="active">Home</a>
+            <a href="#services">Services</a>
+            <a href="#ai-assistant">AI Assistant</a>
+            <a href="#loan-calculator">Calculators</a>
+            <a href="#ai-predictor">Investment</a>
+            <a href="#testimonials">Testimonials</a>
+            <a href="#contact">Contact</a>
+            <a href="#contact" class="nav-cta">
+                <i class="fas fa-comment-alt"></i> Free Consultation
+            </a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content reveal">
+            <div class="ai-badge">
+                <i class="fas fa-robot"></i> AI-Powered Financial Advisor
+            </div>
+            <h1>Smart Financial Planning with Artificial Intelligence</h1>
+            <p class="hero-subtitle">Get personalized investment strategies, risk analysis, and financial recommendations powered by advanced AI algorithms</p>
+            
+            <div class="hero-features">
+                <div class="feature-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>AI Risk Assessment</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-bolt"></i>
+                    <span>Real-time Portfolio Analysis</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-chart-pie"></i>
+                    <span>Personalized Investment Plans</span>
+                </div>
+            </div>
+            
+            <div class="hero-buttons">
+                <button class="btn-primary" onclick="goContact()">
+                    <i class="fas fa-calendar-check"></i> Book Free Consultation
+                </button>
+                <button class="btn-secondary" onclick="goToAI()">
+                    <i class="fas fa-robot"></i> Try AI Assistant
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Assistant Section -->
+    <section class="ai-assistant" id="ai-assistant">
+        <div class="section-header reveal">
+            <h2>AI Financial Assistant</h2>
+            <p>Get instant answers to your financial questions with our intelligent chatbot</p>
+        </div>
+        
+        <div class="ai-container">
+            <div class="ai-chatbot reveal">
+                <div class="chat-header">
+                    <i class="fas fa-robot"></i>
+                    <div>
+                        <h3>Financial AI Assistant</h3>
+                        <p>Online • Ready to help</p>
+                    </div>
+                </div>
+                
+                <div class="chat-messages" id="chatMessages">
+                    <div class="message bot-message">
+                        Hello! I'm your AI financial assistant. I can provide detailed information about house loans, SIP calculations, bank offers, and financial planning. Try asking me specific questions!
+                    </div>
+                </div>
+                
+                <div class="chat-input">
+                    <input type="text" id="chatInput" placeholder="Ask about house loans, SIP, bank offers...">
+                    <button id="sendMessage">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="ai-features">
+                <div class="ai-feature reveal">
+                    <i class="fas fa-brain"></i>
+                    <h3>Intelligent Analysis</h3>
+                    <p>Our AI analyzes market trends, your risk profile, and financial goals to provide personalized advice.</p>
+                </div>
+                
+                <div class="ai-feature reveal">
+                    <i class="fas fa-lock"></i>
+                    <h3>Secure & Private</h3>
+                    <p>All your financial data is encrypted and never shared with third parties. Your privacy is our priority.</p>
+                </div>
+                
+                <div class="ai-feature reveal">
+                    <i class="fas fa-sync-alt"></i>
+                    <h3>24/7 Availability</h3>
+                    <p>Get financial advice anytime, anywhere. Our AI assistant never sleeps and is always ready to help.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="section-header reveal">
+            <h2>Our AI-Enhanced Services</h2>
+            <p>Combining human expertise with artificial intelligence for optimal financial solutions</p>
+        </div>
+        
+        <div class="services-grid">
+            <div class="service-card reveal">
+                <div class="service-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="service-content">
+                    <h3>AI-Powered Insurance</h3>
+                    <p>Get personalized insurance recommendations based on AI analysis of your lifestyle, health data, and risk factors.</p>
+                    
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> AI risk assessment</li>
+                        <li><i class="fas fa-check"></i> Premium optimization</li>
+                        <li><i class="fas fa-check"></i> Coverage analysis</li>
+                        <li><i class="fas fa-check"></i> Claim prediction</li>
+                    </ul>
+                    
+                    <a href="#contact" class="service-cta">
+                        Get Quote <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="service-card reveal">
+                <div class="service-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Smart Mutual Funds</h3>
+                    <p>AI-driven portfolio management with real-time market analysis and automated rebalancing.</p>
+                    
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> AI portfolio builder</li>
+                        <li><i class="fas fa-check"></i> Predictive analytics</li>
+                        <li><i class="fas fa-check"></i> Risk-adjusted returns</li>
+                        <li><i class="fas fa-check"></i> Tax optimization</li>
+                    </ul>
+                    
+                    <a href="#ai-predictor" class="service-cta">
+                        Start Investing <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="service-card reveal">
+                <div class="service-icon">
+                    <i class="fas fa-hand-holding-usd"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Intelligent Loan Solutions</h3>
+                    <p>AI-powered loan matching with the best interest rates and personalized repayment plans.</p>
+                    
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Credit score analysis</li>
+                        <li><i class="fas fa-check"></i> Rate comparison</li>
+                        <li><i class="fas fa-check"></i> EMI optimization</li>
+                        <li><i class="fas fa-check"></i> Eligibility prediction</li>
+                    </ul>
+                    
+                    <a href="#loan-calculator" class="service-cta">
+                        Check Eligibility <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advanced Loan Calculator -->
+    <section class="loan-calculator" id="loan-calculator">
+        <div class="section-header reveal">
+            <h2>Advanced Financial Calculators</h2>
+            <p>Detailed calculations for loans, SIP, and financial planning</p>
+        </div>
+        
+        <div class="calculator-container">
+            <div class="calculator-tabs">
+                <button class="tab-btn active" onclick="showCalculator('home-loan')">
+                    <i class="fas fa-home"></i> Home Loan
+                </button>
+                <button class="tab-btn" onclick="showCalculator('sip')">
+                    <i class="fas fa-chart-line"></i> SIP Calculator
+                </button>
+                <button class="tab-btn" onclick="showCalculator('emi')">
+                    <i class="fas fa-calculator"></i> EMI Calculator
+                </button>
+            </div>
+            
+            <!-- Home Loan Calculator -->
+            <div class="calculator-content active" id="home-loan-calc">
+                <h3>Home Loan Calculator</h3>
+                <div class="calculator-form">
+                    <div class="form-group">
+                        <label for="loanAmount">Loan Amount (₹)</label>
+                        <input type="number" id="loanAmount" value="5000000" min="100000" step="50000">
+                        <div class="range-slider">
+                            <input type="range" id="loanAmountRange" min="100000" max="50000000" value="5000000" step="50000">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="loanTenure">Loan Tenure (Years)</label>
+                        <input type="number" id="loanTenure" value="20" min="1" max="30">
+                        <div class="range-slider">
+                            <input type="range" id="loanTenureRange" min="1" max="30" value="20">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="interestRate">Interest Rate (%)</label>
+                        <input type="number" id="interestRate" value="8.5" min="6" max="15" step="0.1">
+                        <div class="rate-options">
+                            <button type="button" class="rate-btn" onclick="setInterestRate(8.4)">SBI: 8.4%</button>
+                            <button type="button" class="rate-btn" onclick="setInterestRate(8.5)">HDFC: 8.5%</button>
+                            <button type="button" class="rate-btn" onclick="setInterestRate(8.6)">ICICI: 8.6%</button>
+                            <button type="button" class="rate-btn" onclick="setInterestRate(8.45)">LIC: 8.45%</button>
+                        </div>
+                    </div>
+                    
+                    <button class="btn-primary" onclick="calculateHomeLoan()">
+                        <i class="fas fa-calculator"></i> Calculate EMI
+                    </button>
+                </div>
+                
+                <div class="calculator-result" id="homeLoanResult">
+                    <div class="result-card">
+                        <h4>Monthly EMI</h4>
+                        <div class="result-value" id="emiAmount">₹0</div>
+                    </div>
+                    <div class="result-card">
+                        <h4>Total Interest</h4>
+                        <div class="result-value" id="totalInterest">₹0</div>
+                    </div>
+                    <div class="result-card">
+                        <h4>Total Payment</h4>
+                        <div class="result-value" id="totalPayment">₹0</div>
+                    </div>
+                </div>
+                
+                <div class="bank-comparison">
+                    <h4>Bank Comparison</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Bank</th>
+                                <th>Interest Rate</th>
+                                <th>Processing Fee</th>
+                                <th>EMI for ₹50L</th>
+                            </tr>
+                        </thead>
+                        <tbody id="bankComparisonBody">
+                            <tr>
+                                <td>SBI</td>
+                                <td>8.40%</td>
+                                <td>0.35%</td>
+                                <td id="sbiEMI">₹43,013</td>
+                            </tr>
+                            <tr>
+                                <td>HDFC</td>
+                                <td>8.50%</td>
+                                <td>0.50%</td>
+                                <td id="hdfcEMI">₹43,391</td>
+                            </tr>
+                            <tr>
+                                <td>ICICI</td>
+                                <td>8.60%</td>
+                                <td>0.50%</td>
+                                <td id="iciciEMI">₹43,772</td>
+                            </tr>
+                            <tr>
+                                <td>Axis</td>
+                                <td>8.55%</td>
+                                <td>0.40%</td>
+                                <td id="axisEMI">₹43,582</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- SIP Calculator -->
+            <div class="calculator-content" id="sip-calc">
+                <h3>SIP Calculator</h3>
+                <div class="calculator-form">
+                    <div class="form-group">
+                        <label for="sipAmount">Monthly SIP Amount (₹)</label>
+                        <input type="number" id="sipAmount" value="10000" min="500" step="1000">
+                        <div class="range-slider">
+                            <input type="range" id="sipAmountRange" min="500" max="100000" value="10000" step="1000">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="sipTenure">Investment Period (Years)</label>
+                        <input type="number" id="sipTenure" value="15" min="1" max="40">
+                        <div class="range-slider">
+                            <input type="range" id="sipTenureRange" min="1" max="40" value="15">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="sipReturn">Expected Return (%)</label>
+                        <input type="number" id="sipReturn" value="12" min="5" max="20" step="0.1">
+                        <div class="rate-options">
+                            <button type="button" class="rate-btn" onclick="setSIPReturn(10)">Conservative: 10%</button>
+                            <button type="button" class="rate-btn" onclick="setSIPReturn(12)">Moderate: 12%</button>
+                            <button type="button" class="rate-btn" onclick="setSIPReturn(15)">Aggressive: 15%</button>
+                        </div>
+                    </div>
+                    
+                    <button class="btn-primary" onclick="calculateSIP()">
+                        <i class="fas fa-calculator"></i> Calculate SIP Returns
+                    </button>
+                </div>
+                
+                <div class="calculator-result" id="sipResult">
+                    <div class="result-card">
+                        <h4>Total Investment</h4>
+                        <div class="result-value" id="totalInvestment">₹0</div>
+                    </div>
+                    <div class="result-card">
+                        <h4>Est. Returns</h4>
+                        <div class="result-value" id="estimatedReturns">₹0</div>
+                    </div>
+                    <div class="result-card">
+                        <h4>Total Value</h4>
+                        <div class="result-value" id="totalValue">₹0</div>
+                    </div>
+                </div>
+                
+                <div class="investment-tips">
+                    <h4>SIP Investment Tips</h4>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Start SIP early to benefit from compounding</li>
+                        <li><i class="fas fa-check-circle"></i> Increase SIP amount by 10% every year</li>
+                        <li><i class="fas fa-check-circle"></i> Stay invested for long term (5+ years)</li>
+                        <li><i class="fas fa-check-circle"></i> Don't stop SIP during market corrections</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- EMI Calculator -->
+            <div class="calculator-content" id="emi-calc">
+                <h3>EMI Calculator (All Loans)</h3>
+                <div class="calculator-form">
+                    <div class="form-group">
+                        <label for="emiLoanAmount">Loan Amount (₹)</label>
+                        <input type="number" id="emiLoanAmount" value="500000" min="10000" step="10000">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="emiTenure">Loan Tenure (Months)</label>
+                        <input type="number" id="emiTenure" value="60" min="12" max="360">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="emiInterestRate">Interest Rate (%)</label>
+                        <input type="number" id="emiInterestRate" value="10.5" min="5" max="20" step="0.1">
+                        <div class="rate-options">
+                            <button type="button" class="rate-btn" onclick="setEMIRate(9.5)">Home Loan: 9.5%</button>
+                            <button type="button" class="rate-btn" onclick="setEMIRate(10.5)">Personal Loan: 10.5%</button>
+                            <button type="button" class="rate-btn" onclick="setEMIRate(8.5)">Car Loan: 8.5%</button>
+                        </div>
+                    </div>
+                    
+                    <button class="btn-primary" onclick="calculateEMI()">
+                        <i class="fas fa-calculator"></i> Calculate EMI
+                    </button>
+                </div>
+                
+                <div class="calculator-result" id="emiResult">
+                    <div class="result-card">
+                        <h4>Monthly EMI</h4>
+                        <div class="result-value" id="monthlyEMI">₹0</div>
+                    </div>
+                    <div class="result-card">
+                        <h4>Total Interest</h4>
+                        <div class="result-value" id="totalEMIInterest">₹0</div>
+                    </div>
+                    <div class="result-card">
+                        <h4>Total Payment</h4>
+                        <div class="result-value" id="totalEMIPayment">₹0</div>
+                    </div>
+                </div>
+                
+                <div class="loan-types">
+                    <h4>Common Loan Types</h4>
+                    <div class="loan-types-grid">
+                        <div class="loan-type">
+                            <i class="fas fa-home"></i>
+                            <h5>Home Loan</h5>
+                            <p>8.4% - 9.5% interest</p>
+                        </div>
+                        <div class="loan-type">
+                            <i class="fas fa-car"></i>
+                            <h5>Car Loan</h5>
+                            <p>8.5% - 10.5% interest</p>
+                        </div>
+                        <div class="loan-type">
+                            <i class="fas fa-user"></i>
+                            <h5>Personal Loan</h5>
+                            <p>10.5% - 16% interest</p>
+                        </div>
+                        <div class="loan-type">
+                            <i class="fas fa-graduation-cap"></i>
+                            <h5>Education Loan</h5>
+                            <p>8.5% - 11.5% interest</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Investment Predictor -->
+    <section class="ai-predictor" id="ai-predictor">
+        <div class="section-header reveal">
+            <h2>AI Investment Predictor</h2>
+            <p>Get personalized investment recommendations based on your profile and market conditions</p>
+        </div>
+        
+        <div class="predictor-container reveal">
+            <form id="investmentForm">
+                <div class="predictor-form">
+                    <div class="form-group">
+                        <label for="age">Your Age</label>
+                        <input type="number" id="age" min="18" max="80" value="30" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="income">Annual Income (₹)</label>
+                        <select id="income" required>
+                            <option value="500000">₹5 Lakhs</option>
+                            <option value="1000000" selected>₹10 Lakhs</option>
+                            <option value="1500000">₹15 Lakhs</option>
+                            <option value="2000000">₹20 Lakhs+</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="investment">Monthly Investment (₹)</label>
+                        <input type="number" id="investment" min="1000" value="10000" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="risk">Risk Tolerance</label>
+                        <select id="risk" required>
+                            <option value="low">Low (Conservative)</option>
+                            <option value="medium" selected>Medium (Balanced)</option>
+                            <option value="high">High (Aggressive)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="goal">Investment Goal</label>
+                        <select id="goal" required>
+                            <option value="retirement">Retirement</option>
+                            <option value="house" selected>Buy a House</option>
+                            <option value="education">Education</option>
+                            <option value="wealth">Wealth Creation</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="horizon">Investment Horizon (Years)</label>
+                        <input type="number" id="horizon" min="1" max="40" value="10" required>
+                    </div>
+                </div>
+                
+                <button type="button" class="btn-primary" onclick="analyzeInvestment()" style="width: 100%;">
+                    <i class="fas fa-chart-bar"></i> Analyze with AI
+                </button>
+            </form>
+            
+            <div class="predictor-result" id="predictorResult">
+                <div class="result-header">
+                    <h3>AI Investment Recommendation</h3>
+                    <div class="risk-score">
+                        Risk Score: <span id="riskScore">65</span>/100
+                    </div>
+                </div>
+                
+                <div class="risk-meter">
+                    <div class="risk-level" id="riskLevel"></div>
+                </div>
+                
+                <div id="recommendationDetails">
+                    <!-- Filled by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+        <div class="section-header reveal">
+            <h2>What Our Clients Say</h2>
+            <p>Trusted by over 5,000 clients across India</p>
+        </div>
+        
+        <div class="testimonial-slider">
+            <div class="testimonial-card reveal">
+                <div class="client-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p>"The AI investment predictor helped me optimize my portfolio. I've seen 18% returns in the first year itself. The personalized advice is spot on!"</p>
+                
+                <div class="client-info">
+                    <div class="client-avatar">RS</div>
+                    <div>
+                        <h4>Rajesh Sharma</h4>
+                        <p>Business Owner, Mumbai</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card reveal">
+                <div class="client-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <p>"The loan calculator and AI assistant helped me understand complex financial terms. Got the perfect home loan plan!"</p>
+                
+                <div class="client-info">
+                    <div class="client-avatar">PM</div>
+                    <div>
+                        <h4>Priya Mehta</h4>
+                        <p>Software Engineer, Bangalore</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card reveal">
+                <div class="client-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p>"The SIP calculator gave me clear projections. Started investing ₹15,000 monthly and already seeing good returns in 6 months!"</p>
+                
+                <div class="client-info">
+                    <div class="client-avatar">AS</div>
+                    <div>
+                        <h4>Amit Singh</h4>
+                        <p>Doctor, Delhi</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="section-header reveal">
+            <h2>Get In Touch</h2>
+            <p>Schedule a consultation with our financial experts</p>
+        </div>
+        
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="contact-card reveal">
+                    <i class="fas fa-phone-alt"></i>
+                    <h3>Call Us</h3>
+                    <p>+91 91374 26363</p>
+                    <p>Mon-Sat, 9AM-7PM</p>
+                </div>
+                
+                <div class="contact-card reveal">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email Us</h3>
+                    <p>kunalsabale89@gmail.com</p>
+                    <p>Response within 2 hours</p>
+                </div>
+                
+                <div class="contact-card reveal">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Visit Us</h3>
+                    <p>Financial District</p>
+                    <p>Mumbai, India</p>
+                </div>
+                
+                <div class="contact-card reveal">
+                    <i class="fas fa-clock"></i>
+                    <h3>Opening Hours</h3>
+                    <p>Monday - Friday</p>
+                    <p>9:00 AM - 7:00 PM</p>
+                </div>
+            </div>
+            
+            <div class="contact-form reveal">
+                <h3>Send us a message</h3>
+                <form id="contactForm">
+                    <input type="text" id="cName" placeholder="Full Name" required>
+                    <input type="tel" id="cPhone" placeholder="Mobile Number" required>
+                    <input type="email" id="cEmail" placeholder="Email Address" required>
+                    <select id="cService" required>
+                        <option value="">Select Service</option>
+                        <option value="insurance">Insurance</option>
+                        <option value="mutual-funds">Mutual Funds</option>
+                        <option value="loans">Loans</option>
+                        <option value="investment">Investment Planning</option>
+                        <option value="all">All Services</option>
+                    </select>
+                    <textarea id="cMessage" placeholder="Your Requirement" rows="4" required></textarea>
+                    
+                    <button type="button" class="btn-primary" onclick="sendAdvanced()" style="width: 100%;">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Anagh Financial</h3>
+                <p>AI-powered financial consultancy providing personalized investment strategies, insurance solutions, and loan services.</p>
+                
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="#services"><i class="fas fa-chevron-right"></i> Services</a></li>
+                    <li><a href="#ai-assistant"><i class="fas fa-chevron-right"></i> AI Assistant</a></li>
+                    <li><a href="#loan-calculator"><i class="fas fa-chevron-right"></i> Calculators</a></li>
+                    <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Our Services</h3>
+                <ul class="footer-links">
+                    <li><a href="#ai-assistant"><i class="fas fa-chevron-right"></i> AI-Powered Insurance</a></li>
+                    <li><a href="#ai-predictor"><i class="fas fa-chevron-right"></i> Smart Mutual Funds</a></li>
+                    <li><a href="#loan-calculator"><i class="fas fa-chevron-right"></i> Intelligent Loans</a></li>
+                    <li><a href="#ai-predictor"><i class="fas fa-chevron-right"></i> Retirement Planning</a></li>
+                    <li><a href="#ai-assistant"><i class="fas fa-chevron-right"></i> Tax Optimization</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Newsletter</h3>
+                <p>Subscribe to get financial insights and AI investment tips</p>
+                <div style="margin-top: 20px;">
+                    <input type="email" id="newsletterEmail" placeholder="Your Email" style="width: 100%; padding: 12px; border-radius: 5px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.1); color: white; margin-bottom: 10px;">
+                    <button class="btn-primary" onclick="subscribeNewsletter()" style="width: 100%;">
+                        <i class="fas fa-paper-plane"></i> Subscribe
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; <span id="currentYear">2026</span> Anagh Financial Consultancy. All Rights Reserved. | <a href="#" style="color: var(--secondary);">Privacy Policy</a> | <a href="#" style="color: var(--secondary);">Terms of Service</a></p>
+            <p style="margin-top: 10px; font-size: 0.8rem;">
+                <i class="fas fa-robot"></i> Powered by Advanced AI Algorithms
+            </p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
