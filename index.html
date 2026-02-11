@@ -1,11 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <head>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-<title>Anagh Consultancy</title>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Anagh Financial Consultancy | AI-Powered Financial Solutions</title>
@@ -720,84 +715,5 @@
     </footer>
 
     <script src="script.js"></script>
-   <script>
-    fetch("http://localhost:5000/contact", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json"
-  },
-  body: JSON.stringify({
-    name,
-    phone,
-    email,
-    service,
-    message
-  })
-})
-.then(res => res.json())
-.then(data => {
-  if (data.success) {
-    window.open(data.whatsapp, "_blank");
-    alert("Message Sent Successfully!");
-  }
-});
-</script>
-<script>
-// ================= AI INVESTMENT FORM =================
-
-fetch("http://localhost:5000/contact", {
- method: "POST",
- headers: { "Content-Type": "application/json" },
- body: JSON.stringify({
-   name,
-   phone,
-   email,
-   service,
-   message
- })
-})
-.then(res => res.json())
-.then(() => alert("Lead Saved"));
-
-</script>
-
-<!-- Floating WhatsApp + Call Buttons -->
-
-<style>
-.float-btn {
-  position: fixed;
-  right: 20px;
-  z-index: 9999;
-}
-
-.whatsapp-btn {
-  bottom: 90px;
-}
-
-.call-btn {
-  bottom: 20px;
-}
-
-.float-btn img {
-  width: 55px;
-  height: 55px;https://api.whatsapp.c
-}
-</style>
-
-
-<div class="floating-contact">
-
-<a href="tel:+919137426363" class="call-btn">
-<i class="fas fa-phone"></i>
-</a>
-
-<a href="https://api.whatsapp.com/send?phone=919137426363" target="_blank" class="whatsapp-btn">
-<i class="fab fa-whatsapp"></i>
-</a>
-
-</div>
-
-
-
 </body>
 </html>
