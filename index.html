@@ -2,1295 +2,623 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Super AI Financial Assistant - Anagh Consultancy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Anagh Financial Consultancy | AI-Powered Financial Solutions</title>
     
-    <!-- Font Awesome Icons -->
+    <!-- Meta Tags -->
+    <meta name="description" content="AI-driven Insurance, Mutual Funds & Loan Consultancy with personalized financial planning">
+    <meta name="keywords" content="financial advisor, AI investment, insurance, mutual funds, loans, fintech">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#0b1c2d">
+    
+    <!-- Fonts & Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Your Original CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
     
     <style>
         /* ========================================
-           SUPER AI CHATBOT - COMPLETE STYLES
-           Mobile First, Zero Dependencies
-        ======================================== */
+           MOBILE FIXES - ADD THIS TO YOUR EXISTING CSS
+           ======================================== */
         
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        @media (max-width: 768px) {
+            /* Fix for mobile viewport */
+            .hero {
+                min-height: 100vh;
+                min-height: -webkit-fill-available;
+                padding: 100px 20px 60px;
+            }
+            
+            /* Make chatbot full width on mobile */
+            .ai-chatbot {
+                height: 550px !important;
+                width: 100% !important;
+                margin: 0 !important;
+                border-radius: 20px !important;
+            }
+            
+            /* Better touch targets */
+            .chat-input button,
+            .btn-primary,
+            .btn-secondary,
+            .rate-btn {
+                min-height: 48px;
+                min-width: 48px;
+            }
+            
+            /* Fix input on mobile */
+            .chat-input input {
+                font-size: 16px !important; /* Prevents zoom on iOS */
+                padding: 14px 20px !important;
+            }
+            
+            /* Better spacing */
+            .message {
+                max-width: 90% !important;
+            }
+            
+            /* Fix calculator on mobile */
+            .calculator-container {
+                padding: 20px !important;
+            }
+            
+            .calculator-result {
+                grid-template-columns: 1fr !important;
+            }
+            
+            /* Quick action buttons */
+            .quick-actions-mobile {
+                display: flex !important;
+                gap: 10px;
+                padding: 15px;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                white-space: nowrap;
+            }
+            
+            .quick-action-btn {
+                display: inline-flex !important;
+                align-items: center;
+                gap: 8px;
+                padding: 12px 20px;
+                background: #f0f7ff;
+                border: 1px solid #2962ff;
+                border-radius: 50px;
+                color: #2962ff;
+                font-size: 14px;
+                font-weight: 500;
+            }
         }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: linear-gradient(145deg, #0b1c2d 0%, #1a2c3d 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 16px;
+        
+        /* Quick actions - add to your existing AI section */
+        .quick-actions-mobile {
+            display: none;
+            margin-top: 15px;
         }
-
-        /* Main Chat Container - Mobile Optimized */
-        .chat-container {
-            width: 100%;
-            max-width: 800px;
-            height: 85vh;
-            max-height: 900px;
-            background: white;
-            border-radius: 28px;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-            position: relative;
-        }
-
-        /* Chat Header */
-        .chat-header {
-            background: linear-gradient(145deg, #0b1c2d, #1e3a5f);
-            padding: 20px 24px;
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .chat-header i {
-            font-size: 32px;
-            color: #00c853;
-            background: rgba(0,200,83,0.15);
-            padding: 12px;
-            border-radius: 18px;
-        }
-
-        .chat-header-info {
-            flex: 1;
-        }
-
-        .chat-header-info h2 {
-            color: white;
-            font-size: 1.4rem;
-            font-weight: 600;
-            margin-bottom: 4px;
-        }
-
-        .chat-header-info p {
-            color: rgba(255,255,255,0.7);
-            font-size: 0.85rem;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .online-dot {
-            width: 10px;
-            height: 10px;
-            background: #00c853;
-            border-radius: 50%;
-            display: inline-block;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.7; transform: scale(1.1); }
-            100% { opacity: 1; transform: scale(1); }
-        }
-
-        /* Messages Container */
-        .messages-container {
-            flex: 1;
-            overflow-y: auto;
-            padding: 24px;
-            background: #f8fafc;
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        /* Message Bubbles */
-        .message {
-            display: flex;
-            flex-direction: column;
-            max-width: 85%;
-            animation: slideIn 0.3s ease;
-        }
-
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .bot-message {
-            align-self: flex-start;
-        }
-
-        .user-message {
-            align-self: flex-end;
-        }
-
-        .message-content {
-            padding: 16px 20px;
-            border-radius: 22px;
-            font-size: 0.95rem;
-            line-height: 1.5;
-            word-wrap: break-word;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-
-        .bot-message .message-content {
-            background: white;
-            color: #1e293b;
-            border-bottom-left-radius: 6px;
-            border: 1px solid #e2e8f0;
-        }
-
-        .user-message .message-content {
-            background: linear-gradient(145deg, #0b1c2d, #1e3a5f);
-            color: white;
-            border-bottom-right-radius: 6px;
-        }
-
-        .message-time {
-            font-size: 0.7rem;
-            color: #64748b;
-            margin-top: 6px;
-            margin-left: 8px;
-        }
-
-        .user-message .message-time {
-            text-align: right;
-            margin-right: 8px;
-        }
-
-        /* Typing Indicator */
+        
+        /* Typing indicator */
         .typing-indicator {
             display: flex;
             align-items: center;
             gap: 4px;
-            padding: 16px 20px;
-            background: white;
-            border-radius: 22px;
-            border-bottom-left-radius: 6px;
+            padding: 15px 20px;
+            background: #f0f7ff;
+            border-radius: 15px;
+            border-top-left-radius: 5px;
             width: fit-content;
-            border: 1px solid #e2e8f0;
         }
-
+        
         .typing-indicator span {
             width: 8px;
             height: 8px;
-            background: #94a3b8;
+            background: #2962ff;
             border-radius: 50%;
             display: inline-block;
             animation: typing 1.4s infinite;
         }
-
+        
         .typing-indicator span:nth-child(2) {
             animation-delay: 0.2s;
         }
-
+        
         .typing-indicator span:nth-child(3) {
             animation-delay: 0.4s;
         }
-
+        
         @keyframes typing {
             0%, 60%, 100% { transform: translateY(0); opacity: 0.6; }
             30% { transform: translateY(-6px); opacity: 1; }
         }
-
-        /* Quick Actions */
-        .quick-actions {
-            display: flex;
-            gap: 12px;
-            padding: 16px 24px;
-            background: white;
-            border-top: 1px solid #e2e8f0;
-            overflow-x: auto;
-            white-space: nowrap;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        .quick-action-btn {
-            padding: 12px 20px;
-            background: #f1f5f9;
-            border: 1px solid #e2e8f0;
-            border-radius: 40px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: #0b1c2d;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            flex-shrink: 0;
-        }
-
-        .quick-action-btn:hover {
-            background: #e2e8f0;
-            transform: translateY(-2px);
-        }
-
-        .quick-action-btn i {
-            color: #2962ff;
-        }
-
-        /* Input Area */
-        .input-area {
-            display: flex;
-            gap: 12px;
-            padding: 16px 24px;
-            background: white;
-            border-top: 1px solid #e2e8f0;
-            align-items: flex-end;
-        }
-
-        .input-wrapper {
-            flex: 1;
-            background: #f1f5f9;
-            border-radius: 28px;
-            padding: 4px 4px 4px 20px;
-            display: flex;
-            align-items: flex-end;
-            border: 2px solid transparent;
-            transition: all 0.2s ease;
-        }
-
-        .input-wrapper:focus-within {
-            border-color: #2962ff;
-            background: white;
-        }
-
-        #messageInput {
-            flex: 1;
-            background: transparent;
-            border: none;
-            padding: 14px 0;
-            font-size: 1rem;
-            font-family: 'Inter', sans-serif;
-            resize: none;
-            max-height: 120px;
-            outline: none;
-            color: #1e293b;
-        }
-
-        #messageInput::placeholder {
-            color: #94a3b8;
-        }
-
-        .send-btn {
-            width: 52px;
-            height: 52px;
-            background: linear-gradient(145deg, #0b1c2d, #1e3a5f);
-            border: none;
-            border-radius: 28px;
-            color: white;
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .send-btn:hover {
-            transform: scale(1.05);
-            background: linear-gradient(145deg, #1e3a5f, #0b1c2d);
-        }
-
-        .send-btn i {
-            transition: transform 0.2s ease;
-        }
-
-        .send-btn:hover i {
-            transform: translateX(4px);
-        }
-
-        /* Markdown Styling */
-        .message-content strong {
-            color: #2962ff;
-        }
-
-        .bot-message .message-content strong {
-            color: #0b1c2d;
-        }
-
-        .message-content ul, 
-        .message-content ol {
-            margin: 12px 0 8px 20px;
-        }
-
-        .message-content li {
-            margin-bottom: 6px;
-        }
-
-        .message-content table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 16px 0;
-            font-size: 0.85rem;
-        }
-
-        .message-content th {
-            background: #f1f5f9;
-            padding: 10px;
-            text-align: left;
-            font-weight: 600;
-        }
-
-        .message-content td {
-            padding: 8px 10px;
-            border-bottom: 1px solid #e2e8f0;
-        }
-
-        /* Mobile Optimizations */
-        @media (max-width: 480px) {
-            body {
-                padding: 8px;
-            }
-
-            .chat-container {
-                height: 95vh;
-                border-radius: 20px;
-            }
-
-            .chat-header {
-                padding: 16px;
-            }
-
-            .chat-header i {
-                font-size: 28px;
-                padding: 10px;
-            }
-
-            .chat-header-info h2 {
-                font-size: 1.2rem;
-            }
-
-            .messages-container {
-                padding: 16px;
-            }
-
-            .message-content {
-                padding: 14px 18px;
-                font-size: 0.9rem;
-            }
-
-            .quick-actions {
-                padding: 12px 16px;
-            }
-
-            .input-area {
-                padding: 12px 16px;
-            }
-
-            .send-btn {
-                width: 48px;
-                height: 48px;
-            }
-        }
-
-        /* Dark Mode Support */
-        @media (prefers-color-scheme: dark) {
-            .messages-container {
-                background: #0f172a;
-            }
-
-            .bot-message .message-content {
-                background: #1e293b;
-                color: #f1f5f9;
-                border-color: #334155;
-            }
-
-            .quick-actions {
-                background: #1e293b;
-                border-color: #334155;
-            }
-
-            .quick-action-btn {
-                background: #334155;
-                border-color: #475569;
-                color: #f1f5f9;
-            }
-
-            .input-area {
-                background: #1e293b;
-                border-color: #334155;
-            }
-
-            .input-wrapper {
-                background: #334155;
-            }
-
-            #messageInput {
-                color: #f1f5f9;
-            }
-
-            #messageInput::placeholder {
-                color: #94a3b8;
-            }
-        }
-
-        /* Scrollbar Styling */
-        .messages-container::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        .messages-container::-webkit-scrollbar-track {
-            background: #f1f5f9;
-        }
-
-        .messages-container::-webkit-scrollbar-thumb {
-            background: #94a3b8;
-            border-radius: 3px;
-        }
-
-        .quick-actions::-webkit-scrollbar {
-            height: 4px;
-        }
-
-        .quick-actions::-webkit-scrollbar-track {
-            background: #f1f5f9;
-        }
-
-        .quick-actions::-webkit-scrollbar-thumb {
-            background: #94a3b8;
-            border-radius: 2px;
-        }
-
-        /* Error State */
-        .error-message {
-            color: #ef4444;
-            font-size: 0.85rem;
-            padding: 8px 16px;
-            background: #fee2e2;
-            border-radius: 8px;
-            margin-top: 8px;
-        }
     </style>
 </head>
 <body>
-    <div class="chat-container">
-        <!-- Header -->
-        <div class="chat-header">
-            <i class="fas fa-robot"></i>
-            <div class="chat-header-info">
-                <h2>Super AI Assistant</h2>
-                <p>
-                    <span class="online-dot"></span>
-                    Powered by Advanced AI • 24/7
-                </p>
+    <!-- Header -->
+    <header id="mainHeader">
+        <div class="logo-container">
+            <div class="logo">
+                <i class="fas fa-chart-line"></i>
+                <span class="logo-text">Anagh Financial</span>
             </div>
         </div>
+        
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+            <i class="fas fa-bars"></i>
+        </button>
+        
+        <nav class="nav-links" id="navLinks">
+            <a href="#home" class="active">Home</a>
+            <a href="#services">Services</a>
+            <a href="#ai-assistant">AI Assistant</a>
+            <a href="#loan-calculator">Calculators</a>
+            <a href="#ai-predictor">Investment</a>
+            <a href="#testimonials">Testimonials</a>
+            <a href="#contact">Contact</a>
+            <a href="#contact" class="nav-cta">
+                <i class="fas fa-comment-alt"></i> Free Consultation
+            </a>
+        </nav>
+    </header>
 
-        <!-- Messages Area -->
-        <div class="messages-container" id="messagesContainer">
-            <!-- Welcome Message -->
-            <div class="message bot-message">
-                <div class="message-content">
-                    👋 <strong>Hello! I'm your Super AI Financial Assistant!</strong>
-                    <br><br>
-                    I can help you with:
-                    <br><br>
-                    🏠 <strong>Home Loans</strong> - EMI, eligibility, bank comparisons
-                    <br>
-                    💰 <strong>SIP & Mutual Funds</strong> - Returns calculator, top funds, ELSS
-                    <br>
-                    📊 <strong>Stock Market</strong> - Sensex, Nifty, gold rates
-                    <br>
-                    📋 <strong>Tax Planning</strong> - 80C, 80D, home loan benefits
-                    <br>
-                    🛡️ <strong>Insurance</strong> - Term, health, retirement
-                    <br>
-                    🏦 <strong>Bank Comparisons</strong> - SBI vs HDFC vs ICICI
-                    <br><br>
-                    <strong>Try asking me anything! 💬</strong>
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="hero-content reveal">
+                <div class="ai-badge">
+                    <i class="fas fa-robot"></i> AI-Powered Financial Advisor
                 </div>
-                <div class="message-time">Just now</div>
+                <h1>Smart Financial Planning with Artificial Intelligence</h1>
+                <p class="hero-subtitle">Get personalized investment strategies, risk analysis, and financial recommendations</p>
+                
+                <div class="hero-features">
+                    <div class="feature-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>AI Risk Assessment</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-bolt"></i>
+                        <span>Real-time Analysis</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-chart-pie"></i>
+                        <span>Personalized Plans</span>
+                    </div>
+                </div>
+                
+                <div class="hero-buttons">
+                    <button class="btn-primary" onclick="goContact()">
+                        <i class="fas fa-calendar-check"></i> Book Free Consultation
+                    </button>
+                    <button class="btn-secondary" onclick="goToAI()">
+                        <i class="fas fa-robot"></i> Try AI Assistant
+                    </button>
+                </div>
             </div>
-        </div>
+        </section>
 
-        <!-- Quick Actions -->
-        <div class="quick-actions" id="quickActions">
-            <button class="quick-action-btn" onclick="sendQuickMessage('home loan rates')">
-                <i class="fas fa-home"></i> Home Loan Rates
-            </button>
-            <button class="quick-action-btn" onclick="sendQuickMessage('sip calculator for 10000 for 15 years')">
-                <i class="fas fa-chart-line"></i> SIP ₹10k/15y
-            </button>
-            <button class="quick-action-btn" onclick="sendQuickMessage('compare SBI and HDFC home loan')">
-                <i class="fas fa-scale-balanced"></i> SBI vs HDFC
-            </button>
-            <button class="quick-action-btn" onclick="sendQuickMessage('tax saving guide')">
-                <i class="fas fa-file-invoice"></i> Tax Saving
-            </button>
-            <button class="quick-action-btn" onclick="sendQuickMessage('retirement corpus for 30 years old')">
-                <i class="fas fa-umbrella"></i> Retirement
-            </button>
-            <button class="quick-action-btn" onclick="sendQuickMessage('gold rate today')">
-                <i class="fas fa-coins"></i> Gold Rate
-            </button>
-        </div>
-
-        <!-- Input Area -->
-        <div class="input-area">
-            <div class="input-wrapper">
-                <textarea 
-                    id="messageInput" 
-                    placeholder="Ask me anything about finance..." 
-                    rows="1"
-                    onkeydown="handleKeyPress(event)"
-                    oninput="autoResize(this)"
-                ></textarea>
+        <!-- AI Assistant Section - FIXED WITH ENHANCED CHATBOT -->
+        <section class="ai-assistant" id="ai-assistant">
+            <div class="section-header reveal">
+                <h2>AI Financial Assistant</h2>
+                <p>Get instant answers to your financial questions - Live rates, comparisons & calculations</p>
             </div>
-            <button class="send-btn" onclick="sendMessage()">
-                <i class="fas fa-paper-plane"></i>
-            </button>
-        </div>
-    </div>
+            
+            <div class="ai-container">
+                <!-- CHATBOT - FULLY FUNCTIONAL -->
+                <div class="ai-chatbot reveal" id="chatbotContainer">
+                    <div class="chat-header">
+                        <i class="fas fa-robot"></i>
+                        <div>
+                            <h3>Super AI Assistant</h3>
+                            <p><i class="fas fa-circle" style="color: #00c853; font-size: 10px;"></i> Online • Powered by Advanced AI</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Messages Container -->
+                    <div class="chat-messages" id="chatMessages">
+                        <div class="message bot-message">
+                            👋 <strong>Hello! I'm your Super AI Financial Assistant!</strong>
+                            <br><br>
+                            I can help you with:
+                            <br><br>
+                            🏠 <strong>Home Loans</strong> - EMI, eligibility, SBI vs HDFC
+                            <br>
+                            💰 <strong>SIP & Mutual Funds</strong> - Returns calculator, top funds
+                            <br>
+                            📊 <strong>Tax Planning</strong> - 80C, 80D, home loan benefits
+                            <br>
+                            🛡️ <strong>Insurance</strong> - Term, health, retirement
+                            <br><br>
+                            <strong>Try asking me anything! 💬</strong>
+                        </div>
+                    </div>
+                    
+                    <!-- Quick Actions (Mobile Friendly) -->
+                    <div class="quick-actions-mobile" id="quickActions">
+                        <button class="quick-action-btn" onclick="sendQuickMessage('home loan rates')">
+                            <i class="fas fa-home"></i> Home Loan
+                        </button>
+                        <button class="quick-action-btn" onclick="sendQuickMessage('sip calculator for 10000 for 15 years')">
+                            <i class="fas fa-chart-line"></i> SIP ₹10k/15y
+                        </button>
+                        <button class="quick-action-btn" onclick="sendQuickMessage('compare SBI and HDFC')">
+                            <i class="fas fa-scale-balanced"></i> SBI vs HDFC
+                        </button>
+                        <button class="quick-action-btn" onclick="sendQuickMessage('tax saving guide')">
+                            <i class="fas fa-file-invoice"></i> Tax Saving
+                        </button>
+                    </div>
+                    
+                    <!-- Input Area -->
+                    <div class="chat-input">
+                        <input type="text" id="chatInput" placeholder="Ask about home loans, SIP, tax saving..." autocomplete="off">
+                        <button id="sendMessage" aria-label="Send message">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- AI Features -->
+                <div class="ai-features">
+                    <div class="ai-feature reveal">
+                        <i class="fas fa-brain"></i>
+                        <h3>Intelligent Analysis</h3>
+                        <p>Real-time market data, instant calculations, and personalized recommendations powered by advanced AI.</p>
+                    </div>
+                    
+                    <div class="ai-feature reveal">
+                        <i class="fas fa-bolt"></i>
+                        <h3>Instant Comparisons</h3>
+                        <p>Compare SBI vs HDFC, ELSS vs PPF, SIP vs Lumpsum - Get clear answers in seconds.</p>
+                    </div>
+                    
+                    <div class="ai-feature reveal">
+                        <i class="fas fa-chart-simple"></i>
+                        <h3>Live Calculators</h3>
+                        <p>EMI, SIP, Retirement, Tax - All calculators work instantly with real-time updates.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
+        <!-- REST OF YOUR EXISTING SECTIONS (Services, Calculators, Investment, Testimonials, Contact, Footer) -->
+        <!-- Keep your existing HTML for these sections exactly as they were -->
+        
+    </main>
+
+    <script src="script.js"></script>
+    
     <script>
         // ========================================
-        // SUPER AI CHATBOT - COMPLETE JAVASCRIPT
-        // No Dependencies, Works Everywhere
+        // ENHANCED AI CHATBOT - DIRECT IN HTML
         // ========================================
-
-        // ---------- DOM Elements ----------
-        const messagesContainer = document.getElementById('messagesContainer');
-        const messageInput = document.getElementById('messageInput');
         
-        // ---------- Chat State ----------
-        let conversationHistory = [];
-        let isTyping = false;
-
-        // ---------- Auto Resize Textarea ----------
-        function autoResize(textarea) {
-            textarea.style.height = 'auto';
-            textarea.style.height = (textarea.scrollHeight) + 'px';
-        }
-
-        // ---------- Handle Enter Key ----------
-        function handleKeyPress(e) {
-            if (e.key === 'Enter' && !e.shiftKey) {
-                e.preventDefault();
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize Enhanced Chatbot
+            initEnhancedChatbot();
+            
+            // Fix mobile viewport
+            fixMobileViewport();
+        });
+        
+        function initEnhancedChatbot() {
+            const chatMessages = document.getElementById('chatMessages');
+            const chatInput = document.getElementById('chatInput');
+            const sendButton = document.getElementById('sendMessage');
+            
+            if (!chatMessages || !chatInput || !sendButton) return;
+            
+            // Send message function
+            window.sendMessage = function() {
+                const message = chatInput.value.trim();
+                if (!message) return;
+                
+                // Add user message
+                addMessage(message, true);
+                chatInput.value = '';
+                
+                // Show typing indicator
+                showTypingIndicator();
+                
+                // Get AI response
+                setTimeout(() => {
+                    removeTypingIndicator();
+                    const response = getAIResponse(message);
+                    addMessage(response);
+                }, 800);
+            };
+            
+            // Quick message function
+            window.sendQuickMessage = function(message) {
+                chatInput.value = message;
                 sendMessage();
+            };
+            
+            // Add message to chat
+            function addMessage(text, isUser = false) {
+                const messageDiv = document.createElement('div');
+                messageDiv.classList.add('message');
+                messageDiv.classList.add(isUser ? 'user-message' : 'bot-message');
+                
+                // Format text
+                text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+                text = text.replace(/\n/g, '<br>');
+                
+                messageDiv.innerHTML = text;
+                chatMessages.appendChild(messageDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
             }
-        }
+            
+            // Show typing indicator
+            function showTypingIndicator() {
+                const indicator = document.createElement('div');
+                indicator.classList.add('message', 'bot-message');
+                indicator.id = 'typingIndicator';
+                indicator.innerHTML = `
+                    <div class="typing-indicator">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span style="margin-left: 8px; color: #666;">AI is thinking...</span>
+                    </div>
+                `;
+                chatMessages.appendChild(indicator);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+            
+            // Remove typing indicator
+            function removeTypingIndicator() {
+                const indicator = document.getElementById('typingIndicator');
+                if (indicator) indicator.remove();
+            }
+            
+            // AI Response Engine
+            function getAIResponse(message) {
+                const query = message.toLowerCase();
+                
+                // HOME LOAN
+                if (query.includes('home loan') || query.includes('house loan')) {
+                    return `🏠 **HOME LOAN DETAILS**
+                    
+📊 **Current Rates (Feb 2026):**
+• SBI: 8.40% | HDFC: 8.50% | ICICI: 8.60%
+• EMI for ₹50L/20y: ₹43,391
 
-        // ---------- Send Quick Message ----------
-        function sendQuickMessage(message) {
-            messageInput.value = message;
-            sendMessage();
-        }
+💰 **Your EMI Calculator:**
+₹30L → ₹26,035/mo | ₹50L → ₹43,391/mo | ₹75L → ₹65,087/mo
 
-        // ---------- Add Message to Chat ----------
-        function addMessage(text, isUser = false) {
-            const messageDiv = document.createElement('div');
-            messageDiv.classList.add('message');
-            messageDiv.classList.add(isUser ? 'user-message' : 'bot-message');
-            
-            const contentDiv = document.createElement('div');
-            contentDiv.classList.add('message-content');
-            
-            // Format the message with markdown
-            let formattedText = text
-                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-                .replace(/\n/g, '<br>')
-                .replace(/•/g, '•')
-                .replace(/✅/g, '✅')
-                .replace(/❌/g, '❌')
-                .replace(/⚠️/g, '⚠️')
-                .replace(/🏆/g, '🏆')
-                .replace(/🎯/g, '🎯')
-                .replace(/💡/g, '💡')
-                .replace(/📊/g, '📊')
-                .replace(/📈/g, '📈');
-            
-            contentDiv.innerHTML = formattedText;
-            messageDiv.appendChild(contentDiv);
-            
-            // Add timestamp
-            const timeDiv = document.createElement('div');
-            timeDiv.classList.add('message-time');
-            timeDiv.textContent = new Date().toLocaleTimeString('en-IN', { 
-                hour: '2-digit', 
-                minute: '2-digit' 
-            });
-            messageDiv.appendChild(timeDiv);
-            
-            messagesContainer.appendChild(messageDiv);
-            messagesContainer.scrollTop = messagesContainer.scrollHeight;
-            
-            // Save to history
-            conversationHistory.push({
-                role: isUser ? 'user' : 'assistant',
-                content: text,
-                timestamp: new Date()
-            });
-        }
+✅ **Eligibility:** Income ₹25k+, CIBIL 750+
+📝 **Documents:** Aadhaar, PAN, 6 months salary slips
 
-        // ---------- Show Typing Indicator ----------
-        function showTypingIndicator() {
-            if (isTyping) return;
-            isTyping = true;
-            
-            const typingDiv = document.createElement('div');
-            typingDiv.classList.add('message', 'bot-message');
-            typingDiv.id = 'typingIndicator';
-            
-            const indicator = document.createElement('div');
-            indicator.classList.add('typing-indicator');
-            indicator.innerHTML = `
-                <span></span>
-                <span></span>
-                <span></span>
-                <span style="margin-left: 8px; color: #64748b;">AI is thinking...</span>
-            `;
-            
-            typingDiv.appendChild(indicator);
-            messagesContainer.appendChild(typingDiv);
-            messagesContainer.scrollTop = messagesContainer.scrollHeight;
-        }
-
-        // ---------- Remove Typing Indicator ----------
-        function removeTypingIndicator() {
-            const indicator = document.getElementById('typingIndicator');
-            if (indicator) {
-                indicator.remove();
-            }
-            isTyping = false;
-        }
-
-        // ---------- SUPER AI RESPONSE ENGINE ----------
-        async function getAIResponse(message) {
-            const query = message.toLowerCase().trim();
-            
-            // Home Loan Queries
-            if (query.includes('home loan') || query.includes('house loan') || query.includes('mortgage')) {
-                return getHomeLoanResponse(query);
-            }
-            
-            // SIP & Mutual Funds
-            if (query.includes('sip') || query.includes('mutual fund') || query.includes('mf')) {
-                return getSIPResponse(query);
-            }
-            
-            // Tax Planning
-            if (query.includes('tax') || query.includes('80c') || query.includes('80d') || query.includes('itr')) {
-                return getTaxResponse(query);
-            }
-            
-            // Insurance
-            if (query.includes('insurance') || query.includes('term') || query.includes('health')) {
-                return getInsuranceResponse(query);
-            }
-            
-            // Bank Comparisons
-            if (query.includes('compare') || query.includes('vs') || query.includes('versus')) {
+Need exact EMI? Tell me the amount!`;
+                }
+                
+                // SBI vs HDFC
                 if (query.includes('sbi') && query.includes('hdfc')) {
-                    return getSBIvsHDFCResponse();
+                    return `🏆 **SBI vs HDFC HOME LOAN**
+
+**SBI:** 8.40% | Fee: 0.35% | EMI: ₹43,013
+**HDFC:** 8.50% | Fee: 0.50% | EMI: ₹43,391
+
+💰 **SAVINGS with SBI:** ₹378/month | ₹92,000/20yrs
+
+✅ **SBI wins on:** Lower rate, lower fee, CIBIL 650+
+✅ **HDFC wins on:** Faster processing, better service
+
+**Winner: SBI** 🏆 (Save ₹92,000)`;
                 }
+                
+                // SIP CALCULATOR
+                if (query.includes('sip')) {
+                    let amount = 10000;
+                    let years = 15;
+                    
+                    const numbers = query.match(/\d+/g);
+                    if (numbers) {
+                        if (numbers.length >= 1) amount = parseInt(numbers[0]);
+                        if (numbers.length >= 2) years = parseInt(numbers[1]);
+                    }
+                    
+                    const monthlyRate = 12 / 12 / 100;
+                    const months = years * 12;
+                    const futureValue = amount * ((Math.pow(1 + monthlyRate, months) - 1) / monthlyRate) * (1 + monthlyRate);
+                    
+                    return `💰 **SIP CALCULATOR**
+
+📊 **₹${amount.toLocaleString('en-IN')}/month for ${years} years @12%**
+
+• Total Investment: ₹${(amount * months).toLocaleString('en-IN')}
+• Est. Returns: ₹${Math.round(futureValue - (amount * months)).toLocaleString('en-IN')}
+• **Total Value: ₹${Math.round(futureValue).toLocaleString('en-IN')}**
+
+📈 **Power of Compounding:**
+Same SIP for 20 years → ₹${Math.round(amount * ((Math.pow(1 + monthlyRate, 240) - 1) / monthlyRate) * (1 + monthlyRate)).toLocaleString('en-IN')}
+
+🚀 **Pro Tip:** Increase SIP by 10% yearly = 2x returns!`;
+                }
+                
+                // TAX SAVING
+                if (query.includes('tax') || query.includes('80c')) {
+                    return `📋 **TAX SAVING GUIDE 2025-26**
+
+💰 **Section 80C (₹1.5L):**
+• **ELSS** ⭐ - 14-16% returns, 3y lock-in (BEST)
+• PPF - 7.1%, 15y lock-in
+• NPS - 10-12%, till 60
+
+🩺 **Section 80D (Health Insurance):**
+• Self + Family: ₹25,000
+• Parents (Senior): ₹50,000
+• **Total: Up to ₹1,00,000**
+
+🏠 **Home Loan Benefits:**
+• Interest (24b): ₹2,00,000/year
+• Principal (80C): ₹1.5L/year
+
+💡 **Smart Strategy:** ELSS + PPF + Health Insurance = Max benefit!`;
+                }
+                
+                // INSURANCE
+                if (query.includes('insurance') || query.includes('term')) {
+                    return `🛡️ **INSURANCE GUIDE**
+
+**TERM INSURANCE:**
+• Cover: 20x annual income
+• ₹1Cr for age 30: ₹10-15k/year
+• Top: Max Life, HDFC Life, ICICI Pru
+
+**HEALTH INSURANCE:**
+• Individual: ₹10L cover
+• Family (4): ₹25L cover
+• Top: HDFC Ergo, Star Health
+
+💡 **Don't make these mistakes:**
+❌ LIC Jeevan Anand (low returns)
+❌ ₹50L cover only (NOT enough)
+❌ Hiding medical history
+
+Want a personalized quote? Tell me your age and income!`;
+                }
+                
+                // ELSS vs PPF
                 if (query.includes('elss') && query.includes('ppf')) {
-                    return getELSSvsPPFResponse();
+                    return `📊 **ELSS vs PPF - COMPARISON**
+
+| Feature | ELSS | PPF |
+|---------|------|-----|
+| Returns | 14-16% | 7.1% |
+| Lock-in | 3 years | 15 years |
+| Risk | Moderate | Very Low |
+| Tax on Returns | 10% LTCG >1L | Tax-Free |
+
+💰 **Wealth for ₹1.5L/year for 15y:**
+• ELSS: ₹85.4 Lakhs
+• PPF: ₹42.5 Lakhs
+• **ELSS wins by ₹42.9 Lakhs!**
+
+🎯 **VERDICT:**
+• **Under 40:** ELSS for wealth creation
+• **Over 50:** PPF for safety
+• **Smart:** 50% ELSS + 50% PPF`;
                 }
-            }
-            
-            // Retirement Planning
-            if (query.includes('retire') || query.includes('pension') || query.includes('retirement')) {
-                return getRetirementResponse(query);
-            }
-            
-            // Credit Score
-            if (query.includes('credit') || query.includes('cibil') || query.includes('score')) {
-                return getCreditScoreResponse();
-            }
-            
-            // Gold & Commodities
-            if (query.includes('gold') || query.includes('silver') || query.includes('commodity')) {
-                return getGoldRateResponse();
-            }
-            
-            // EMI Calculator
-            if (query.includes('emi') || query.includes('calculator')) {
-                if (query.includes('50l') || query.includes('50 lakh')) {
-                    return `📱 **EMI for ₹50 Lakhs**
+                
+                // CREDIT SCORE
+                if (query.includes('cibil') || query.includes('credit score')) {
+                    return `📊 **CIBIL SCORE GUIDE**
 
-**SBI @8.40%:**
-• 15 Years: ₹49,233/month
-• 20 Years: ₹43,013/month
-• 25 Years: ₹39,823/month
+✅ **750-900:** Excellent - Best rates
+✅ **700-749:** Good - Quick approval
+⚠️ **650-699:** Fair - May need explanation
+❌ **550-649:** Poor - Difficult
+🛑 **300-549:** Very Poor - Likely rejected
 
-**HDFC @8.50%:**
-• 15 Years: ₹49,654/month
-• 20 Years: ₹43,391/month
-• 25 Years: ₹40,173/month
+📈 **How to IMPROVE score FAST:**
 
-**ICICI @8.60%:**
-• 15 Years: ₹50,075/month
-• 20 Years: ₹43,772/month
-• 25 Years: ₹40,526/month
+1️⃣ **Pay FULL bill** - Not minimum
+2️⃣ **Keep utilization <30%** - Use less than 30% of limit
+3️⃣ **No multiple applications** - Each inquiry drops 5-10 points
+4️⃣ **Don't close old cards** - Keeps credit age high
 
-Want EMI for a specific amount? Just tell me the loan amount! 💰`;
+📱 **Check FREE:** Google Pay, CRED, OneScore
+
+Your current score? I'll tell you exactly what to do!`;
                 }
-            }
-            
-            // Greetings
-            if (query.includes('hello') || query.includes('hi') || query.includes('hey')) {
-                return `👋 **Hello there!**
+                
+                // GREETING
+                if (query.includes('hello') || query.includes('hi') || query.includes('hey')) {
+                    return `👋 **Hello there!**
 
-I'm your Super AI Financial Assistant, and I'm here to help you with:
+I'm your **Super AI Financial Assistant**. I can help you with:
 
-✅ **Home Loans** - Current rates, EMI calculation, eligibility
-✅ **SIP Investments** - Returns calculator, top mutual funds
+✅ **Home Loans** - EMI, eligibility, SBI vs HDFC
+✅ **SIP Calculator** - Returns for any amount/tenure
 ✅ **Tax Planning** - 80C, 80D, home loan benefits
-✅ **Insurance** - Term, health, retirement planning
-✅ **Bank Comparisons** - SBI vs HDFC vs ICICI
+✅ **Insurance** - Term, health, retirement
+✅ **Credit Score** - Check & improve
 
-**What would you like to know about today?** 😊`;
-            }
-            
-            // Help
-            if (query.includes('help') || query.includes('what can you do')) {
-                return `🔍 **I can help you with:**
+**What would you like to know?** 😊`;
+                }
+                
+                // HELP
+                if (query.includes('help') || query.includes('what can you do')) {
+                    return `🔍 **I CAN HELP YOU WITH:**
 
 🏠 **HOME LOANS**
-• Current interest rates of all banks
+• Current interest rates (SBI 8.40%, HDFC 8.50%)
 • EMI calculation for any amount
-• Eligibility criteria & documents
-• Bank comparisons (SBI vs HDFC vs ICICI)
+• SBI vs HDFC detailed comparison
+• Eligibility & documents
 
 💰 **SIP INVESTMENTS**
-• Calculate returns for any amount/tenure
-• Top performing mutual funds
+• Calculate returns for any SIP amount
+• Top mutual funds for 2026
 • ELSS tax saving funds
-• Goal-based planning (retirement, child education)
+• Goal planning (retirement, child education)
 
 📋 **TAX PLANNING**
 • Section 80C investment options
-• ELSS vs PPF vs NPS comparison
+• ELSS vs PPF vs NPS
 • Section 80D health insurance benefits
-• Home loan tax benefits (Section 24b)
+• Home loan tax benefits
 
 🛡️ **INSURANCE**
 • Term insurance coverage calculator
-• Health insurance plans comparison
+• Health insurance comparison
 • Retirement corpus planning
 
-🏦 **BANKING**
-• Compare home loan offers
-• Credit score improvement tips
-• Fixed deposit vs debt funds
-
-**Just type your question and I'll give you a detailed answer!** 🚀`;
-            }
-            
-            // Default Response
-            return `I understand you're asking about: **"${message}"**
-
-I can provide detailed information about:
-1. 🏠 **Home Loans** - Rates, EMI, eligibility, bank comparisons
-2. 💰 **SIP Investments** - Returns calculator, top mutual funds, ELSS
-3. 📋 **Tax Planning** - 80C, 80D, home loan benefits, NPS
-4. 🛡️ **Insurance** - Term, health, retirement planning
-5. 🏦 **Bank Comparisons** - SBI vs HDFC vs ICICI vs Axis
-
-**Could you please be more specific?** For example:
-• "What are the current home loan rates from SBI?"
-• "Calculate SIP for ₹15,000 monthly for 20 years"
-• "Compare SBI and HDFC home loan offers"
-• "Best tax saving investments for ₹12L salary"
-
-I'm here to help! 😊`;
-        }
-
-        // ---------- HOME LOAN RESPONSE ----------
-        function getHomeLoanResponse(query) {
-            const includesEMI = query.includes('emi');
-            const includesEligibility = query.includes('eligibility');
-            const includesDocuments = query.includes('document');
-            
-            let response = `🏠 **HOME LOAN DETAILED GUIDE**
-
-📊 **CURRENT INTEREST RATES (${new Date().toLocaleDateString('en-IN', { month: 'long', year: 'numeric' })})**
-
-| Bank | Interest Rate | Processing Fee |
-|------|--------------|----------------|
-| **SBI** | 8.40% | 0.35% (Max ₹15,000) |
-| **HDFC** | 8.50% | 0.50% (Min ₹3,000) |
-| **ICICI** | 8.60% | 0.50% |
-| **Axis** | 8.55% | 0.40% |
-| **LIC Housing** | 8.45% | 0.50% (Max ₹20,000) |
-
-`;
-
-            if (includesEMI) {
-                response += `💰 **EMI CALCULATOR (₹50 Lakhs @8.5% for 20 years)**
-• Monthly EMI: **₹43,391**
-• Total Interest: **₹54,13,840**
-• Total Payment: **₹1,04,13,840**
-
-**Quick EMI Reference:**
-• ₹30 Lakhs: ₹26,035/month
-• ₹50 Lakhs: ₹43,391/month
-• ₹75 Lakhs: ₹65,087/month
-• ₹1 Crore: ₹86,782/month
-
-`;
-            }
-
-            if (includesEligibility) {
-                response += `✅ **ELIGIBILITY CRITERIA**
-
-**Salaried:**
-• Age: 21-65 years
-• Income: ₹25,000+ monthly
-• CIBIL Score: 750+ (Preferred)
-• Experience: 3+ years total, 1+ year current
-
-**Self-Employed:**
-• Age: 25-70 years
-• Income: ₹3L+ annual profit
-• Business: 3+ years vintage
-• ITR: Last 3 years
-
-`;
-            }
-
-            if (includesDocuments) {
-                response += `📝 **DOCUMENTS REQUIRED**
-
-**Identity Proof** (Any 2):
-• Aadhaar Card
-• PAN Card (Mandatory)
-• Passport/Voter ID
-
-**Income Proof - Salaried:**
-• Salary Slips (Last 6 months)
-• Form 16 (Last 2 years)
-• Bank Statements (6 months)
-
-**Income Proof - Self Employed:**
-• IT Returns (3 years)
-• CA Certified Balance Sheet
-• GST Returns
-
-**Property Documents:**
-• Sale Deed / Agreement
-• NOC from Builder
-• Encumbrance Certificate
-
-`;
-            }
-
-            response += `💡 **EXPERT TIPS:**
-1. Maintain CIBIL > 750 for best rates
-2. Compare offers from 3-4 banks
-3. Negotiate processing fees - often waivable
-4. Consider balance transfer after 2-3 years
-5. Make prepayments when possible
-
-**Have a specific loan amount in mind? I can calculate exact EMI for you!** 🎯`;
-
-            return response;
-        }
-
-        // ---------- SIP RESPONSE ----------
-        function getSIPResponse(query) {
-            let monthlyAmount = 10000;
-            let years = 15;
-            let rate = 12;
-            
-            // Extract numbers from query
-            const amountMatch = query.match(/(\d+[,.]?\d*)/g);
-            if (amountMatch) {
-                if (query.includes('month') || query.includes('sip')) {
-                    monthlyAmount = parseInt(amountMatch[0]) || 10000;
+**Just type your question!** 🚀`;
                 }
-                if (query.includes('year') || query.includes('yr')) {
-                    years = parseInt(amountMatch[amountMatch.length-1]) || 15;
+                
+                // DEFAULT
+                return `I understand you're asking about: **"${message}"**
+
+I can help you with:
+1. 🏠 **Home Loans** - Rates, EMI, SBI vs HDFC
+2. 💰 **SIP Calculator** - Returns for any amount
+3. 📋 **Tax Planning** - 80C, 80D, home loan
+4. 🛡️ **Insurance** - Term, health, retirement
+5. 📊 **Credit Score** - Check & improve
+
+**Please be more specific!** For example:
+• "Home loan EMI for 50 lakhs"
+• "SIP calculator for 15000 for 20 years"
+• "Compare SBI and HDFC"
+• "Tax saving for 12 lakh salary"`;
+            }
+            
+            // Event listeners
+            sendButton.addEventListener('click', sendMessage);
+            
+            chatInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    sendMessage();
                 }
-            }
-            
-            // Calculate SIP returns
-            const monthlyRate = rate / 12 / 100;
-            const months = years * 12;
-            const futureValue = monthlyAmount * ((Math.pow(1 + monthlyRate, months) - 1) / monthlyRate) * (1 + monthlyRate);
-            const totalInvestment = monthlyAmount * months;
-            const returns = futureValue - totalInvestment;
-            
-            return `💰 **SIP INVESTMENT ANALYSIS**
-
-📊 **Your SIP Details:**
-• Monthly Investment: **₹${monthlyAmount.toLocaleString('en-IN')}**
-• Investment Period: **${years} Years**
-• Expected Return: **${rate}% p.a.**
-• Total Investment: **₹${Math.round(totalInvestment).toLocaleString('en-IN')}**
-• Est. Returns: **₹${Math.round(returns).toLocaleString('en-IN')}**
-• **Total Value: ₹${Math.round(futureValue).toLocaleString('en-IN')}**
-
-🎯 **POWER OF COMPOUNDING**
-If you increase SIP by 10% every year:
-• **₹${Math.round(futureValue * 1.8).toLocaleString('en-IN')}** (80% more!)
-
-📈 **TOP SIP FUNDS 2026:**
-
-**Large Cap (12-15% returns):**
-• Mirae Asset Large Cap Fund
-• SBI Bluechip Fund
-• ICICI Pru Bluechip Fund
-
-**Mid Cap (15-18% returns):**
-• Kotak Emerging Equity Fund
-• PGIM India Midcap Fund
-• Nippon India Growth Fund
-
-**Small Cap (18-22% returns):**
-• Nippon India Small Cap Fund
-• SBI Small Cap Fund
-• Axis Small Cap Fund
-
-💡 **PRO TIPS:**
-✓ Start early - Time is more important than timing
-✓ Stay invested for 5+ years
-✓ Don't stop SIP during market corrections
-✓ Review portfolio every 6 months
-
-**Want returns for a different amount or tenure? Just tell me!** 🚀`;
-        }
-
-        // ---------- TAX RESPONSE ----------
-        function getTaxResponse(query) {
-            return `📋 **COMPREHENSIVE TAX SAVING GUIDE 2025-26**
-
-💰 **SECTION 80C (₹1.5 LAKH DEDUCTION)**
-
-| Investment | Returns | Lock-in | Risk | Tax on Returns |
-|-----------|---------|---------|------|----------------|
-| **ELSS** ⭐ | 14-16% | 3 years | Moderate | 10% LTCG > ₹1L |
-| **PPF** | 7.1% | 15 years | Low | Tax-Free |
-| **NPS** | 10-12% | Till 60 | Moderate | 40% Tax-Free |
-| **Tax FD** | 6.5-7% | 5 years | Low | Taxable |
-
-**🏆 BEST CHOICE: ELSS Mutual Funds**
-• Highest returns (14-16%)
-• Lowest lock-in (3 years)
-• Start with ₹500/month SIP
-• Tax benefit + Wealth creation
-
-🩺 **SECTION 80D - HEALTH INSURANCE**
-
-| Insured Person | Age < 60 | Age ≥ 60 |
-|----------------|----------|----------|
-| Self + Family | ₹25,000 | ₹50,000 |
-| Parents | ₹25,000 | ₹50,000 |
-| **Maximum** | **₹50,000** | **₹1,00,000** |
-
-**🏠 HOME LOAN TAX BENEFITS**
-• **Section 24(b):** Interest up to ₹2,00,000/year
-• **Section 80C:** Principal up to ₹1.5L/year
-• **80EEA:** First-time buyer extra ₹50,000
-
-💡 **SMART TAX STRATEGIES:**
-1. **Start in April, not March** - Your money works 11 months extra
-2. **ELSS + PPF combo** - 50% equity + 50% debt = Optimal
-3. **NPS extra ₹50,000** - Under 80CCD(1B)
-4. **HRA + Home Loan** - Claim both if eligible
-
-**What's your annual income? I can calculate your exact tax liability!** 📊`;
-        }
-
-        // ---------- INSURANCE RESPONSE ----------
-        function getInsuranceResponse(query) {
-            return `🛡️ **INSURANCE PLANNING GUIDE**
-
-**1. TERM INSURANCE - YOUR FAMILY'S SAFETY NET**
-
-**How Much Cover?** → **20x Annual Income**
-• Age 30, Income ₹10L → **₹2 Crore cover**
-• Premium: **₹12,000 - ₹15,000/year**
-• Compare: Max Life (98.56% claim ratio), HDFC Life, ICICI Pru
-
-**2. HEALTH INSURANCE - DON'T DELAY!**
-
-| Family Size | Min Cover | Recommended | Premium (Age 30) |
-|------------|-----------|-------------|------------------|
-| Individual | ₹5L | ₹10L | ₹6,500/year |
-| Couple | ₹10L | ₹15L | ₹11,000/year |
-| Family of 4 | ₹15L | ₹25L | ₹16,500/year |
-
-**3. COMMON MISTAKES TO AVOID:**
-❌ Buying LIC Jeevan Anand (mixes insurance & investment)
-❌ Underinsuring (₹50L is NOT enough for metro cities)
-❌ Hiding medical conditions (leads to claim rejection)
-
-💡 **EXPERT TIPS:**
-✓ Buy term insurance before age 35 (premium doubles after 40)
-✓ Take medical test willingly (better rates for healthy)
-✓ Compare at least 3 policies on PolicyBazaar
-✓ Review every 5 years as income grows
-
-**Want a personalized quote? Tell me your age and income!** 🎯`;
-        }
-
-        // ---------- SBI vs HDFC COMPARISON ----------
-        function getSBIvsHDFCResponse() {
-            return `🏆 **SBI vs HDFC HOME LOAN - DETAILED COMPARISON**
-
-| Parameter | SBI | HDFC | WINNER |
-|-----------|-----|------|--------|
-| **Interest Rate** | 8.40% | 8.50% | ✅ **SBI** |
-| **Processing Fee** | 0.35% (Max ₹15k) | 0.50% (Min ₹3k) | ✅ **SBI** |
-| **Prepayment Charges** | NIL | NIL (after 6 months) | ✅ **SBI** |
-| **CIBIL Requirement** | 650+ | 700+ | ✅ **SBI** |
-| **Processing Time** | 7-10 days | 5-7 days | ✅ **HDFC** |
-| **Customer Service** | 3.5/5 | 4.2/5 | ✅ **HDFC** |
-
-💰 **COST COMPARISON (₹50L for 20 years):**
-
-| Bank | EMI | Total Interest | Total Payment |
-|------|-----|----------------|---------------|
-| **SBI** | ₹43,013 | ₹53.22L | ₹1.03Cr |
-| **HDFC** | ₹43,391 | ₹54.14L | ₹1.04Cr |
-| **Difference** | **-₹378** | **-₹92,000** | **-₹92,000** |
-
-🎯 **VERDICT:**
-
-**Choose SBI IF:**
-• You want lowest interest rate
-• You have CIBIL 650-700
-• You prefer PSU bank stability
-• Save ₹92,000 over 20 years
-
-**Choose HDFC IF:**
-• You need faster processing (5-7 days)
-• You prefer premium service
-• You have CIBIL 700+
-
-**🏆 OVERALL WINNER: SBI** (Lower cost, more flexible)`;
-        }
-
-        // ---------- ELSS vs PPF COMPARISON ----------
-        function getELSSvsPPFResponse() {
-            return `📊 **ELSS vs PPF - WHICH IS BETTER?**
-
-| Parameter | ELSS | PPF | WINNER |
-|-----------|------|-----|--------|
-| **Returns** | 14-16% | 7.1% | ✅ **ELSS** |
-| **Lock-in** | 3 years | 15 years | ✅ **ELSS** |
-| **Min Investment** | ₹500/month | ₹500/year | ✅ **ELSS** |
-| **Risk** | Moderate | Very Low | ✅ **PPF** |
-| **Tax on Returns** | 10% LTCG > ₹1L | Tax-Free | ✅ **PPF** |
-
-💰 **WEALTH COMPARISON (₹1.5L/year for 15 years):**
-
-| Investment | After 15 Years |
-|-----------|----------------|
-| **ELSS @15%** | ₹85.4 Lakhs |
-| **PPF @7.1%** | ₹42.5 Lakhs |
-| **Difference** | **+₹42.9 Lakhs** |
-
-🎯 **VERDICT:**
-
-**Choose ELSS IF:**
-• You're under 40 years
-• You want maximum returns
-• You can handle market volatility
-• 3-year lock-in suits you
-
-**Choose PPF IF:**
-• You're over 50 years
-• You want 100% safety
-• You need loan facility
-• You're in highest tax bracket
-
-💡 **SMART STRATEGY: Do 50% ELSS + 50% PPF!**`;
-        }
-
-        // ---------- RETIREMENT RESPONSE ----------
-        function getRetirementResponse(query) {
-            let age = 30;
-            const ageMatch = query.match(/(\d+)/);
-            if (ageMatch) {
-                age = parseInt(ageMatch[0]);
-            }
-            
-            const yearsToRetire = 60 - age;
-            const monthlySIP = Math.round(50000 * Math.pow(0.85, (30 - yearsToRetire)));
-            
-            return `👴 **RETIREMENT PLANNING FOR AGE ${age}**
-
-🎯 **YOUR RETIREMENT TARGET:**
-
-If you want ₹50,000/month in today's value:
-• At retirement (Age 60): **₹2.87 Lakhs/month** (6% inflation)
-• **Corpus needed: ₹8.61 Crores**
-
-📊 **MONTHLY SIP NEEDED:**
-
-| Start Age | Monthly SIP @12% | Total Investment |
-|-----------|-----------------|------------------|
-| **${age}** | ₹${monthlySIP.toLocaleString('en-IN')} | ₹${(monthlySIP * 12 * (60-age)).toLocaleString('en-IN')} |
-| 35 | ₹8,500 | ₹25.5L |
-| 40 | ₹16,750 | ₹40.2L |
-| 45 | ₹34,500 | ₹62.1L |
-
-⚠️ **ALARMING FACT:** 
-Starting at ${age} vs 45 requires **₹${((monthlySIP * 12 * (60-age)) - (34500 * 12 * 15)).toLocaleString('en-IN')} less** investment!
-
-💡 **RETIREMENT STRATEGIES:**
-
-1. **Step-up SIP** - Increase by 10% every year
-   • Normal: ₹${monthlySIP.toLocaleString('en-IN')} → ₹${(monthlySIP * Math.pow(1.1, yearsToRetire)).toLocaleString('en-IN')}
-   • **30% more corpus!**
-
-2. **NPS Additional** - ₹50,000/year under 80CCD(1B)
-   • Extra ₹1.2Cr corpus
-   • Save ₹15,600 in taxes
-
-3. **Delay by 3 years**
-   • 60 → 63: Corpus grows 44% more!
-   • Less years to fund
-
-**Start NOW! The best time was 10 years ago, the second best time is TODAY!** 🚀`;
-        }
-
-        // ---------- CREDIT SCORE RESPONSE ----------
-        function getCreditScoreResponse() {
-            return `📊 **CIBIL/CREDIT SCORE - COMPLETE GUIDE**
-
-🎯 **WHAT'S A GOOD SCORE?**
-
-| Score | Rating | Loan Approval |
-|-------|--------|---------------|
-| **750-900** | ⭐ Excellent | Instant, Best rates |
-| **700-749** | ✅ Good | Quick approval |
-| **650-699** | ⚠️ Fair | May need explanation |
-| **550-649** | ❌ Poor | Difficult approval |
-| **300-549** | 🛑 Very Poor | Likely rejected |
-
-📈 **HOW YOUR SCORE IS CALCULATED:**
-Payment History 35% ← Pay all bills on time!
-Credit Utilization 30% ← Keep below 30%
-Credit Age 15% ← Older accounts help
-Credit Mix 10% ← Secured + Unsecured
-New Inquiries 10% ← Don't apply too often
-🔥 **QUICK FIXES TO IMPROVE SCORE:**
-
-✅ **THIS WEEK:**
-• Pay credit card bills FULL, not minimum
-• Keep utilization under 30% (ideally 10%)
-• Check free score on Google Pay
-
-✅ **THIS MONTH:**
-• Ask for credit limit increase
-• Don't close old credit cards
-• No new credit applications
-
-❌ **COMMON MISTAKES:**
-• Applying for multiple cards/loans
-• Closing cards after loan repayment
-• Only paying minimum amount due
-• Ignoring credit report errors
-
-📱 **FREE SCORE CHECK:**
-• Google Pay - Monthly
-• CRED - Monthly
-• OneScore - Weekly
-• CIBIL - 1 free/year
-
-**Your current CIBIL score? I'll tell you EXACTLY what to do!** 🎯`;
-        }
-
-        // ---------- GOLD RATE RESPONSE ----------
-        function getGoldRateResponse() {
-            return `💰 **CURRENT BULLION RATES (${new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })})**
-
-🥇 **GOLD RATES:**
-
-| City | 24K (1g) | 24K (10g) | 22K (10g) |
-|------|----------|-----------|-----------|
-| **Mumbai** | ₹6,432 | ₹64,320 | ₹59,000 |
-| **Delhi** | ₹6,447 | ₹64,470 | ₹59,150 |
-| **Chennai** | ₹6,468 | ₹64,680 | ₹59,360 |
-| **Kolkata** | ₹6,438 | ₹64,380 | ₹59,060 |
-
-🥈 **SILVER RATE:**
-• 1kg: **₹74,500**
-• 10g: **₹745**
-
-📈 **PRICE TREND:**
-• Today: ▲ +0.56%
-• This Week: ▲ +1.2%
-• This Month: ▼ -0.8%
-
-💡 **BEST TIME TO BUY GOLD:**
-• **Akshaya Tritiya** (May) - Cultural significance
-• **Dhanteras** (Nov) - Festival discounts
-• **Price dip > 5%** - Technical correction
-
-📊 **INVESTMENT OPTIONS:**
-
-| Option | Returns | Risk | Lock-in |
-|--------|---------|------|---------|
-| **Physical Gold** | 8-10% | Low | - |
-| **SGB** ⭐ | 10-12% | Low | 8 years |
-| **Gold ETF** | 9-11% | Low | - |
-| **Digital Gold** | 8-10% | Low | - |
-
-**🏆 BEST: Sovereign Gold Bonds (SGB)**
-• 2.5% extra interest
-• Tax-free on maturity
-• No making charges
-• Safe storage
-
-**Want to check rate for a specific city? Just tell me!** 🎯`;
-        }
-
-        // ---------- SEND MESSAGE ----------
-        async function sendMessage() {
-            const message = messageInput.value.trim();
-            if (!message) return;
-            
-            // Add user message
-            addMessage(message, true);
-            
-            // Clear input
-            messageInput.value = '';
-            messageInput.style.height = 'auto';
-            
-            // Show typing indicator
-            showTypingIndicator();
-            
-            // Simulate AI thinking
-            setTimeout(async () => {
-                removeTypingIndicator();
-                const response = await getAIResponse(message);
-                addMessage(response);
-            }, 800 + Math.random() * 700);
-        }
-
-        // ---------- Initialize Chat ----------
-        window.onload = function() {
-            // Focus input on mobile
-            messageInput.focus();
-            
-            // Add welcome message to history
-            conversationHistory.push({
-                role: 'assistant',
-                content: 'Welcome to Super AI Financial Assistant!',
-                timestamp: new Date()
             });
+        }
+        
+        // Fix mobile viewport
+        function fixMobileViewport() {
+            const setVH = () => {
+                const vh = window.innerHeight * 0.01;
+                document.documentElement.style.setProperty('--vh', `${vh}px`);
+            };
+            
+            window.addEventListener('resize', setVH);
+            window.addEventListener('orientationchange', setVH);
+            setVH();
+        }
+        
+        // Navigation functions
+        window.goContact = function() {
+            document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
         };
-
-        // Make functions globally available
-        window.sendMessage = sendMessage;
-        window.sendQuickMessage = sendQuickMessage;
-        window.handleKeyPress = handleKeyPress;
-        window.autoResize = autoResize;
+        
+        window.goToAI = function() {
+            document.getElementById('ai-assistant')?.scrollIntoView({ behavior: 'smooth' });
+        };
     </script>
 </body>
 </html>
