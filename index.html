@@ -20,7 +20,7 @@
     
     <style>
         /* ========================================
-           COMPLETE WEBSITE STYLES - FULL VERSION
+           COMPLETE WEBSITE STYLES - WITH FULL CHATBOT
            ======================================== */
         
         :root {
@@ -440,7 +440,7 @@
         }
 
         /* ========================================
-           AI ASSISTANT SECTION - WITH FULL CHATBOT
+           SUPER AI CHATBOT SECTION - FULLY VISIBLE
            ======================================== */
         .ai-assistant {
             padding: 100px 5%;
@@ -456,17 +456,19 @@
             margin: 0 auto;
         }
 
-        /* Chatbot Styles */
+        /* Chatbot Container - FULLY VISIBLE */
         .ai-chatbot {
             background: white;
             border-radius: var(--border-radius-lg);
             box-shadow: var(--shadow);
             display: flex;
             flex-direction: column;
-            height: 600px;
+            height: 650px;
             overflow: hidden;
+            border: 1px solid #e2e8f0;
         }
 
+        /* Chat Header - VISIBLE */
         .chat-header {
             display: flex;
             align-items: center;
@@ -507,6 +509,7 @@
             animation: pulse 2s infinite;
         }
 
+        /* Messages Area - VISIBLE */
         .chat-messages {
             flex: 1;
             overflow-y: auto;
@@ -517,6 +520,7 @@
             background: #f8fafc;
         }
 
+        /* Message Bubbles - VISIBLE */
         .message {
             display: flex;
             flex-direction: column;
@@ -537,11 +541,17 @@
             align-self: flex-end;
         }
 
+        .message-content {
+            padding: 16px 20px;
+            border-radius: 22px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            word-wrap: break-word;
+        }
+
         .bot-message .message-content {
             background: white;
             color: #1e293b;
-            padding: 16px 20px;
-            border-radius: 22px;
             border-bottom-left-radius: 6px;
             border: 1px solid #e2e8f0;
             box-shadow: 0 2px 8px rgba(0,0,0,0.05);
@@ -550,8 +560,6 @@
         .user-message .message-content {
             background: var(--gradient);
             color: white;
-            padding: 16px 20px;
-            border-radius: 22px;
             border-bottom-right-radius: 6px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
@@ -568,7 +576,7 @@
             margin-right: 8px;
         }
 
-        /* Typing Indicator */
+        /* Typing Indicator - VISIBLE */
         .typing-indicator {
             display: flex;
             align-items: center;
@@ -603,13 +611,14 @@
             30% { transform: translateY(-6px); opacity: 1; }
         }
 
-        /* Quick Actions */
+        /* Quick Actions - VISIBLE */
         .quick-actions {
             display: flex;
             gap: 12px;
             padding: 16px 20px;
             background: white;
             border-top: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
             overflow-x: auto;
             white-space: nowrap;
             -webkit-overflow-scrolling: touch;
@@ -640,7 +649,7 @@
             color: var(--accent);
         }
 
-        /* Chat Input */
+        /* Chat Input - VISIBLE */
         .chat-input {
             display: flex;
             gap: 12px;
@@ -694,7 +703,7 @@
             transform: translateX(4px);
         }
 
-        /* AI Features */
+        /* AI Features Cards */
         .ai-features {
             display: grid;
             grid-template-columns: 1fr;
@@ -828,30 +837,6 @@
             border-radius: 50%;
             cursor: pointer;
             box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-        }
-
-        .rate-options {
-            display: flex;
-            gap: 10px;
-            margin-top: 10px;
-            flex-wrap: wrap;
-        }
-
-        .rate-btn {
-            padding: 8px 16px;
-            background: rgba(41, 98, 255, 0.1);
-            border: 2px solid var(--accent);
-            border-radius: var(--border-radius-sm);
-            color: var(--accent);
-            cursor: pointer;
-            font-size: 0.9rem;
-            transition: var(--transition);
-            font-weight: 600;
-        }
-
-        .rate-btn:hover {
-            background: var(--accent);
-            color: white;
         }
 
         .calculator-result {
@@ -1168,20 +1153,11 @@
             }
             
             .ai-chatbot {
-                height: 550px;
+                height: 600px;
             }
             
             .chat-input input {
                 font-size: 16px !important;
-            }
-            
-            .quick-actions {
-                padding: 12px 16px;
-            }
-            
-            .quick-action-btn {
-                padding: 10px 16px;
-                font-size: 0.85rem;
             }
         }
 
@@ -1195,7 +1171,7 @@
             }
             
             .ai-chatbot {
-                height: 500px;
+                height: 550px;
             }
             
             .chat-header {
@@ -1211,10 +1187,18 @@
                 padding: 16px;
             }
             
-            .bot-message .message-content,
-            .user-message .message-content {
+            .message-content {
                 padding: 14px 18px;
                 font-size: 0.9rem;
+            }
+            
+            .quick-actions {
+                padding: 12px 16px;
+            }
+            
+            .quick-action-btn {
+                padding: 10px 16px;
+                font-size: 0.85rem;
             }
             
             .chat-input button {
@@ -1345,7 +1329,9 @@
             </div>
         </section>
 
-        <!-- SUPER AI ASSISTANT SECTION - FULL CHATBOT -->
+        <!-- ======================================== -->
+        <!-- SUPER AI CHATBOT SECTION - FULLY VISIBLE -->
+        <!-- ======================================== -->
         <section class="ai-assistant" id="ai-assistant">
             <div class="section-header reveal">
                 <h2>Super AI Financial Assistant</h2>
@@ -1353,8 +1339,9 @@
             </div>
             
             <div class="ai-container">
-                <!-- COMPLETE CHATBOT -->
+                <!-- COMPLETE CHATBOT - EVERYTHING VISIBLE -->
                 <div class="ai-chatbot reveal">
+                    <!-- Chat Header - VISIBLE -->
                     <div class="chat-header">
                         <i class="fas fa-robot"></i>
                         <div>
@@ -1366,7 +1353,7 @@
                         </div>
                     </div>
                     
-                    <!-- Messages Container -->
+                    <!-- Messages Area - VISIBLE with welcome message -->
                     <div class="chat-messages" id="chatMessages">
                         <div class="message bot-message">
                             <div class="message-content">
@@ -1386,7 +1373,7 @@
                         </div>
                     </div>
                     
-                    <!-- Quick Actions -->
+                    <!-- Quick Actions Buttons - VISIBLE -->
                     <div class="quick-actions" id="quickActions">
                         <button class="quick-action-btn" onclick="sendQuickMessage('home loan rates')">
                             <i class="fas fa-home"></i> Home Loan Rates
@@ -1403,18 +1390,26 @@
                         <button class="quick-action-btn" onclick="sendQuickMessage('credit score')">
                             <i class="fas fa-star"></i> Credit Score
                         </button>
+                        <button class="quick-action-btn" onclick="sendQuickMessage('term insurance')">
+                            <i class="fas fa-shield"></i> Insurance
+                        </button>
                     </div>
                     
-                    <!-- Input Area -->
+                    <!-- Chat Input Box - VISIBLE with send button -->
                     <div class="chat-input">
-                        <input type="text" id="chatInput" placeholder="Ask about home loans, SIP, tax saving..." autocomplete="off">
+                        <input 
+                            type="text" 
+                            id="chatInput" 
+                            placeholder="Ask about home loans, SIP, tax saving..." 
+                            autocomplete="off"
+                        >
                         <button id="sendMessage">
                             <i class="fas fa-paper-plane"></i>
                         </button>
                     </div>
                 </div>
                 
-                <!-- AI Features -->
+                <!-- AI Features Cards -->
                 <div class="ai-features">
                     <div class="ai-feature reveal">
                         <i class="fas fa-brain"></i>
@@ -1731,14 +1726,18 @@
             initContactForm();
         });
 
-        // ---------- CHATBOT ----------
+        // ---------- CHATBOT - FULLY FUNCTIONAL ----------
         function initChatbot() {
             const chatMessages = document.getElementById('chatMessages');
             const chatInput = document.getElementById('chatInput');
             const sendButton = document.getElementById('sendMessage');
             
-            if (!chatMessages || !chatInput || !sendButton) return;
+            if (!chatMessages || !chatInput || !sendButton) {
+                console.error('Chatbot elements not found!');
+                return;
+            }
             
+            // Send message function
             window.sendMessage = function() {
                 const message = chatInput.value.trim();
                 if (!message) return;
@@ -1758,11 +1757,13 @@
                 }, 800);
             };
             
+            // Quick message function
             window.sendQuickMessage = function(message) {
                 chatInput.value = message;
                 sendMessage();
             };
             
+            // Add message to chat
             function addMessage(text, isUser = false) {
                 const messageDiv = document.createElement('div');
                 messageDiv.classList.add('message');
@@ -1771,22 +1772,25 @@
                 const contentDiv = document.createElement('div');
                 contentDiv.classList.add('message-content');
                 
-                // Format text
-                text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-                text = text.replace(/\n/g, '<br>');
+                // Format text with bold
+                let formattedText = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+                formattedText = formattedText.replace(/\n/g, '<br>');
                 
-                contentDiv.innerHTML = text;
+                contentDiv.innerHTML = formattedText;
                 messageDiv.appendChild(contentDiv);
                 
+                // Add timestamp
                 const timeDiv = document.createElement('div');
                 timeDiv.classList.add('message-time');
-                timeDiv.textContent = new Date().toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' });
+                const now = new Date();
+                timeDiv.textContent = now.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' });
                 messageDiv.appendChild(timeDiv);
                 
                 chatMessages.appendChild(messageDiv);
                 chatMessages.scrollTop = chatMessages.scrollHeight;
             }
             
+            // Show typing indicator
             function showTypingIndicator() {
                 const indicator = document.createElement('div');
                 indicator.classList.add('message', 'bot-message');
@@ -1801,34 +1805,46 @@
                 chatMessages.scrollTop = chatMessages.scrollHeight;
             }
             
+            // Remove typing indicator
             function removeTypingIndicator() {
                 const indicator = document.getElementById('typingIndicator');
                 if (indicator) indicator.remove();
             }
             
+            // AI Response Engine
             function getAIResponse(message) {
                 const query = message.toLowerCase();
                 
-                // HOME LOAN
+                // HOME LOAN RATES
                 if (query.includes('home loan') || query.includes('house loan')) {
                     if (query.includes('rate')) {
                         return `🏠 **Current Home Loan Rates (Feb 2026)**
 
-• SBI: 8.40% | Processing: 0.35%
-• HDFC: 8.50% | Processing: 0.50%  
-• ICICI: 8.60% | Processing: 0.50%
-• Axis: 8.55% | Processing: 0.40%
+• **SBI:** 8.40% | Processing: 0.35%
+• **HDFC:** 8.50% | Processing: 0.50%  
+• **ICICI:** 8.60% | Processing: 0.50%
+• **Axis:** 8.55% | Processing: 0.40%
 
-**Best Rate:** SBI @ 8.40% ✨`;
+✨ **Best Rate:** SBI @ 8.40%
+💡 **Tip:** Women borrowers get 0.05% extra discount!`;
                     }
                     
+                    // Extract numbers for EMI calculation
                     let amount = 5000000;
                     let years = 20;
                     let rate = 8.5;
                     
                     const numbers = query.match(/\d+/g);
                     if (numbers) {
-                        if (numbers.length >= 1) amount = parseInt(numbers[0]) * (query.includes('lakh') ? 100000 : 1);
+                        if (numbers.length >= 1) {
+                            if (query.includes('lakh')) {
+                                amount = parseInt(numbers[0]) * 100000;
+                            } else if (query.includes('cr')) {
+                                amount = parseInt(numbers[0]) * 10000000;
+                            } else {
+                                amount = parseInt(numbers[0]) * (amount > 100000 ? 1 : 100000);
+                            }
+                        }
                         if (numbers.length >= 2) years = parseInt(numbers[1]);
                     }
                     
@@ -1840,7 +1856,7 @@
                     
                     return `🏠 **Home Loan EMI Calculator**
 
-📊 **Loan Details:**
+📊 **Your Loan Details:**
 • Amount: ₹${(amount/100000).toFixed(1)} Lakhs
 • Tenure: ${years} years
 • Rate: ${rate}% p.a.
@@ -1849,25 +1865,27 @@
 📈 **Total Interest:** ₹${Math.round(totalInterest).toLocaleString('en-IN')}
 💎 **Total Payment:** ₹${Math.round(totalPayment).toLocaleString('en-IN')}
 
-💡 **Tip:** SBI offers 8.40% - save ₹378/month!`;
+💡 **SBI Offer:** 8.40% - Save ₹${Math.round(emi - (amount * 0.084/12/100 * Math.pow(1+0.084/12/100, months) / (Math.pow(1+0.084/12/100, months)-1))).toLocaleString('en-IN')}/month!`;
                 }
                 
-                // SBI vs HDFC
+                // SBI vs HDFC COMPARISON
                 if (query.includes('sbi') && query.includes('hdfc')) {
                     return `🏆 **SBI vs HDFC HOME LOAN**
 
 | Parameter | SBI | HDFC |
 |-----------|-----|------|
-| Interest Rate | 8.40% | 8.50% |
-| Processing Fee | 0.35% | 0.50% |
-| EMI (₹50L/20y) | ₹43,013 | ₹43,391 |
+| Interest Rate | **8.40%** | 8.50% |
+| Processing Fee | **0.35%** | 0.50% |
+| EMI (₹50L/20y) | **₹43,013** | ₹43,391 |
 
-💰 **Savings with SBI:** ₹378/month | ₹92,000/20yrs
+💰 **Savings with SBI:** 
+• Monthly: **₹378** 
+• 20 Years: **₹90,720**
 
 ✅ **SBI Wins:** Lower rate, lower fee, CIBIL 650+
-✅ **HDFC Wins:** Faster processing, better service
+✅ **HDFC Wins:** Faster processing, better app
 
-**Winner: SBI** 🏆`;
+**Winner: SBI 🏆**`;
                 }
                 
                 // SIP CALCULATOR
@@ -1891,12 +1909,13 @@
 
 📊 **₹${amount.toLocaleString('en-IN')}/month for ${years} years @12%**
 
-• Total Investment: ₹${totalInvestment.toLocaleString('en-IN')}
-• Est. Returns: ₹${Math.round(futureValue - totalInvestment).toLocaleString('en-IN')}
-• **Total Value: ₹${Math.round(futureValue).toLocaleString('en-IN')}**
+• **Total Investment:** ₹${totalInvestment.toLocaleString('en-IN')}
+• **Est. Returns:** ₹${Math.round(futureValue - totalInvestment).toLocaleString('en-IN')}
+• **Total Value:** ₹${Math.round(futureValue).toLocaleString('en-IN')}
 
 📈 **Power of Compounding:**
-Same SIP for 20 years → ₹${Math.round(amount * ((Math.pow(1 + monthlyRate, 240) - 1) / monthlyRate) * (1 + monthlyRate)).toLocaleString('en-IN')}
+• 20 years → ₹${Math.round(amount * ((Math.pow(1 + monthlyRate, 240) - 1) / monthlyRate) * (1 + monthlyRate)).toLocaleString('en-IN')}
+• 25 years → ₹${Math.round(amount * ((Math.pow(1 + monthlyRate, 300) - 1) / monthlyRate) * (1 + monthlyRate)).toLocaleString('en-IN')}
 
 🚀 **Pro Tip:** Increase SIP by 10% yearly = 2x returns!`;
                 }
@@ -1906,9 +1925,9 @@ Same SIP for 20 years → ₹${Math.round(amount * ((Math.pow(1 + monthlyRate, 2
                     return `📋 **Tax Saving Guide 2025-26**
 
 💰 **Section 80C (₹1.5L):**
-• **ELSS** ⭐ - 14-16% returns, 3y lock-in
-• PPF - 7.1%, 15y lock-in
-• NPS - 10-12%, till 60
+• **ELSS** ⭐ 14-16% returns, 3y lock-in
+• PPF 7.1%, 15y lock-in
+• NPS 10-12%, till 60
 
 🩺 **Section 80D (Health Insurance):**
 • Self + Family: ₹25,000
@@ -1919,7 +1938,7 @@ Same SIP for 20 years → ₹${Math.round(amount * ((Math.pow(1 + monthlyRate, 2
 • Interest (24b): ₹2,00,000/year
 • Principal (80C): ₹1.5L/year
 
-💡 **Smart Strategy:** ELSS + PPF + Health Insurance = Max benefit!`;
+💡 **Smart Strategy:** ELSS + PPF + Health = Max benefit!`;
                 }
                 
                 // INSURANCE
@@ -1936,10 +1955,10 @@ Same SIP for 20 years → ₹${Math.round(amount * ((Math.pow(1 + monthlyRate, 2
 • Family (4): ₹25L cover
 • Top: HDFC Ergo, Star Health
 
-❌ **Don't do:** LIC Jeevan Anand (low returns)
+❌ **Avoid:** LIC Jeevan Anand (low returns)
 ✅ **Do:** Pure term + ELSS/PPF
 
-Want a quote? Tell me your age & income!`;
+**Want a quote? Tell me your age & income!**`;
                 }
                 
                 // CREDIT SCORE
@@ -1976,7 +1995,33 @@ I can help you with:
 **What would you like to know?** 😊`;
                 }
                 
-                // DEFAULT
+                // HELP
+                if (query.includes('help') || query.includes('what can you do')) {
+                    return `🔍 **I can help you with:**
+
+🏠 **Home Loans**
+• Current interest rates (SBI 8.40%, HDFC 8.50%)
+• EMI calculation for any amount
+• SBI vs HDFC comparison
+
+💰 **SIP Investments**
+• Calculate returns for any SIP
+• Top mutual funds for 2026
+• ELSS tax saving funds
+
+📋 **Tax Planning**
+• Section 80C investment options
+• ELSS vs PPF vs NPS
+• Home loan tax benefits
+
+🛡️ **Insurance**
+• Term insurance calculator
+• Health insurance comparison
+
+**Just type your question!** 🚀`;
+                }
+                
+                // DEFAULT RESPONSE
                 return `I can help you with:
 
 🏠 **Home Loans** - EMI, rates, SBI vs HDFC
@@ -1988,7 +2033,9 @@ I can help you with:
 **Please ask a specific question!** 💬`;
             }
             
+            // Event listeners
             sendButton.addEventListener('click', sendMessage);
+            
             chatInput.addEventListener('keypress', function(e) {
                 if (e.key === 'Enter') {
                     e.preventDefault();
@@ -2008,11 +2055,17 @@ I can help you with:
                 navLinks.classList.toggle('active');
                 const icon = this.querySelector('i');
                 if (icon) {
-                    icon.classList.toggle('fa-bars');
-                    icon.classList.toggle('fa-times');
+                    if (icon.classList.contains('fa-bars')) {
+                        icon.classList.remove('fa-bars');
+                        icon.classList.add('fa-times');
+                    } else {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
                 }
             });
             
+            // Close menu when clicking a link
             navLinks.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', function() {
                     navLinks.classList.remove('active');
@@ -2120,10 +2173,11 @@ I can help you with:
                 
                 const monthlyRate = rate / 12 / 100;
                 const emi = (amount * monthlyRate * Math.pow(1 + monthlyRate, months)) / (Math.pow(1 + monthlyRate, months) - 1);
+                const totalPayment = emi * months;
                 
                 document.getElementById('emiMonthly').textContent = '₹' + Math.round(emi).toLocaleString('en-IN');
-                document.getElementById('emiInterest').textContent = '₹' + ((emi * months - amount)/100000).toFixed(2) + 'L';
-                document.getElementById('emiTotal').textContent = '₹' + ((emi * months)/100000).toFixed(2) + 'L';
+                document.getElementById('emiInterest').textContent = '₹' + ((totalPayment - amount)/100000).toFixed(2) + 'L';
+                document.getElementById('emiTotal').textContent = '₹' + (totalPayment/100000).toFixed(2) + 'L';
             };
             
             // Tab switching
@@ -2172,9 +2226,26 @@ I can help you with:
                 
                 const name = document.getElementById('name')?.value;
                 const phone = document.getElementById('phone')?.value;
+                const email = document.getElementById('email')?.value;
+                const service = document.getElementById('service')?.value;
+                const message = document.getElementById('message')?.value;
                 
-                if (!name || !phone) {
+                if (!name || !phone || !email || !service || !message) {
                     alert('Please fill in all fields');
+                    return;
+                }
+                
+                // Phone validation
+                const phoneRegex = /^[6-9]\d{9}$/;
+                if (!phoneRegex.test(phone)) {
+                    alert('Please enter a valid 10-digit Indian mobile number');
+                    return;
+                }
+                
+                // Email validation
+                const emailRegex = /^\S+@\S+\.\S+$/;
+                if (!emailRegex.test(email)) {
+                    alert('Please enter a valid email address');
                     return;
                 }
                 
@@ -2190,7 +2261,14 @@ I can help you with:
                 alert('Please enter your email');
                 return;
             }
-            alert('✅ Thank you for subscribing!');
+            
+            const emailRegex = /^\S+@\S+\.\S+$/;
+            if (!emailRegex.test(email)) {
+                alert('Please enter a valid email address');
+                return;
+            }
+            
+            alert('✅ Thank you for subscribing to our newsletter!');
             document.getElementById('newsletterEmail').value = '';
         };
 
@@ -2203,7 +2281,7 @@ I can help you with:
             document.getElementById('ai-assistant')?.scrollIntoView({ behavior: 'smooth' });
         };
 
-        // ---------- HEADER SCROLL ----------
+        // ---------- HEADER SCROLL EFFECT ----------
         window.addEventListener('scroll', function() {
             const header = document.getElementById('mainHeader');
             if (header) {
