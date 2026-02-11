@@ -2,14 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=yes">
     <title>Anagh Financial Consultancy | AI-Powered Financial Solutions</title>
     
     <!-- Meta Tags -->
     <meta name="description" content="AI-driven Insurance, Mutual Funds & Loan Consultancy with personalized financial planning">
     <meta name="keywords" content="financial advisor, AI investment, insurance, mutual funds, loans, fintech">
     <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#0b1c2d">
     
     <!-- Fonts & Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -18,1198 +17,174 @@
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
     
+    <!-- Your Original CSS -->
+    <link rel="stylesheet" href="style.css">
+    
     <style>
         /* ========================================
-           COMPLETE WEBSITE STYLES - WITH FULL CHATBOT
+           ADD THESE STYLES TO FIX CHATBOT VISIBILITY
            ======================================== */
         
-        :root {
-            --primary: #0b1c2d;
-            --primary-light: #1e3a5f;
-            --secondary: #00c853;
-            --secondary-dark: #00a844;
-            --accent: #2962ff;
-            --accent-light: #4c7aff;
-            --light: #f8f9fa;
-            --dark: #212529;
-            --gray: #6c757d;
-            --gradient: linear-gradient(135deg, #0b1c2d 0%, #2962ff 100%);
-            --gradient-hover: linear-gradient(135deg, #1e3a5f 0%, #4c7aff 100%);
-            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            --shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.12);
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            --border-radius: 10px;
-            --border-radius-lg: 20px;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 80px;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
-            color: var(--dark);
-            background-color: #ffffff;
-            overflow-x: hidden;
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            line-height: 1.2;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* ========================================
-           HEADER & NAVIGATION
-           ======================================== */
-        header {
-            background: rgba(11, 28, 45, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 15px 5%;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: var(--transition);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        header.scrolled {
-            padding: 10px 5%;
-            background: rgba(11, 28, 45, 0.98);
-        }
-
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .logo {
-            font-size: 28px;
-            font-weight: 700;
-            color: white;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .logo i {
-            color: var(--secondary);
-            font-size: 28px;
-            transition: transform 0.3s ease;
-        }
-
-        .logo:hover i {
-            transform: rotate(10deg);
-        }
-
-        .logo-text {
-            background: linear-gradient(90deg, #fff 0%, var(--secondary) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 30px;
-            align-items: center;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 16px;
-            position: relative;
-            padding: 5px 0;
-            transition: var(--transition);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--secondary);
-            transition: var(--transition);
-        }
-
-        .nav-links a:hover::after,
-        .nav-links a.active::after {
-            width: 100%;
-        }
-
-        .nav-links a:hover {
-            color: var(--secondary);
-        }
-
-        .nav-cta {
-            background: var(--secondary);
-            color: white;
-            padding: 10px 25px;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: var(--transition);
-            margin-left: 20px;
-        }
-
-        .nav-cta:hover {
-            background: var(--secondary-dark);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 200, 83, 0.3);
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 24px;
-            cursor: pointer;
-            padding: 10px;
-        }
-
-        /* ========================================
-           HERO SECTION
-           ======================================== */
-        .hero {
-            min-height: 100vh;
-            background: 
-                linear-gradient(rgba(11, 28, 45, 0.9), rgba(11, 28, 45, 0.85)),
-                url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1911&q=80');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            color: white;
-            display: flex;
-            align-items: center;
-            padding: 120px 5% 80px;
-            position: relative;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            z-index: 2;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            line-height: 1.2;
-            background: linear-gradient(90deg, #fff 0%, var(--secondary) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero-subtitle {
-            font-size: 1.5rem;
-            margin-bottom: 30px;
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        .hero-features {
-            display: flex;
-            gap: 30px;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
-        }
-
-        .feature-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1rem;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 10px 20px;
-            border-radius: 50px;
-            backdrop-filter: blur(5px);
-        }
-
-        .feature-item i {
-            color: var(--secondary);
-            font-size: 1.2rem;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .btn-primary, .btn-secondary {
-            padding: 16px 32px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: var(--transition);
-            border: none;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .btn-primary {
-            background: var(--secondary);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: var(--secondary-dark);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0, 200, 83, 0.4);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: white;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: white;
-            transform: translateY(-3px);
-        }
-
-        .ai-badge {
-            position: absolute;
-            top: 30px;
-            right: 30px;
-            background: rgba(41, 98, 255, 0.2);
-            border: 2px solid var(--accent);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 50px;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            backdrop-filter: blur(10px);
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(41, 98, 255, 0.4); }
-            70% { box-shadow: 0 0 0 10px rgba(41, 98, 255, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(41, 98, 255, 0); }
-        }
-
-        /* ========================================
-           SECTION HEADERS
-           ======================================== */
-        .section-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .section-header h2 {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 15px;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-header h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: var(--gradient);
-            border-radius: 2px;
-        }
-
-        .section-header p {
-            color: var(--gray);
-            max-width: 700px;
-            margin: 0 auto;
-            font-size: 1.1rem;
-        }
-
-        /* ========================================
-           SERVICES SECTION
-           ======================================== */
-        .services {
-            padding: 100px 5%;
-            background: white;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .service-card {
-            background: white;
-            border-radius: var(--border-radius-lg);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            border: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        .service-card:hover {
-            transform: translateY(-15px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .service-icon {
-            height: 200px;
-            background: var(--gradient);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            color: white;
-            transition: var(--transition);
-        }
-
-        .service-card:hover .service-icon {
-            background: var(--gradient-hover);
-        }
-
-        .service-content {
-            padding: 30px;
-        }
-
-        .service-content h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--primary);
-        }
-
-        .service-features {
-            list-style: none;
-            margin: 20px 0;
-        }
-
-        .service-features li {
-            padding: 8px 0;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .service-features li i {
-            color: var(--secondary);
-        }
-
-        .service-cta {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--accent);
-            font-weight: 600;
-            text-decoration: none;
-            margin-top: 15px;
-            transition: var(--transition);
-        }
-
-        .service-cta:hover {
-            gap: 15px;
-            color: var(--primary);
-        }
-
-        /* ========================================
-           SUPER AI CHATBOT SECTION - FULLY VISIBLE
-           ======================================== */
-        .ai-assistant {
-            padding: 100px 5%;
-            background: var(--light);
-        }
-
-        .ai-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: start;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        /* Chatbot Container - FULLY VISIBLE */
-        .ai-chatbot {
-            background: white;
-            border-radius: var(--border-radius-lg);
-            box-shadow: var(--shadow);
-            display: flex;
-            flex-direction: column;
-            height: 650px;
-            overflow: hidden;
-            border: 1px solid #e2e8f0;
-        }
-
-        /* Chat Header - VISIBLE */
-        .chat-header {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            padding: 20px 25px;
-            background: var(--gradient);
-            color: white;
-        }
-
-        .chat-header i {
-            font-size: 32px;
-            color: var(--secondary);
-            background: rgba(255,255,255,0.15);
-            padding: 12px;
-            border-radius: 16px;
-        }
-
-        .chat-header h3 {
-            color: white;
-            margin-bottom: 5px;
-            font-size: 1.3rem;
-        }
-
-        .chat-header p {
-            color: rgba(255,255,255,0.9);
-            font-size: 0.85rem;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .online-dot {
-            width: 10px;
-            height: 10px;
-            background: var(--secondary);
-            border-radius: 50%;
-            display: inline-block;
-            animation: pulse 2s infinite;
-        }
-
-        /* Messages Area - VISIBLE */
         .chat-messages {
-            flex: 1;
+            max-height: 350px;
             overflow-y: auto;
-            padding: 25px;
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
+            padding: 20px;
             background: #f8fafc;
         }
-
-        /* Message Bubbles - VISIBLE */
+        
         .message {
+            margin-bottom: 15px;
             display: flex;
             flex-direction: column;
-            max-width: 85%;
-            animation: slideIn 0.3s ease;
         }
-
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
+        
         .bot-message {
-            align-self: flex-start;
+            align-items: flex-start;
         }
-
+        
         .user-message {
-            align-self: flex-end;
+            align-items: flex-end;
         }
-
-        .message-content {
-            padding: 16px 20px;
-            border-radius: 22px;
-            font-size: 0.95rem;
-            line-height: 1.5;
-            word-wrap: break-word;
-        }
-
+        
         .bot-message .message-content {
             background: white;
             color: #1e293b;
-            border-bottom-left-radius: 6px;
+            padding: 12px 16px;
+            border-radius: 18px;
+            border-bottom-left-radius: 5px;
+            max-width: 85%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
             border: 1px solid #e2e8f0;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
-
+        
         .user-message .message-content {
-            background: var(--gradient);
+            background: linear-gradient(135deg, #0b1c2d, #2962ff);
             color: white;
-            border-bottom-right-radius: 6px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            padding: 12px 16px;
+            border-radius: 18px;
+            border-bottom-right-radius: 5px;
+            max-width: 85%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-
+        
         .message-time {
             font-size: 0.7rem;
             color: #64748b;
-            margin-top: 6px;
+            margin-top: 4px;
             margin-left: 8px;
         }
-
+        
         .user-message .message-time {
-            text-align: right;
             margin-right: 8px;
+            text-align: right;
         }
-
-        /* Typing Indicator - VISIBLE */
+        
+        /* Typing Indicator */
         .typing-indicator {
             display: flex;
             align-items: center;
             gap: 4px;
-            padding: 16px 20px;
+            padding: 12px 16px;
             background: white;
-            border-radius: 22px;
-            border-bottom-left-radius: 6px;
+            border-radius: 18px;
+            border-bottom-left-radius: 5px;
             width: fit-content;
             border: 1px solid #e2e8f0;
         }
-
+        
         .typing-indicator span {
             width: 8px;
             height: 8px;
-            background: var(--accent);
+            background: #2962ff;
             border-radius: 50%;
             display: inline-block;
             animation: typing 1.4s infinite;
         }
-
+        
         .typing-indicator span:nth-child(2) {
             animation-delay: 0.2s;
         }
-
+        
         .typing-indicator span:nth-child(3) {
             animation-delay: 0.4s;
         }
-
+        
         @keyframes typing {
             0%, 60%, 100% { transform: translateY(0); opacity: 0.6; }
             30% { transform: translateY(-6px); opacity: 1; }
         }
-
-        /* Quick Actions - VISIBLE */
+        
+        /* Quick Actions */
         .quick-actions {
             display: flex;
-            gap: 12px;
-            padding: 16px 20px;
+            gap: 10px;
+            padding: 15px;
             background: white;
             border-top: 1px solid #e2e8f0;
-            border-bottom: 1px solid #e2e8f0;
             overflow-x: auto;
             white-space: nowrap;
             -webkit-overflow-scrolling: touch;
         }
-
+        
         .quick-action-btn {
-            padding: 12px 20px;
+            padding: 10px 18px;
             background: #f1f5f9;
             border: 1px solid #e2e8f0;
-            border-radius: 40px;
-            font-size: 0.9rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
             font-weight: 500;
-            color: var(--primary);
+            color: #0b1c2d;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             cursor: pointer;
             transition: all 0.2s ease;
             flex-shrink: 0;
         }
-
+        
         .quick-action-btn:hover {
             background: #e2e8f0;
-            transform: translateY(-2px);
         }
-
+        
         .quick-action-btn i {
-            color: var(--accent);
+            color: #2962ff;
         }
-
-        /* Chat Input - VISIBLE */
-        .chat-input {
-            display: flex;
-            gap: 12px;
-            padding: 16px 20px;
-            background: white;
-            border-top: 1px solid #e2e8f0;
-            align-items: center;
-        }
-
-        .chat-input input {
-            flex: 1;
-            padding: 14px 20px;
-            border: 2px solid #e2e8f0;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-family: 'Poppins', sans-serif;
-            transition: all 0.2s ease;
-            outline: none;
-        }
-
-        .chat-input input:focus {
-            border-color: var(--accent);
-            box-shadow: 0 0 0 3px rgba(41, 98, 255, 0.1);
-        }
-
-        .chat-input button {
-            width: 52px;
-            height: 52px;
-            background: var(--gradient);
-            border: none;
-            border-radius: 50px;
-            color: white;
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .chat-input button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(41, 98, 255, 0.3);
-        }
-
-        .chat-input button i {
-            transition: transform 0.2s ease;
-        }
-
-        .chat-input button:hover i {
-            transform: translateX(4px);
-        }
-
-        /* AI Features Cards */
-        .ai-features {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 25px;
-        }
-
-        .ai-feature {
-            background: white;
-            padding: 30px;
-            border-radius: var(--border-radius-lg);
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .ai-feature:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .ai-feature i {
-            font-size: 2.5rem;
-            color: var(--accent);
-            margin-bottom: 20px;
-        }
-
-        .ai-feature h3 {
+        
+        /* Calculator Fixes */
+        .calculator-result .result-value {
             font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--primary);
-        }
-
-        /* ========================================
-           CALCULATOR SECTION
-           ======================================== */
-        .loan-calculator {
-            padding: 100px 5%;
-            background: white;
-        }
-
-        .calculator-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            background: white;
-            border-radius: var(--border-radius-lg);
-            padding: 40px;
-            box-shadow: var(--shadow);
-            border: 1px solid #e2e8f0;
-        }
-
-        .calculator-tabs {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 40px;
-            border-bottom: 2px solid #e2e8f0;
-            padding-bottom: 20px;
-            flex-wrap: wrap;
-        }
-
-        .tab-btn {
-            padding: 12px 24px;
-            background: none;
-            border: none;
-            border-radius: var(--border-radius);
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--primary);
-        }
-
-        .tab-btn.active {
-            background: var(--gradient);
-            color: white;
-        }
-
-        .calculator-content {
-            display: none;
-        }
-
-        .calculator-content.active {
-            display: block;
-        }
-
-        .calculator-form {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .form-group label {
-            font-weight: 600;
-            color: var(--primary);
-        }
-
-        .form-group input {
-            padding: 15px;
-            border: 2px solid #e2e8f0;
-            border-radius: var(--border-radius);
-            font-size: 1rem;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .range-slider {
-            margin-top: 10px;
-        }
-
-        .range-slider input[type="range"] {
-            width: 100%;
-            height: 8px;
-            background: #e2e8f0;
-            border-radius: 4px;
-            outline: none;
-            -webkit-appearance: none;
-        }
-
-        .range-slider input[type="range"]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            width: 24px;
-            height: 24px;
-            background: var(--gradient);
-            border-radius: 50%;
-            cursor: pointer;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-        }
-
-        .calculator-result {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin: 40px 0;
-        }
-
-        .result-card {
-            background: var(--gradient);
-            color: white;
-            padding: 25px;
-            border-radius: var(--border-radius);
-            text-align: center;
-        }
-
-        .result-value {
-            font-size: 1.8rem;
             font-weight: 700;
-            margin: 10px 0;
         }
-
-        /* ========================================
-           TESTIMONIALS SECTION
-           ======================================== */
-        .testimonials {
-            padding: 100px 5%;
-            background: var(--light);
-        }
-
-        .testimonial-slider {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-        }
-
-        .testimonial-card {
-            background: white;
-            padding: 40px;
-            border-radius: var(--border-radius-lg);
-            box-shadow: var(--shadow);
-            position: relative;
-        }
-
-        .testimonial-card::before {
-            content: '"';
-            font-size: 120px;
-            color: var(--secondary);
-            opacity: 0.1;
-            position: absolute;
-            top: -20px;
-            left: 20px;
-            font-family: serif;
-        }
-
-        .client-rating {
-            color: #ffc107;
-            margin-bottom: 20px;
-        }
-
-        .client-info {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .client-avatar {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: var(--gradient);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            font-size: 1.3rem;
-        }
-
-        /* ========================================
-           CONTACT SECTION
-           ======================================== */
-        .contact {
-            padding: 100px 5%;
-            background: white;
-        }
-
-        .contact-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .contact-info {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-        }
-
-        .contact-card {
-            background: var(--light);
-            padding: 30px;
-            border-radius: var(--border-radius);
-            text-align: center;
-            transition: var(--transition);
-            cursor: pointer;
-        }
-
-        .contact-card:hover {
-            background: var(--gradient);
-            color: white;
-            transform: translateY(-10px);
-        }
-
-        .contact-card:hover i {
-            color: white;
-        }
-
-        .contact-card i {
-            font-size: 2.5rem;
-            color: var(--accent);
-            margin-bottom: 20px;
-        }
-
-        .contact-form {
-            background: var(--light);
-            padding: 40px;
-            border-radius: var(--border-radius-lg);
-            box-shadow: var(--shadow);
-        }
-
-        .contact-form h3 {
-            font-size: 1.8rem;
-            margin-bottom: 30px;
-            color: var(--primary);
-        }
-
-        .contact-form input,
-        .contact-form select,
-        .contact-form textarea {
-            width: 100%;
-            padding: 15px;
-            margin-bottom: 20px;
-            border: 2px solid #e2e8f0;
-            border-radius: var(--border-radius);
-            font-family: 'Poppins', sans-serif;
-            font-size: 1rem;
-        }
-
-        .contact-form input:focus,
-        .contact-form select:focus,
-        .contact-form textarea:focus {
-            outline: none;
-            border-color: var(--accent);
-        }
-
-        /* ========================================
-           FOOTER
-           ======================================== */
-        footer {
-            background: var(--primary);
-            color: white;
-            padding: 80px 5% 30px;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 50px;
-            margin-bottom: 50px;
-            max-width: 1200px;
-            margin: 0 auto 50px;
-        }
-
-        .footer-column h3 {
-            font-size: 1.5rem;
-            margin-bottom: 25px;
-            position: relative;
-            padding-bottom: 15px;
-        }
-
-        .footer-column h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 3px;
-            background: var(--secondary);
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 15px;
-        }
-
-        .footer-links a {
-            color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .footer-links a:hover {
-            color: var(--secondary);
-            padding-left: 10px;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .social-links a {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            transition: var(--transition);
-            text-decoration: none;
-        }
-
-        .social-links a:hover {
-            background: var(--secondary);
-            transform: translateY(-5px);
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.5);
-        }
-
-        /* ========================================
-           REVEAL ANIMATION
-           ======================================== */
-        .reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: 1s cubic-bezier(0.5, 0, 0, 1);
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: none;
-        }
-
-        /* ========================================
-           MOBILE RESPONSIVE
-           ======================================== */
-        @media (max-width: 1024px) {
-            .ai-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .hero h1 {
-                font-size: 2.8rem;
-            }
-        }
-
+        
+        /* Mobile Optimizations */
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-                position: fixed;
-                top: 80px;
-                left: 0;
-                width: 100%;
-                background: var(--primary);
-                flex-direction: column;
-                padding: 30px;
-                gap: 20px;
-                z-index: 999;
-            }
-            
-            .nav-links.active {
-                display: flex;
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-            }
-            
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.2rem;
-            }
-            
-            .hero-buttons {
-                flex-direction: column;
-            }
-            
-            .contact-container {
-                grid-template-columns: 1fr;
-            }
-            
             .ai-chatbot {
-                height: 600px;
+                height: auto;
+                min-height: 550px;
+            }
+            
+            .chat-messages {
+                max-height: 300px;
             }
             
             .chat-input input {
                 font-size: 16px !important;
             }
-        }
-
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-            
-            .section-header h2 {
-                font-size: 2rem;
-            }
-            
-            .ai-chatbot {
-                height: 550px;
-            }
-            
-            .chat-header {
-                padding: 16px;
-            }
-            
-            .chat-header i {
-                font-size: 28px;
-                padding: 10px;
-            }
-            
-            .chat-messages {
-                padding: 16px;
-            }
-            
-            .message-content {
-                padding: 14px 18px;
-                font-size: 0.9rem;
-            }
             
             .quick-actions {
-                padding: 12px 16px;
+                padding: 12px;
             }
             
             .quick-action-btn {
-                padding: 10px 16px;
-                font-size: 0.85rem;
-            }
-            
-            .chat-input button {
-                width: 48px;
-                height: 48px;
+                padding: 8px 14px;
+                font-size: 0.8rem;
             }
         }
     </style>
 </head>
+
 <body>
-    <!-- HEADER -->
+    <!-- Header -->
     <header id="mainHeader">
         <div class="logo-container">
             <div class="logo">
@@ -1226,7 +201,8 @@
             <a href="#home" class="active">Home</a>
             <a href="#services">Services</a>
             <a href="#ai-assistant">AI Assistant</a>
-            <a href="#calculators">Calculators</a>
+            <a href="#loan-calculator">Calculators</a>
+            <a href="#ai-predictor">Investment</a>
             <a href="#testimonials">Testimonials</a>
             <a href="#contact">Contact</a>
             <a href="#contact" class="nav-cta">
@@ -1235,445 +211,668 @@
         </nav>
     </header>
 
-    <main>
-        <!-- HERO SECTION -->
-        <section class="hero" id="home">
-            <div class="hero-content reveal">
-                <div class="ai-badge">
-                    <i class="fas fa-robot"></i> AI-Powered Financial Advisor
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content reveal">
+            <div class="ai-badge">
+                <i class="fas fa-robot"></i> AI-Powered Financial Advisor
+            </div>
+            <h1>Smart Financial Planning with Artificial Intelligence</h1>
+            <p class="hero-subtitle">Get personalized investment strategies, risk analysis, and financial recommendations powered by advanced AI algorithms</p>
+            
+            <div class="hero-features">
+                <div class="feature-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>AI Risk Assessment</span>
                 </div>
-                <h1>Smart Financial Planning with Artificial Intelligence</h1>
-                <p class="hero-subtitle">Get personalized investment strategies, risk analysis, and financial recommendations</p>
-                
-                <div class="hero-features">
-                    <div class="feature-item">
-                        <i class="fas fa-shield-alt"></i>
-                        <span>AI Risk Assessment</span>
-                    </div>
-                    <div class="feature-item">
-                        <i class="fas fa-bolt"></i>
-                        <span>Real-time Analysis</span>
-                    </div>
-                    <div class="feature-item">
-                        <i class="fas fa-chart-pie"></i>
-                        <span>Personalized Plans</span>
+                <div class="feature-item">
+                    <i class="fas fa-bolt"></i>
+                    <span>Real-time Portfolio Analysis</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-chart-pie"></i>
+                    <span>Personalized Investment Plans</span>
+                </div>
+            </div>
+            
+            <div class="hero-buttons">
+                <button class="btn-primary" onclick="goContact()">
+                    <i class="fas fa-calendar-check"></i> Book Free Consultation
+                </button>
+                <button class="btn-secondary" onclick="goToAI()">
+                    <i class="fas fa-robot"></i> Try AI Assistant
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Assistant Section - ENHANCED WITH QUICK ACTIONS -->
+    <section class="ai-assistant" id="ai-assistant">
+        <div class="section-header reveal">
+            <h2>AI Financial Assistant</h2>
+            <p>Get instant answers to your financial questions with our intelligent chatbot</p>
+        </div>
+        
+        <div class="ai-container">
+            <div class="ai-chatbot reveal">
+                <div class="chat-header">
+                    <i class="fas fa-robot"></i>
+                    <div>
+                        <h3>Super AI Assistant</h3>
+                        <p><i class="fas fa-circle" style="color: #00c853; font-size: 10px;"></i> Online • Powered by AI</p>
                     </div>
                 </div>
                 
-                <div class="hero-buttons">
-                    <button class="btn-primary" onclick="goContact()">
-                        <i class="fas fa-calendar-check"></i> Book Free Consultation
+                <!-- Messages Container -->
+                <div class="chat-messages" id="chatMessages">
+                    <div class="message bot-message">
+                        <div class="message-content">
+                            👋 <strong>Hello! I'm your AI Financial Assistant!</strong>
+                            <br><br>
+                            I can help you with:
+                            <br><br>
+                            🏠 <strong>Home Loans</strong> - EMI, rates, SBI vs HDFC<br>
+                            💰 <strong>SIP Calculator</strong> - Returns for any amount<br>
+                            📋 <strong>Tax Planning</strong> - 80C, 80D, home loan benefits<br>
+                            🛡️ <strong>Insurance</strong> - Term, health, retirement<br>
+                            📊 <strong>Credit Score</strong> - Check & improve
+                            <br><br>
+                            <strong>Try asking me anything! 💬</strong>
+                        </div>
+                        <div class="message-time">Just now</div>
+                    </div>
+                </div>
+                
+                <!-- Quick Actions -->
+                <div class="quick-actions">
+                    <button class="quick-action-btn" onclick="sendQuickMessage('home loan rates')">
+                        <i class="fas fa-home"></i> Home Loan Rates
                     </button>
-                    <button class="btn-secondary" onclick="goToAI()">
-                        <i class="fas fa-robot"></i> Try AI Assistant
+                    <button class="quick-action-btn" onclick="sendQuickMessage('sip calculator for 10000 for 15 years')">
+                        <i class="fas fa-chart-line"></i> SIP ₹10k/15y
+                    </button>
+                    <button class="quick-action-btn" onclick="sendQuickMessage('compare SBI and HDFC')">
+                        <i class="fas fa-scale-balanced"></i> SBI vs HDFC
+                    </button>
+                    <button class="quick-action-btn" onclick="sendQuickMessage('tax saving guide')">
+                        <i class="fas fa-file-invoice"></i> Tax Saving
+                    </button>
+                    <button class="quick-action-btn" onclick="sendQuickMessage('credit score')">
+                        <i class="fas fa-star"></i> Credit Score
+                    </button>
+                </div>
+                
+                <!-- Chat Input -->
+                <div class="chat-input">
+                    <input type="text" id="chatInput" placeholder="Ask about home loans, SIP, tax saving...">
+                    <button id="sendMessage">
+                        <i class="fas fa-paper-plane"></i>
                     </button>
                 </div>
             </div>
-        </section>
-
-        <!-- SERVICES SECTION -->
-        <section class="services" id="services">
-            <div class="section-header reveal">
-                <h2>Our AI-Enhanced Services</h2>
-                <p>Combining human expertise with artificial intelligence for optimal financial solutions</p>
-            </div>
             
-            <div class="services-grid">
-                <div class="service-card reveal">
-                    <div class="service-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <div class="service-content">
-                        <h3>AI-Powered Insurance</h3>
-                        <p>Get personalized insurance recommendations based on AI analysis of your lifestyle and risk factors.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> AI risk assessment</li>
-                            <li><i class="fas fa-check"></i> Premium optimization</li>
-                            <li><i class="fas fa-check"></i> Coverage analysis</li>
-                        </ul>
-                        <a href="#contact" class="service-cta">Get Quote <i class="fas fa-arrow-right"></i></a>
-                    </div>
+            <div class="ai-features">
+                <div class="ai-feature reveal">
+                    <i class="fas fa-brain"></i>
+                    <h3>Intelligent Analysis</h3>
+                    <p>Our AI analyzes market trends, your risk profile, and financial goals to provide personalized advice.</p>
                 </div>
                 
-                <div class="service-card reveal">
-                    <div class="service-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <div class="service-content">
-                        <h3>Smart Mutual Funds</h3>
-                        <p>AI-driven portfolio management with real-time market analysis and automated rebalancing.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> AI portfolio builder</li>
-                            <li><i class="fas fa-check"></i> Predictive analytics</li>
-                            <li><i class="fas fa-check"></i> Tax optimization</li>
-                        </ul>
-                        <a href="#ai-assistant" class="service-cta">Start Investing <i class="fas fa-arrow-right"></i></a>
-                    </div>
+                <div class="ai-feature reveal">
+                    <i class="fas fa-lock"></i>
+                    <h3>Secure & Private</h3>
+                    <p>All your financial data is encrypted and never shared with third parties. Your privacy is our priority.</p>
                 </div>
                 
-                <div class="service-card reveal">
-                    <div class="service-icon">
-                        <i class="fas fa-hand-holding-usd"></i>
-                    </div>
-                    <div class="service-content">
-                        <h3>Intelligent Loan Solutions</h3>
-                        <p>AI-powered loan matching with the best interest rates and personalized repayment plans.</p>
-                        <ul class="service-features">
-                            <li><i class="fas fa-check"></i> Credit score analysis</li>
-                            <li><i class="fas fa-check"></i> Rate comparison</li>
-                            <li><i class="fas fa-check"></i> EMI optimization</li>
-                        </ul>
-                        <a href="#calculators" class="service-cta">Check Eligibility <i class="fas fa-arrow-right"></i></a>
-                    </div>
+                <div class="ai-feature reveal">
+                    <i class="fas fa-sync-alt"></i>
+                    <h3>24/7 Availability</h3>
+                    <p>Get financial advice anytime, anywhere. Our AI assistant never sleeps and is always ready to help.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- ======================================== -->
-        <!-- SUPER AI CHATBOT SECTION - FULLY VISIBLE -->
-        <!-- ======================================== -->
-        <section class="ai-assistant" id="ai-assistant">
-            <div class="section-header reveal">
-                <h2>Super AI Financial Assistant</h2>
-                <p>Get instant answers to your financial questions - Live rates, comparisons & calculations</p>
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="section-header reveal">
+            <h2>Our AI-Enhanced Services</h2>
+            <p>Combining human expertise with artificial intelligence for optimal financial solutions</p>
+        </div>
+        
+        <div class="services-grid">
+            <div class="service-card reveal">
+                <div class="service-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="service-content">
+                    <h3>AI-Powered Insurance</h3>
+                    <p>Get personalized insurance recommendations based on AI analysis of your lifestyle, health data, and risk factors.</p>
+                    
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> AI risk assessment</li>
+                        <li><i class="fas fa-check"></i> Premium optimization</li>
+                        <li><i class="fas fa-check"></i> Coverage analysis</li>
+                        <li><i class="fas fa-check"></i> Claim prediction</li>
+                    </ul>
+                    
+                    <a href="#contact" class="service-cta">
+                        Get Quote <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
             </div>
             
-            <div class="ai-container">
-                <!-- COMPLETE CHATBOT - EVERYTHING VISIBLE -->
-                <div class="ai-chatbot reveal">
-                    <!-- Chat Header - VISIBLE -->
-                    <div class="chat-header">
-                        <i class="fas fa-robot"></i>
-                        <div>
-                            <h3>Super AI Assistant</h3>
-                            <p>
-                                <span class="online-dot"></span>
-                                Powered by Advanced AI • 24/7
-                            </p>
+            <div class="service-card reveal">
+                <div class="service-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Smart Mutual Funds</h3>
+                    <p>AI-driven portfolio management with real-time market analysis and automated rebalancing.</p>
+                    
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> AI portfolio builder</li>
+                        <li><i class="fas fa-check"></i> Predictive analytics</li>
+                        <li><i class="fas fa-check"></i> Risk-adjusted returns</li>
+                        <li><i class="fas fa-check"></i> Tax optimization</li>
+                    </ul>
+                    
+                    <a href="#ai-predictor" class="service-cta">
+                        Start Investing <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="service-card reveal">
+                <div class="service-icon">
+                    <i class="fas fa-hand-holding-usd"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Intelligent Loan Solutions</h3>
+                    <p>AI-powered loan matching with the best interest rates and personalized repayment plans.</p>
+                    
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Credit score analysis</li>
+                        <li><i class="fas fa-check"></i> Rate comparison</li>
+                        <li><i class="fas fa-check"></i> EMI optimization</li>
+                        <li><i class="fas fa-check"></i> Eligibility prediction</li>
+                    </ul>
+                    
+                    <a href="#loan-calculator" class="service-cta">
+                        Check Eligibility <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advanced Loan Calculator -->
+    <section class="loan-calculator" id="loan-calculator">
+        <div class="section-header reveal">
+            <h2>Advanced Financial Calculators</h2>
+            <p>Detailed calculations for loans, SIP, and financial planning</p>
+        </div>
+        
+        <div class="calculator-container">
+            <div class="calculator-tabs">
+                <button class="tab-btn active" onclick="showCalculator('home-loan')">
+                    <i class="fas fa-home"></i> Home Loan
+                </button>
+                <button class="tab-btn" onclick="showCalculator('sip')">
+                    <i class="fas fa-chart-line"></i> SIP Calculator
+                </button>
+                <button class="tab-btn" onclick="showCalculator('emi')">
+                    <i class="fas fa-calculator"></i> EMI Calculator
+                </button>
+            </div>
+            
+            <!-- Home Loan Calculator -->
+            <div class="calculator-content active" id="home-loan-calc">
+                <h3>Home Loan Calculator</h3>
+                <div class="calculator-form">
+                    <div class="form-group">
+                        <label for="loanAmount">Loan Amount (₹)</label>
+                        <input type="number" id="loanAmount" value="5000000" min="100000" step="50000">
+                        <div class="range-slider">
+                            <input type="range" id="loanAmountRange" min="100000" max="50000000" value="5000000" step="50000">
                         </div>
                     </div>
                     
-                    <!-- Messages Area - VISIBLE with welcome message -->
-                    <div class="chat-messages" id="chatMessages">
-                        <div class="message bot-message">
-                            <div class="message-content">
-                                👋 <strong>Hello! I'm your Super AI Financial Assistant!</strong>
-                                <br><br>
-                                I can help you with:
-                                <br><br>
-                                🏠 <strong>Home Loans</strong> - EMI, eligibility, SBI vs HDFC<br>
-                                💰 <strong>SIP & Mutual Funds</strong> - Returns calculator, top funds, ELSS<br>
-                                📊 <strong>Tax Planning</strong> - 80C, 80D, home loan benefits<br>
-                                🛡️ <strong>Insurance</strong> - Term, health, retirement<br>
-                                🏦 <strong>Bank Comparisons</strong> - SBI vs HDFC vs ICICI
-                                <br><br>
-                                <strong>Try asking me anything! 💬</strong>
-                            </div>
-                            <div class="message-time">Just now</div>
+                    <div class="form-group">
+                        <label for="loanTenure">Loan Tenure (Years)</label>
+                        <input type="number" id="loanTenure" value="20" min="1" max="30">
+                        <div class="range-slider">
+                            <input type="range" id="loanTenureRange" min="1" max="30" value="20">
                         </div>
                     </div>
                     
-                    <!-- Quick Actions Buttons - VISIBLE -->
-                    <div class="quick-actions" id="quickActions">
-                        <button class="quick-action-btn" onclick="sendQuickMessage('home loan rates')">
-                            <i class="fas fa-home"></i> Home Loan Rates
-                        </button>
-                        <button class="quick-action-btn" onclick="sendQuickMessage('sip calculator for 10000 for 15 years')">
-                            <i class="fas fa-chart-line"></i> SIP ₹10k/15y
-                        </button>
-                        <button class="quick-action-btn" onclick="sendQuickMessage('compare SBI and HDFC')">
-                            <i class="fas fa-scale-balanced"></i> SBI vs HDFC
-                        </button>
-                        <button class="quick-action-btn" onclick="sendQuickMessage('tax saving guide')">
-                            <i class="fas fa-file-invoice"></i> Tax Saving
-                        </button>
-                        <button class="quick-action-btn" onclick="sendQuickMessage('credit score')">
-                            <i class="fas fa-star"></i> Credit Score
-                        </button>
-                        <button class="quick-action-btn" onclick="sendQuickMessage('term insurance')">
-                            <i class="fas fa-shield"></i> Insurance
-                        </button>
+                    <div class="form-group">
+                        <label for="interestRate">Interest Rate (%)</label>
+                        <input type="number" id="interestRate" value="8.5" min="6" max="15" step="0.1">
+                        <div class="rate-options">
+                            <button type="button" class="rate-btn" onclick="setInterestRate(8.4)">SBI: 8.4%</button>
+                            <button type="button" class="rate-btn" onclick="setInterestRate(8.5)">HDFC: 8.5%</button>
+                            <button type="button" class="rate-btn" onclick="setInterestRate(8.6)">ICICI: 8.6%</button>
+                            <button type="button" class="rate-btn" onclick="setInterestRate(8.45)">LIC: 8.45%</button>
+                        </div>
                     </div>
                     
-                    <!-- Chat Input Box - VISIBLE with send button -->
-                    <div class="chat-input">
-                        <input 
-                            type="text" 
-                            id="chatInput" 
-                            placeholder="Ask about home loans, SIP, tax saving..." 
-                            autocomplete="off"
-                        >
-                        <button id="sendMessage">
-                            <i class="fas fa-paper-plane"></i>
-                        </button>
+                    <button class="btn-primary" onclick="calculateHomeLoan()">
+                        <i class="fas fa-calculator"></i> Calculate EMI
+                    </button>
+                </div>
+                
+                <div class="calculator-result" id="homeLoanResult">
+                    <div class="result-card">
+                        <h4>Monthly EMI</h4>
+                        <div class="result-value" id="emiAmount">₹43,391</div>
+                    </div>
+                    <div class="result-card">
+                        <h4>Total Interest</h4>
+                        <div class="result-value" id="totalInterest">₹54.14L</div>
+                    </div>
+                    <div class="result-card">
+                        <h4>Total Payment</h4>
+                        <div class="result-value" id="totalPayment">₹1.04Cr</div>
                     </div>
                 </div>
                 
-                <!-- AI Features Cards -->
-                <div class="ai-features">
-                    <div class="ai-feature reveal">
-                        <i class="fas fa-brain"></i>
-                        <h3>Intelligent Analysis</h3>
-                        <p>Real-time market data, instant calculations, and personalized recommendations powered by advanced AI.</p>
-                    </div>
-                    
-                    <div class="ai-feature reveal">
-                        <i class="fas fa-bolt"></i>
-                        <h3>Instant Comparisons</h3>
-                        <p>Compare SBI vs HDFC, ELSS vs PPF, SIP vs Lumpsum - Get clear answers in seconds.</p>
-                    </div>
-                    
-                    <div class="ai-feature reveal">
-                        <i class="fas fa-chart-simple"></i>
-                        <h3>Live Calculators</h3>
-                        <p>EMI, SIP, Retirement, Tax - All calculators work instantly with real-time updates.</p>
-                    </div>
+                <div class="bank-comparison">
+                    <h4>Bank Comparison</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Bank</th>
+                                <th>Interest Rate</th>
+                                <th>Processing Fee</th>
+                                <th>EMI for ₹50L</th>
+                            </tr>
+                        </thead>
+                        <tbody id="bankComparisonBody">
+                            <tr>
+                                <td>SBI</td>
+                                <td>8.40%</td>
+                                <td>0.35%</td>
+                                <td id="sbiEMI">₹43,013</td>
+                            </tr>
+                            <tr>
+                                <td>HDFC</td>
+                                <td>8.50%</td>
+                                <td>0.50%</td>
+                                <td id="hdfcEMI">₹43,391</td>
+                            </tr>
+                            <tr>
+                                <td>ICICI</td>
+                                <td>8.60%</td>
+                                <td>0.50%</td>
+                                <td id="iciciEMI">₹43,772</td>
+                            </tr>
+                            <tr>
+                                <td>Axis</td>
+                                <td>8.55%</td>
+                                <td>0.40%</td>
+                                <td id="axisEMI">₹43,582</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-            </div>
-        </section>
-
-        <!-- CALCULATORS SECTION -->
-        <section class="loan-calculator" id="calculators">
-            <div class="section-header reveal">
-                <h2>Financial Calculators</h2>
-                <p>Plan your loans and investments with our interactive calculators</p>
             </div>
             
-            <div class="calculator-container">
-                <div class="calculator-tabs">
-                    <button class="tab-btn active" onclick="showCalculator('home')">🏠 Home Loan</button>
-                    <button class="tab-btn" onclick="showCalculator('sip')">💰 SIP</button>
-                    <button class="tab-btn" onclick="showCalculator('emi')">📱 EMI</button>
+            <!-- SIP Calculator -->
+            <div class="calculator-content" id="sip-calc">
+                <h3>SIP Calculator</h3>
+                <div class="calculator-form">
+                    <div class="form-group">
+                        <label for="sipAmount">Monthly SIP Amount (₹)</label>
+                        <input type="number" id="sipAmount" value="10000" min="500" step="1000">
+                        <div class="range-slider">
+                            <input type="range" id="sipAmountRange" min="500" max="100000" value="10000" step="1000">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="sipTenure">Investment Period (Years)</label>
+                        <input type="number" id="sipTenure" value="15" min="1" max="40">
+                        <div class="range-slider">
+                            <input type="range" id="sipTenureRange" min="1" max="40" value="15">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="sipReturn">Expected Return (%)</label>
+                        <input type="number" id="sipReturn" value="12" min="5" max="20" step="0.1">
+                        <div class="rate-options">
+                            <button type="button" class="rate-btn" onclick="setSIPReturn(10)">Conservative: 10%</button>
+                            <button type="button" class="rate-btn" onclick="setSIPReturn(12)">Moderate: 12%</button>
+                            <button type="button" class="rate-btn" onclick="setSIPReturn(15)">Aggressive: 15%</button>
+                        </div>
+                    </div>
+                    
+                    <button class="btn-primary" onclick="calculateSIP()">
+                        <i class="fas fa-calculator"></i> Calculate SIP Returns
+                    </button>
                 </div>
                 
-                <!-- Home Loan Calculator -->
-                <div class="calculator-content active" id="home-calc">
-                    <h3>Home Loan EMI Calculator</h3>
-                    <div class="calculator-form">
-                        <div class="form-group">
-                            <label>Loan Amount (₹)</label>
-                            <input type="number" id="loanAmount" value="5000000">
-                            <div class="range-slider">
-                                <input type="range" id="loanAmountRange" min="100000" max="10000000" value="5000000" step="100000">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label>Loan Tenure (Years)</label>
-                            <input type="number" id="loanYears" value="20">
-                            <div class="range-slider">
-                                <input type="range" id="loanYearsRange" min="1" max="30" value="20">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label>Interest Rate (%)</label>
-                            <input type="number" id="loanRate" value="8.5" step="0.1">
-                        </div>
+                <div class="calculator-result" id="sipResult">
+                    <div class="result-card">
+                        <h4>Total Investment</h4>
+                        <div class="result-value" id="totalInvestment">₹18L</div>
                     </div>
-                    <div class="calculator-result">
-                        <div class="result-card">
-                            <h4>Monthly EMI</h4>
-                            <div class="result-value" id="emiValue">₹43,391</div>
-                        </div>
-                        <div class="result-card">
-                            <h4>Total Interest</h4>
-                            <div class="result-value" id="interestValue">₹54.13L</div>
-                        </div>
-                        <div class="result-card">
-                            <h4>Total Payment</h4>
-                            <div class="result-value" id="totalValue">₹1.04Cr</div>
-                        </div>
+                    <div class="result-card">
+                        <h4>Est. Returns</h4>
+                        <div class="result-value" id="estimatedReturns">₹25.43L</div>
                     </div>
-                </div>
-                
-                <!-- SIP Calculator -->
-                <div class="calculator-content" id="sip-calc">
-                    <h3>SIP Return Calculator</h3>
-                    <div class="calculator-form">
-                        <div class="form-group">
-                            <label>Monthly SIP (₹)</label>
-                            <input type="number" id="sipAmount" value="10000">
-                        </div>
-                        <div class="form-group">
-                            <label>Investment Period (Years)</label>
-                            <input type="number" id="sipYears" value="15">
-                        </div>
-                        <div class="form-group">
-                            <label>Expected Return (%)</label>
-                            <input type="number" id="sipRate" value="12" step="0.1">
-                        </div>
-                    </div>
-                    <div class="calculator-result">
-                        <div class="result-card">
-                            <h4>Total Investment</h4>
-                            <div class="result-value" id="sipInvestment">₹18L</div>
-                        </div>
-                        <div class="result-card">
-                            <h4>Est. Returns</h4>
-                            <div class="result-value" id="sipReturns">₹25.43L</div>
-                        </div>
-                        <div class="result-card">
-                            <h4>Total Value</h4>
-                            <div class="result-value" id="sipTotal">₹43.43L</div>
-                        </div>
+                    <div class="result-card">
+                        <h4>Total Value</h4>
+                        <div class="result-value" id="totalValue">₹43.43L</div>
                     </div>
                 </div>
                 
-                <!-- EMI Calculator -->
-                <div class="calculator-content" id="emi-calc">
-                    <h3>Loan EMI Calculator</h3>
-                    <div class="calculator-form">
-                        <div class="form-group">
-                            <label>Loan Amount (₹)</label>
-                            <input type="number" id="emiLoanAmount" value="500000">
-                        </div>
-                        <div class="form-group">
-                            <label>Loan Tenure (Months)</label>
-                            <input type="number" id="emiMonths" value="60">
-                        </div>
-                        <div class="form-group">
-                            <label>Interest Rate (%)</label>
-                            <input type="number" id="emiRate" value="10.5" step="0.1">
-                        </div>
-                    </div>
-                    <div class="calculator-result">
-                        <div class="result-card">
-                            <h4>Monthly EMI</h4>
-                            <div class="result-value" id="emiMonthly">₹10,745</div>
-                        </div>
-                        <div class="result-card">
-                            <h4>Total Interest</h4>
-                            <div class="result-value" id="emiInterest">₹1.44L</div>
-                        </div>
-                        <div class="result-card">
-                            <h4>Total Payment</h4>
-                            <div class="result-value" id="emiTotal">₹6.44L</div>
-                        </div>
-                    </div>
+                <div class="investment-tips">
+                    <h4>SIP Investment Tips</h4>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Start SIP early to benefit from compounding</li>
+                        <li><i class="fas fa-check-circle"></i> Increase SIP amount by 10% every year</li>
+                        <li><i class="fas fa-check-circle"></i> Stay invested for long term (5+ years)</li>
+                        <li><i class="fas fa-check-circle"></i> Don't stop SIP during market corrections</li>
+                    </ul>
                 </div>
-            </div>
-        </section>
-
-        <!-- TESTIMONIALS SECTION -->
-        <section class="testimonials" id="testimonials">
-            <div class="section-header reveal">
-                <h2>What Our Clients Say</h2>
-                <p>Trusted by over 5,000 clients across India</p>
             </div>
             
-            <div class="testimonial-slider">
-                <div class="testimonial-card reveal">
-                    <div class="client-rating">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            <!-- EMI Calculator -->
+            <div class="calculator-content" id="emi-calc">
+                <h3>EMI Calculator (All Loans)</h3>
+                <div class="calculator-form">
+                    <div class="form-group">
+                        <label for="emiLoanAmount">Loan Amount (₹)</label>
+                        <input type="number" id="emiLoanAmount" value="500000" min="10000" step="10000">
                     </div>
-                    <p>"The AI investment predictor helped me optimize my portfolio. I've seen 18% returns in the first year itself!"</p>
-                    <div class="client-info">
-                        <div class="client-avatar">RS</div>
-                        <div>
-                            <h4>Rajesh Sharma</h4>
-                            <p>Business Owner, Mumbai</p>
+                    
+                    <div class="form-group">
+                        <label for="emiTenure">Loan Tenure (Months)</label>
+                        <input type="number" id="emiTenure" value="60" min="12" max="360">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="emiInterestRate">Interest Rate (%)</label>
+                        <input type="number" id="emiInterestRate" value="10.5" min="5" max="20" step="0.1">
+                        <div class="rate-options">
+                            <button type="button" class="rate-btn" onclick="setEMIRate(9.5)">Home Loan: 9.5%</button>
+                            <button type="button" class="rate-btn" onclick="setEMIRate(10.5)">Personal Loan: 10.5%</button>
+                            <button type="button" class="rate-btn" onclick="setEMIRate(8.5)">Car Loan: 8.5%</button>
                         </div>
+                    </div>
+                    
+                    <button class="btn-primary" onclick="calculateEMI()">
+                        <i class="fas fa-calculator"></i> Calculate EMI
+                    </button>
+                </div>
+                
+                <div class="calculator-result" id="emiResult">
+                    <div class="result-card">
+                        <h4>Monthly EMI</h4>
+                        <div class="result-value" id="monthlyEMI">₹10,745</div>
+                    </div>
+                    <div class="result-card">
+                        <h4>Total Interest</h4>
+                        <div class="result-value" id="totalEMIInterest">₹1.44L</div>
+                    </div>
+                    <div class="result-card">
+                        <h4>Total Payment</h4>
+                        <div class="result-value" id="totalEMIPayment">₹6.44L</div>
                     </div>
                 </div>
                 
-                <div class="testimonial-card reveal">
-                    <div class="client-rating">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                    </div>
-                    <p>"The loan calculator and AI assistant helped me understand complex financial terms. Got the perfect home loan plan!"</p>
-                    <div class="client-info">
-                        <div class="client-avatar">PM</div>
-                        <div>
-                            <h4>Priya Mehta</h4>
-                            <p>Software Engineer, Bangalore</p>
+                <div class="loan-types">
+                    <h4>Common Loan Types</h4>
+                    <div class="loan-types-grid">
+                        <div class="loan-type">
+                            <i class="fas fa-home"></i>
+                            <h5>Home Loan</h5>
+                            <p>8.4% - 9.5% interest</p>
                         </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card reveal">
-                    <div class="client-rating">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                    </div>
-                    <p>"Started SIP of ₹15,000/month based on their recommendation. Already seeing 14% returns in 6 months!"</p>
-                    <div class="client-info">
-                        <div class="client-avatar">AS</div>
-                        <div>
-                            <h4>Amit Singh</h4>
-                            <p>Doctor, Delhi</p>
+                        <div class="loan-type">
+                            <i class="fas fa-car"></i>
+                            <h5>Car Loan</h5>
+                            <p>8.5% - 10.5% interest</p>
+                        </div>
+                        <div class="loan-type">
+                            <i class="fas fa-user"></i>
+                            <h5>Personal Loan</h5>
+                            <p>10.5% - 16% interest</p>
+                        </div>
+                        <div class="loan-type">
+                            <i class="fas fa-graduation-cap"></i>
+                            <h5>Education Loan</h5>
+                            <p>8.5% - 11.5% interest</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- CONTACT SECTION -->
-        <section class="contact" id="contact">
-            <div class="section-header reveal">
-                <h2>Get In Touch</h2>
-                <p>Schedule a free consultation with our financial experts</p>
-            </div>
-            
-            <div class="contact-container">
-                <div class="contact-info">
-                    <div class="contact-card reveal">
-                        <i class="fas fa-phone-alt"></i>
-                        <h3>Call Us</h3>
-                        <p>+91 91374 26363</p>
-                        <p>Mon-Sat, 9AM-7PM</p>
+    <!-- AI Investment Predictor -->
+    <section class="ai-predictor" id="ai-predictor">
+        <div class="section-header reveal">
+            <h2>AI Investment Predictor</h2>
+            <p>Get personalized investment recommendations based on your profile and market conditions</p>
+        </div>
+        
+        <div class="predictor-container reveal">
+            <form id="investmentForm">
+                <div class="predictor-form">
+                    <div class="form-group">
+                        <label for="age">Your Age</label>
+                        <input type="number" id="age" min="18" max="80" value="30" required>
                     </div>
-                    <div class="contact-card reveal">
-                        <i class="fas fa-envelope"></i>
-                        <h3>Email Us</h3>
-                        <p>kunalsabale89@gmail.com</p>
-                        <p>Response within 2 hours</p>
-                    </div>
-                    <div class="contact-card reveal">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <h3>Visit Us</h3>
-                        <p>Financial District</p>
-                        <p>Mumbai, India</p>
-                    </div>
-                    <div class="contact-card reveal">
-                        <i class="fas fa-clock"></i>
-                        <h3>Opening Hours</h3>
-                        <p>Monday - Friday</p>
-                        <p>9:00 AM - 7:00 PM</p>
-                    </div>
-                </div>
-                
-                <div class="contact-form reveal">
-                    <h3>Send us a message</h3>
-                    <form id="contactForm">
-                        <input type="text" id="name" placeholder="Full Name" required>
-                        <input type="tel" id="phone" placeholder="Mobile Number" required>
-                        <input type="email" id="email" placeholder="Email Address" required>
-                        <select id="service" required>
-                            <option value="">Select Service</option>
-                            <option value="insurance">Insurance</option>
-                            <option value="mutual-funds">Mutual Funds</option>
-                            <option value="loans">Loans</option>
-                            <option value="investment">Investment Planning</option>
+                    
+                    <div class="form-group">
+                        <label for="income">Annual Income (₹)</label>
+                        <select id="income" required>
+                            <option value="500000">₹5 Lakhs</option>
+                            <option value="1000000" selected>₹10 Lakhs</option>
+                            <option value="1500000">₹15 Lakhs</option>
+                            <option value="2000000">₹20 Lakhs+</option>
                         </select>
-                        <textarea id="message" placeholder="Your Requirement" rows="4" required></textarea>
-                        <button type="submit" class="btn-primary" style="width: 100%;">
-                            <i class="fas fa-paper-plane"></i> Send Message
-                        </button>
-                    </form>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="investment">Monthly Investment (₹)</label>
+                        <input type="number" id="investment" min="1000" value="10000" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="risk">Risk Tolerance</label>
+                        <select id="risk" required>
+                            <option value="low">Low (Conservative)</option>
+                            <option value="medium" selected>Medium (Balanced)</option>
+                            <option value="high">High (Aggressive)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="goal">Investment Goal</label>
+                        <select id="goal" required>
+                            <option value="retirement">Retirement</option>
+                            <option value="house" selected>Buy a House</option>
+                            <option value="education">Education</option>
+                            <option value="wealth">Wealth Creation</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="horizon">Investment Horizon (Years)</label>
+                        <input type="number" id="horizon" min="1" max="40" value="10" required>
+                    </div>
+                </div>
+                
+                <button type="button" class="btn-primary" onclick="analyzeInvestment()" style="width: 100%;">
+                    <i class="fas fa-chart-bar"></i> Analyze with AI
+                </button>
+            </form>
+            
+            <div class="predictor-result" id="predictorResult">
+                <div class="result-header">
+                    <h3>AI Investment Recommendation</h3>
+                    <div class="risk-score">
+                        Risk Score: <span id="riskScore">65</span>/100
+                    </div>
+                </div>
+                
+                <div class="risk-meter">
+                    <div class="risk-level" id="riskLevel" style="width: 65%;"></div>
+                </div>
+                
+                <div id="recommendationDetails">
+                    <!-- Filled by JavaScript -->
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
-    <!-- FOOTER -->
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+        <div class="section-header reveal">
+            <h2>What Our Clients Say</h2>
+            <p>Trusted by over 5,000 clients across India</p>
+        </div>
+        
+        <div class="testimonial-slider">
+            <div class="testimonial-card reveal">
+                <div class="client-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p>"The AI investment predictor helped me optimize my portfolio. I've seen 18% returns in the first year itself. The personalized advice is spot on!"</p>
+                
+                <div class="client-info">
+                    <div class="client-avatar">RS</div>
+                    <div>
+                        <h4>Rajesh Sharma</h4>
+                        <p>Business Owner, Mumbai</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card reveal">
+                <div class="client-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <p>"The loan calculator and AI assistant helped me understand complex financial terms. Got the perfect home loan plan!"</p>
+                
+                <div class="client-info">
+                    <div class="client-avatar">PM</div>
+                    <div>
+                        <h4>Priya Mehta</h4>
+                        <p>Software Engineer, Bangalore</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card reveal">
+                <div class="client-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p>"The SIP calculator gave me clear projections. Started investing ₹15,000 monthly and already seeing good returns in 6 months!"</p>
+                
+                <div class="client-info">
+                    <div class="client-avatar">AS</div>
+                    <div>
+                        <h4>Amit Singh</h4>
+                        <p>Doctor, Delhi</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="section-header reveal">
+            <h2>Get In Touch</h2>
+            <p>Schedule a consultation with our financial experts</p>
+        </div>
+        
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="contact-card reveal">
+                    <i class="fas fa-phone-alt"></i>
+                    <h3>Call Us</h3>
+                    <p>+91 91374 26363</p>
+                    <p>Mon-Sat, 9AM-7PM</p>
+                </div>
+                
+                <div class="contact-card reveal">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email Us</h3>
+                    <p>kunalsabale89@gmail.com</p>
+                    <p>Response within 2 hours</p>
+                </div>
+                
+                <div class="contact-card reveal">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Visit Us</h3>
+                    <p>Financial District</p>
+                    <p>Mumbai, India</p>
+                </div>
+                
+                <div class="contact-card reveal">
+                    <i class="fas fa-clock"></i>
+                    <h3>Opening Hours</h3>
+                    <p>Monday - Friday</p>
+                    <p>9:00 AM - 7:00 PM</p>
+                </div>
+            </div>
+            
+            <div class="contact-form reveal">
+                <h3>Send us a message</h3>
+                <form id="contactForm">
+                    <input type="text" id="cName" placeholder="Full Name" required>
+                    <input type="tel" id="cPhone" placeholder="Mobile Number" required>
+                    <input type="email" id="cEmail" placeholder="Email Address" required>
+                    <select id="cService" required>
+                        <option value="">Select Service</option>
+                        <option value="insurance">Insurance</option>
+                        <option value="mutual-funds">Mutual Funds</option>
+                        <option value="loans">Loans</option>
+                        <option value="investment">Investment Planning</option>
+                        <option value="all">All Services</option>
+                    </select>
+                    <textarea id="cMessage" placeholder="Your Requirement" rows="4" required></textarea>
+                    
+                    <button type="button" class="btn-primary" onclick="sendAdvanced()" style="width: 100%;">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
         <div class="footer-content">
             <div class="footer-column">
                 <h3>Anagh Financial</h3>
                 <p>AI-powered financial consultancy providing personalized investment strategies, insurance solutions, and loan services.</p>
+                
                 <div class="social-links">
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
                     <a href="#"><i class="fab fa-twitter"></i></a>
                     <a href="#"><i class="fab fa-linkedin-in"></i></a>
                     <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
             
@@ -1683,7 +882,7 @@
                     <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
                     <li><a href="#services"><i class="fas fa-chevron-right"></i> Services</a></li>
                     <li><a href="#ai-assistant"><i class="fas fa-chevron-right"></i> AI Assistant</a></li>
-                    <li><a href="#calculators"><i class="fas fa-chevron-right"></i> Calculators</a></li>
+                    <li><a href="#loan-calculator"><i class="fas fa-chevron-right"></i> Calculators</a></li>
                     <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
                 </ul>
             </div>
@@ -1691,51 +890,85 @@
             <div class="footer-column">
                 <h3>Our Services</h3>
                 <ul class="footer-links">
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> AI-Powered Insurance</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Smart Mutual Funds</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Intelligent Loans</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Retirement Planning</a></li>
+                    <li><a href="#ai-assistant"><i class="fas fa-chevron-right"></i> AI-Powered Insurance</a></li>
+                    <li><a href="#ai-predictor"><i class="fas fa-chevron-right"></i> Smart Mutual Funds</a></li>
+                    <li><a href="#loan-calculator"><i class="fas fa-chevron-right"></i> Intelligent Loans</a></li>
+                    <li><a href="#ai-predictor"><i class="fas fa-chevron-right"></i> Retirement Planning</a></li>
+                    <li><a href="#ai-assistant"><i class="fas fa-chevron-right"></i> Tax Optimization</a></li>
                 </ul>
             </div>
             
             <div class="footer-column">
                 <h3>Newsletter</h3>
                 <p>Subscribe to get financial insights and AI investment tips</p>
-                <div style="margin-top: 20px; display: flex; gap: 10px;">
-                    <input type="email" id="newsletterEmail" placeholder="Your Email" style="flex: 1; padding: 12px; border-radius: 5px; border: none;">
-                    <button class="btn-primary" onclick="subscribeNewsletter()" style="padding: 12px 24px;">Subscribe</button>
+                <div style="margin-top: 20px;">
+                    <input type="email" id="newsletterEmail" placeholder="Your Email" style="width: 100%; padding: 12px; border-radius: 5px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.1); color: white; margin-bottom: 10px;">
+                    <button class="btn-primary" onclick="subscribeNewsletter()" style="width: 100%;">
+                        <i class="fas fa-paper-plane"></i> Subscribe
+                    </button>
                 </div>
             </div>
         </div>
         
         <div class="copyright">
-            <p>&copy; 2026 Anagh Financial Consultancy. All Rights Reserved.</p>
+            <p>&copy; <span id="currentYear">2026</span> Anagh Financial Consultancy. All Rights Reserved. | <a href="#" style="color: var(--secondary);">Privacy Policy</a> | <a href="#" style="color: var(--secondary);">Terms of Service</a></p>
+            <p style="margin-top: 10px; font-size: 0.8rem;">
+                <i class="fas fa-robot"></i> Powered by Advanced AI Algorithms
+            </p>
         </div>
     </footer>
 
+    <!-- ======================================== -->
+    <!-- COMPLETE JAVASCRIPT - ALL IN ONE FILE -->
+    <!-- ======================================== -->
     <script>
         // ========================================
-        // SUPER AI CHATBOT - COMPLETE JAVASCRIPT
+        // SUPER AI CHATBOT - COMPLETE FUNCTIONALITY
         // ========================================
         
         document.addEventListener('DOMContentLoaded', function() {
+            console.log('✅ Website initialized');
+            
+            // Initialize all components
             initChatbot();
             initMobileMenu();
             initCalculators();
             initScrollReveal();
             initContactForm();
+            initHeaderScroll();
+            initInvestmentPredictor();
+            
+            // Set current year
+            const yearElement = document.getElementById('currentYear');
+            if (yearElement) {
+                yearElement.textContent = new Date().getFullYear();
+            }
         });
 
-        // ---------- CHATBOT - FULLY FUNCTIONAL ----------
+        // ---------- CHATBOT FUNCTIONALITY ----------
         function initChatbot() {
             const chatMessages = document.getElementById('chatMessages');
             const chatInput = document.getElementById('chatInput');
             const sendButton = document.getElementById('sendMessage');
             
             if (!chatMessages || !chatInput || !sendButton) {
-                console.error('Chatbot elements not found!');
+                console.error('Chatbot elements not found');
                 return;
             }
+            
+            // Clear existing messages and add welcome
+            chatMessages.innerHTML = '';
+            addBotMessage(`👋 <strong>Hello! I'm your AI Financial Assistant!</strong>
+<br><br>
+I can help you with:
+<br><br>
+🏠 <strong>Home Loans</strong> - EMI, rates, SBI vs HDFC<br>
+💰 <strong>SIP Calculator</strong> - Returns for any amount<br>
+📋 <strong>Tax Planning</strong> - 80C, 80D, home loan benefits<br>
+🛡️ <strong>Insurance</strong> - Term, health, retirement<br>
+📊 <strong>Credit Score</strong> - Check & improve
+<br><br>
+<strong>Try asking me anything! 💬</strong>`);
             
             // Send message function
             window.sendMessage = function() {
@@ -1743,7 +976,7 @@
                 if (!message) return;
                 
                 // Add user message
-                addMessage(message, true);
+                addUserMessage(message);
                 chatInput.value = '';
                 
                 // Show typing indicator
@@ -1753,7 +986,7 @@
                 setTimeout(() => {
                     removeTypingIndicator();
                     const response = getAIResponse(message);
-                    addMessage(response);
+                    addBotMessage(response);
                 }, 800);
             };
             
@@ -1763,29 +996,40 @@
                 sendMessage();
             };
             
-            // Add message to chat
-            function addMessage(text, isUser = false) {
+            // Add bot message
+            function addBotMessage(text) {
                 const messageDiv = document.createElement('div');
-                messageDiv.classList.add('message');
-                messageDiv.classList.add(isUser ? 'user-message' : 'bot-message');
+                messageDiv.classList.add('message', 'bot-message');
                 
                 const contentDiv = document.createElement('div');
                 contentDiv.classList.add('message-content');
+                contentDiv.innerHTML = text;
                 
-                // Format text with bold
-                let formattedText = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-                formattedText = formattedText.replace(/\n/g, '<br>');
-                
-                contentDiv.innerHTML = formattedText;
-                messageDiv.appendChild(contentDiv);
-                
-                // Add timestamp
                 const timeDiv = document.createElement('div');
                 timeDiv.classList.add('message-time');
-                const now = new Date();
-                timeDiv.textContent = now.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' });
-                messageDiv.appendChild(timeDiv);
+                timeDiv.textContent = getCurrentTime();
                 
+                messageDiv.appendChild(contentDiv);
+                messageDiv.appendChild(timeDiv);
+                chatMessages.appendChild(messageDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+            
+            // Add user message
+            function addUserMessage(text) {
+                const messageDiv = document.createElement('div');
+                messageDiv.classList.add('message', 'user-message');
+                
+                const contentDiv = document.createElement('div');
+                contentDiv.classList.add('message-content');
+                contentDiv.innerHTML = text;
+                
+                const timeDiv = document.createElement('div');
+                timeDiv.classList.add('message-time');
+                timeDiv.textContent = getCurrentTime();
+                
+                messageDiv.appendChild(contentDiv);
+                messageDiv.appendChild(timeDiv);
                 chatMessages.appendChild(messageDiv);
                 chatMessages.scrollTop = chatMessages.scrollHeight;
             }
@@ -1811,6 +1055,12 @@
                 if (indicator) indicator.remove();
             }
             
+            // Get current time
+            function getCurrentTime() {
+                const now = new Date();
+                return now.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' });
+            }
+            
             // AI Response Engine
             function getAIResponse(message) {
                 const query = message.toLowerCase();
@@ -1818,15 +1068,15 @@
                 // HOME LOAN RATES
                 if (query.includes('home loan') || query.includes('house loan')) {
                     if (query.includes('rate')) {
-                        return `🏠 **Current Home Loan Rates (Feb 2026)**
-
-• **SBI:** 8.40% | Processing: 0.35%
-• **HDFC:** 8.50% | Processing: 0.50%  
-• **ICICI:** 8.60% | Processing: 0.50%
-• **Axis:** 8.55% | Processing: 0.40%
-
-✨ **Best Rate:** SBI @ 8.40%
-💡 **Tip:** Women borrowers get 0.05% extra discount!`;
+                        return `🏠 <strong>Current Home Loan Rates (Feb 2026)</strong>
+<br><br>
+• <strong>SBI:</strong> 8.40% | Processing: 0.35%<br>
+• <strong>HDFC:</strong> 8.50% | Processing: 0.50%<br>
+• <strong>ICICI:</strong> 8.60% | Processing: 0.50%<br>
+• <strong>Axis:</strong> 8.55% | Processing: 0.40%
+<br><br>
+✨ <strong>Best Rate:</strong> SBI @ 8.40%<br>
+💡 <strong>Tip:</strong> Women borrowers get 0.05% extra discount!`;
                     }
                     
                     // Extract numbers for EMI calculation
@@ -1854,38 +1104,37 @@
                     const totalPayment = emi * months;
                     const totalInterest = totalPayment - amount;
                     
-                    return `🏠 **Home Loan EMI Calculator**
-
-📊 **Your Loan Details:**
-• Amount: ₹${(amount/100000).toFixed(1)} Lakhs
-• Tenure: ${years} years
+                    return `🏠 <strong>Home Loan EMI Calculator</strong>
+<br><br>
+📊 <strong>Your Loan Details:</strong><br>
+• Amount: ₹${(amount/100000).toFixed(1)} Lakhs<br>
+• Tenure: ${years} years<br>
 • Rate: ${rate}% p.a.
-
-💰 **Monthly EMI:** ₹${Math.round(emi).toLocaleString('en-IN')}
-📈 **Total Interest:** ₹${Math.round(totalInterest).toLocaleString('en-IN')}
-💎 **Total Payment:** ₹${Math.round(totalPayment).toLocaleString('en-IN')}
-
-💡 **SBI Offer:** 8.40% - Save ₹${Math.round(emi - (amount * 0.084/12/100 * Math.pow(1+0.084/12/100, months) / (Math.pow(1+0.084/12/100, months)-1))).toLocaleString('en-IN')}/month!`;
+<br><br>
+💰 <strong>Monthly EMI:</strong> ₹${Math.round(emi).toLocaleString('en-IN')}<br>
+📈 <strong>Total Interest:</strong> ₹${Math.round(totalInterest).toLocaleString('en-IN')}<br>
+💎 <strong>Total Payment:</strong> ₹${Math.round(totalPayment).toLocaleString('en-IN')}`;
                 }
                 
                 // SBI vs HDFC COMPARISON
                 if (query.includes('sbi') && query.includes('hdfc')) {
-                    return `🏆 **SBI vs HDFC HOME LOAN**
-
-| Parameter | SBI | HDFC |
-|-----------|-----|------|
-| Interest Rate | **8.40%** | 8.50% |
-| Processing Fee | **0.35%** | 0.50% |
-| EMI (₹50L/20y) | **₹43,013** | ₹43,391 |
-
-💰 **Savings with SBI:** 
-• Monthly: **₹378** 
-• 20 Years: **₹90,720**
-
-✅ **SBI Wins:** Lower rate, lower fee, CIBIL 650+
-✅ **HDFC Wins:** Faster processing, better app
-
-**Winner: SBI 🏆**`;
+                    return `🏆 <strong>SBI vs HDFC HOME LOAN</strong>
+<br><br>
+<table style="width:100%; border-collapse: collapse;">
+<tr><th>Parameter</th><th>SBI</th><th>HDFC</th></tr>
+<tr><td>Interest Rate</td><td><strong>8.40%</strong></td><td>8.50%</td></tr>
+<tr><td>Processing Fee</td><td><strong>0.35%</strong></td><td>0.50%</td></tr>
+<tr><td>EMI (₹50L/20y)</td><td><strong>₹43,013</strong></td><td>₹43,391</td></tr>
+</table>
+<br>
+💰 <strong>Savings with SBI:</strong><br>
+• Monthly: <strong>₹378</strong><br>
+• 20 Years: <strong>₹90,720</strong>
+<br><br>
+✅ <strong>SBI Wins:</strong> Lower rate, lower fee<br>
+✅ <strong>HDFC Wins:</strong> Faster processing, better app
+<br><br>
+<strong>Winner: SBI 🏆</strong>`;
                 }
                 
                 // SIP CALCULATOR
@@ -1905,132 +1154,127 @@
                     const futureValue = amount * ((Math.pow(1 + monthlyRate, months) - 1) / monthlyRate) * (1 + monthlyRate);
                     const totalInvestment = amount * months;
                     
-                    return `💰 **SIP Calculator**
-
-📊 **₹${amount.toLocaleString('en-IN')}/month for ${years} years @12%**
-
-• **Total Investment:** ₹${totalInvestment.toLocaleString('en-IN')}
-• **Est. Returns:** ₹${Math.round(futureValue - totalInvestment).toLocaleString('en-IN')}
-• **Total Value:** ₹${Math.round(futureValue).toLocaleString('en-IN')}
-
-📈 **Power of Compounding:**
+                    return `💰 <strong>SIP Calculator</strong>
+<br><br>
+📊 <strong>₹${amount.toLocaleString('en-IN')}/month for ${years} years @${rate}%</strong>
+<br><br>
+• <strong>Total Investment:</strong> ₹${totalInvestment.toLocaleString('en-IN')}<br>
+• <strong>Est. Returns:</strong> ₹${Math.round(futureValue - totalInvestment).toLocaleString('en-IN')}<br>
+• <strong>Total Value:</strong> ₹${Math.round(futureValue).toLocaleString('en-IN')}
+<br><br>
+📈 <strong>Power of Compounding:</strong><br>
 • 20 years → ₹${Math.round(amount * ((Math.pow(1 + monthlyRate, 240) - 1) / monthlyRate) * (1 + monthlyRate)).toLocaleString('en-IN')}
-• 25 years → ₹${Math.round(amount * ((Math.pow(1 + monthlyRate, 300) - 1) / monthlyRate) * (1 + monthlyRate)).toLocaleString('en-IN')}
-
-🚀 **Pro Tip:** Increase SIP by 10% yearly = 2x returns!`;
+<br><br>
+🚀 <strong>Pro Tip:</strong> Increase SIP by 10% yearly = 2x returns!`;
                 }
                 
                 // TAX SAVING
                 if (query.includes('tax') || query.includes('80c')) {
-                    return `📋 **Tax Saving Guide 2025-26**
-
-💰 **Section 80C (₹1.5L):**
-• **ELSS** ⭐ 14-16% returns, 3y lock-in
-• PPF 7.1%, 15y lock-in
+                    return `📋 <strong>Tax Saving Guide 2025-26</strong>
+<br><br>
+💰 <strong>Section 80C (₹1.5L):</strong><br>
+• <strong>ELSS</strong> ⭐ 14-16% returns, 3y lock-in<br>
+• PPF 7.1%, 15y lock-in<br>
 • NPS 10-12%, till 60
-
-🩺 **Section 80D (Health Insurance):**
-• Self + Family: ₹25,000
-• Parents (Senior): ₹50,000
-• **Total: Up to ₹1,00,000**
-
-🏠 **Home Loan Benefits:**
-• Interest (24b): ₹2,00,000/year
+<br><br>
+🩺 <strong>Section 80D (Health Insurance):</strong><br>
+• Self + Family: ₹25,000<br>
+• Parents (Senior): ₹50,000<br>
+• <strong>Total: Up to ₹1,00,000</strong>
+<br><br>
+🏠 <strong>Home Loan Benefits:</strong><br>
+• Interest (24b): ₹2,00,000/year<br>
 • Principal (80C): ₹1.5L/year
-
-💡 **Smart Strategy:** ELSS + PPF + Health = Max benefit!`;
+<br><br>
+💡 <strong>Smart Strategy:</strong> ELSS + PPF + Health = Max benefit!`;
                 }
                 
                 // INSURANCE
                 if (query.includes('insurance') || query.includes('term')) {
-                    return `🛡️ **Insurance Guide**
-
-**TERM INSURANCE:**
-• Cover: 20x annual income
-• ₹1Cr for age 30: ₹10-15k/year
+                    return `🛡️ <strong>Insurance Guide</strong>
+<br><br>
+<strong>TERM INSURANCE:</strong><br>
+• Cover: 20x annual income<br>
+• ₹1Cr for age 30: ₹10-15k/year<br>
 • Top: Max Life, HDFC Life
-
-**HEALTH INSURANCE:**
-• Individual: ₹10L cover
-• Family (4): ₹25L cover
+<br><br>
+<strong>HEALTH INSURANCE:</strong><br>
+• Individual: ₹10L cover<br>
+• Family (4): ₹25L cover<br>
 • Top: HDFC Ergo, Star Health
-
-❌ **Avoid:** LIC Jeevan Anand (low returns)
-✅ **Do:** Pure term + ELSS/PPF
-
-**Want a quote? Tell me your age & income!**`;
+<br><br>
+❌ <strong>Avoid:</strong> LIC Jeevan Anand (low returns)<br>
+✅ <strong>Do:</strong> Pure term + ELSS/PPF
+<br><br>
+<strong>Want a quote? Tell me your age & income!</strong>`;
                 }
                 
                 // CREDIT SCORE
                 if (query.includes('credit') || query.includes('cibil')) {
-                    return `📊 **CIBIL Score Guide**
-
-✅ **750-900:** Excellent - Best rates
-✅ **700-749:** Good - Quick approval
-⚠️ **650-699:** Fair - May need explanation
-❌ **550-649:** Poor - Difficult
-🛑 **300-549:** Very Poor - Likely rejected
-
-📈 **Boost Score FAST:**
-1️⃣ Pay FULL bill, not minimum
-2️⃣ Keep usage <30% of limit
-3️⃣ No multiple applications
+                    return `📊 <strong>CIBIL Score Guide</strong>
+<br><br>
+✅ <strong>750-900:</strong> Excellent - Best rates<br>
+✅ <strong>700-749:</strong> Good - Quick approval<br>
+⚠️ <strong>650-699:</strong> Fair - May need explanation<br>
+❌ <strong>550-649:</strong> Poor - Difficult<br>
+🛑 <strong>300-549:</strong> Very Poor - Likely rejected
+<br><br>
+📈 <strong>Boost Score FAST:</strong><br>
+1️⃣ Pay FULL bill, not minimum<br>
+2️⃣ Keep usage <30% of limit<br>
+3️⃣ No multiple applications<br>
 4️⃣ Don't close old cards
-
-📱 **Check FREE:** Google Pay, CRED`;
+<br><br>
+📱 <strong>Check FREE:</strong> Google Pay, CRED`;
                 }
                 
                 // GREETING
                 if (query.includes('hello') || query.includes('hi') || query.includes('hey')) {
-                    return `👋 **Hello! I'm your Super AI Financial Assistant!**
-
+                    return `👋 <strong>Hello! I'm your AI Financial Assistant!</strong>
+<br><br>
 I can help you with:
-
-✅ **Home Loans** - EMI, rates, SBI vs HDFC
-✅ **SIP Calculator** - Returns for any amount
-✅ **Tax Planning** - 80C, 80D, home loan
-✅ **Insurance** - Term, health, retirement
-✅ **Credit Score** - Check & improve
-
-**What would you like to know?** 😊`;
+<br><br>
+✅ <strong>Home Loans</strong> - EMI, rates, SBI vs HDFC<br>
+✅ <strong>SIP Calculator</strong> - Returns for any amount<br>
+✅ <strong>Tax Planning</strong> - 80C, 80D, home loan<br>
+✅ <strong>Insurance</strong> - Term, health, retirement<br>
+✅ <strong>Credit Score</strong> - Check & improve
+<br><br>
+<strong>What would you like to know?</strong> 😊`;
                 }
                 
                 // HELP
                 if (query.includes('help') || query.includes('what can you do')) {
-                    return `🔍 **I can help you with:**
-
-🏠 **Home Loans**
-• Current interest rates (SBI 8.40%, HDFC 8.50%)
-• EMI calculation for any amount
+                    return `🔍 <strong>I can help you with:</strong>
+<br><br>
+🏠 <strong>Home Loans</strong><br>
+• Current interest rates<br>
+• EMI calculation<br>
 • SBI vs HDFC comparison
-
-💰 **SIP Investments**
-• Calculate returns for any SIP
-• Top mutual funds for 2026
-• ELSS tax saving funds
-
-📋 **Tax Planning**
-• Section 80C investment options
-• ELSS vs PPF vs NPS
-• Home loan tax benefits
-
-🛡️ **Insurance**
-• Term insurance calculator
-• Health insurance comparison
-
-**Just type your question!** 🚀`;
+<br><br>
+💰 <strong>SIP Investments</strong><br>
+• Returns calculator<br>
+• Top mutual funds<br>
+• ELSS tax saving
+<br><br>
+📋 <strong>Tax Planning</strong><br>
+• Section 80C options<br>
+• ELSS vs PPF vs NPS<br>
+• Home loan benefits
+<br><br>
+<strong>Just type your question!</strong> 🚀`;
                 }
                 
                 // DEFAULT RESPONSE
                 return `I can help you with:
-
-🏠 **Home Loans** - EMI, rates, SBI vs HDFC
-💰 **SIP** - Returns calculator, top funds
-📋 **Tax** - 80C, 80D, home loan benefits
-🛡️ **Insurance** - Term, health, retirement
-📊 **Credit Score** - Check & improve
-
-**Please ask a specific question!** 💬`;
+<br><br>
+🏠 <strong>Home Loans</strong> - EMI, rates, SBI vs HDFC<br>
+💰 <strong>SIP</strong> - Returns calculator, top funds<br>
+📋 <strong>Tax</strong> - 80C, 80D, home loan benefits<br>
+🛡️ <strong>Insurance</strong> - Term, health, retirement<br>
+📊 <strong>Credit Score</strong> - Check & improve
+<br><br>
+<strong>Please ask a specific question!</strong> 💬`;
             }
             
             // Event listeners
@@ -2078,45 +1322,51 @@ I can help you with:
             });
         }
 
-        // ---------- CALCULATORS ----------
+        // ---------- HOME LOAN CALCULATOR ----------
         function initCalculators() {
             // Home Loan Calculator
             const loanAmount = document.getElementById('loanAmount');
             const loanAmountRange = document.getElementById('loanAmountRange');
-            const loanYears = document.getElementById('loanYears');
-            const loanYearsRange = document.getElementById('loanYearsRange');
-            const loanRate = document.getElementById('loanRate');
+            const loanTenure = document.getElementById('loanTenure');
+            const loanTenureRange = document.getElementById('loanTenureRange');
+            const interestRate = document.getElementById('interestRate');
             
-            if (loanAmount && loanAmountRange) {
+            if (loanAmountRange) {
                 loanAmountRange.addEventListener('input', function() {
-                    loanAmount.value = this.value;
+                    if (loanAmount) loanAmount.value = this.value;
                     calculateHomeLoan();
                 });
+            }
+            
+            if (loanAmount) {
                 loanAmount.addEventListener('input', function() {
-                    loanAmountRange.value = this.value;
+                    if (loanAmountRange) loanAmountRange.value = this.value;
                     calculateHomeLoan();
                 });
             }
             
-            if (loanYears && loanYearsRange) {
-                loanYearsRange.addEventListener('input', function() {
-                    loanYears.value = this.value;
-                    calculateHomeLoan();
-                });
-                loanYears.addEventListener('input', function() {
-                    loanYearsRange.value = this.value;
+            if (loanTenureRange) {
+                loanTenureRange.addEventListener('input', function() {
+                    if (loanTenure) loanTenure.value = this.value;
                     calculateHomeLoan();
                 });
             }
             
-            if (loanRate) {
-                loanRate.addEventListener('input', calculateHomeLoan);
+            if (loanTenure) {
+                loanTenure.addEventListener('input', function() {
+                    if (loanTenureRange) loanTenureRange.value = this.value;
+                    calculateHomeLoan();
+                });
+            }
+            
+            if (interestRate) {
+                interestRate.addEventListener('input', calculateHomeLoan);
             }
             
             window.calculateHomeLoan = function() {
                 const amount = parseFloat(loanAmount?.value) || 5000000;
-                const years = parseFloat(loanYears?.value) || 20;
-                const rate = parseFloat(loanRate?.value) || 8.5;
+                const years = parseFloat(loanTenure?.value) || 20;
+                const rate = parseFloat(interestRate?.value) || 8.5;
                 
                 const monthlyRate = rate / 12 / 100;
                 const months = years * 12;
@@ -2124,60 +1374,128 @@ I can help you with:
                 const totalPayment = emi * months;
                 const totalInterest = totalPayment - amount;
                 
-                document.getElementById('emiValue').textContent = '₹' + Math.round(emi).toLocaleString('en-IN');
-                document.getElementById('interestValue').textContent = '₹' + (totalInterest/100000).toFixed(2) + 'L';
-                document.getElementById('totalValue').textContent = '₹' + (totalPayment/10000000).toFixed(2) + 'Cr';
+                document.getElementById('emiAmount').textContent = '₹' + Math.round(emi).toLocaleString('en-IN');
+                document.getElementById('totalInterest').textContent = '₹' + Math.round(totalInterest).toLocaleString('en-IN');
+                document.getElementById('totalPayment').textContent = '₹' + Math.round(totalPayment).toLocaleString('en-IN');
+                
+                updateBankComparison(amount, years);
+            };
+            
+            window.setInterestRate = function(rate) {
+                if (interestRate) {
+                    interestRate.value = rate;
+                    calculateHomeLoan();
+                }
+            };
+            
+            window.updateBankComparison = function(amount, tenure) {
+                const banks = [
+                    { name: 'SBI', rate: 8.4, id: 'sbiEMI' },
+                    { name: 'HDFC', rate: 8.5, id: 'hdfcEMI' },
+                    { name: 'ICICI', rate: 8.6, id: 'iciciEMI' },
+                    { name: 'Axis', rate: 8.55, id: 'axisEMI' }
+                ];
+                
+                banks.forEach(bank => {
+                    const el = document.getElementById(bank.id);
+                    if (el) {
+                        const monthlyRate = bank.rate / 12 / 100;
+                        const months = tenure * 12;
+                        const emi = (amount * monthlyRate * Math.pow(1 + monthlyRate, months)) / (Math.pow(1 + monthlyRate, months) - 1);
+                        el.textContent = '₹' + Math.round(emi).toLocaleString('en-IN');
+                    }
+                });
             };
             
             // SIP Calculator
             const sipAmount = document.getElementById('sipAmount');
-            const sipYears = document.getElementById('sipYears');
-            const sipRate = document.getElementById('sipRate');
+            const sipAmountRange = document.getElementById('sipAmountRange');
+            const sipTenure = document.getElementById('sipTenure');
+            const sipTenureRange = document.getElementById('sipTenureRange');
+            const sipReturn = document.getElementById('sipReturn');
             
-            if (sipAmount && sipYears && sipRate) {
-                sipAmount.addEventListener('input', calculateSIP);
-                sipYears.addEventListener('input', calculateSIP);
-                sipRate.addEventListener('input', calculateSIP);
+            if (sipAmountRange) {
+                sipAmountRange.addEventListener('input', function() {
+                    if (sipAmount) sipAmount.value = this.value;
+                    calculateSIP();
+                });
+            }
+            
+            if (sipAmount) {
+                sipAmount.addEventListener('input', function() {
+                    if (sipAmountRange) sipAmountRange.value = this.value;
+                    calculateSIP();
+                });
+            }
+            
+            if (sipTenureRange) {
+                sipTenureRange.addEventListener('input', function() {
+                    if (sipTenure) sipTenure.value = this.value;
+                    calculateSIP();
+                });
+            }
+            
+            if (sipTenure) {
+                sipTenure.addEventListener('input', function() {
+                    if (sipTenureRange) sipTenureRange.value = this.value;
+                    calculateSIP();
+                });
+            }
+            
+            if (sipReturn) {
+                sipReturn.addEventListener('input', calculateSIP);
             }
             
             window.calculateSIP = function() {
                 const amount = parseFloat(sipAmount?.value) || 10000;
-                const years = parseFloat(sipYears?.value) || 15;
-                const rate = parseFloat(sipRate?.value) || 12;
+                const years = parseFloat(sipTenure?.value) || 15;
+                const rate = parseFloat(sipReturn?.value) || 12;
                 
                 const monthlyRate = rate / 12 / 100;
                 const months = years * 12;
                 const futureValue = amount * ((Math.pow(1 + monthlyRate, months) - 1) / monthlyRate) * (1 + monthlyRate);
                 const totalInvestment = amount * months;
                 
-                document.getElementById('sipInvestment').textContent = '₹' + (totalInvestment/100000).toFixed(1) + 'L';
-                document.getElementById('sipReturns').textContent = '₹' + ((futureValue - totalInvestment)/100000).toFixed(2) + 'L';
-                document.getElementById('sipTotal').textContent = '₹' + (futureValue/100000).toFixed(2) + 'L';
+                document.getElementById('totalInvestment').textContent = '₹' + Math.round(totalInvestment).toLocaleString('en-IN');
+                document.getElementById('estimatedReturns').textContent = '₹' + Math.round(futureValue - totalInvestment).toLocaleString('en-IN');
+                document.getElementById('totalValue').textContent = '₹' + Math.round(futureValue).toLocaleString('en-IN');
+            };
+            
+            window.setSIPReturn = function(rate) {
+                if (sipReturn) {
+                    sipReturn.value = rate;
+                    calculateSIP();
+                }
             };
             
             // EMI Calculator
-            const emiAmount = document.getElementById('emiLoanAmount');
-            const emiMonths = document.getElementById('emiMonths');
-            const emiRate = document.getElementById('emiRate');
+            const emiLoanAmount = document.getElementById('emiLoanAmount');
+            const emiTenure = document.getElementById('emiTenure');
+            const emiInterestRate = document.getElementById('emiInterestRate');
             
-            if (emiAmount && emiMonths && emiRate) {
-                emiAmount.addEventListener('input', calculateEMI);
-                emiMonths.addEventListener('input', calculateEMI);
-                emiRate.addEventListener('input', calculateEMI);
-            }
+            if (emiLoanAmount) emiLoanAmount.addEventListener('input', calculateEMI);
+            if (emiTenure) emiTenure.addEventListener('input', calculateEMI);
+            if (emiInterestRate) emiInterestRate.addEventListener('input', calculateEMI);
             
             window.calculateEMI = function() {
-                const amount = parseFloat(emiAmount?.value) || 500000;
-                const months = parseFloat(emiMonths?.value) || 60;
-                const rate = parseFloat(emiRate?.value) || 10.5;
+                const amount = parseFloat(emiLoanAmount?.value) || 500000;
+                const months = parseFloat(emiTenure?.value) || 60;
+                const rate = parseFloat(emiInterestRate?.value) || 10.5;
                 
                 const monthlyRate = rate / 12 / 100;
                 const emi = (amount * monthlyRate * Math.pow(1 + monthlyRate, months)) / (Math.pow(1 + monthlyRate, months) - 1);
                 const totalPayment = emi * months;
                 
-                document.getElementById('emiMonthly').textContent = '₹' + Math.round(emi).toLocaleString('en-IN');
-                document.getElementById('emiInterest').textContent = '₹' + ((totalPayment - amount)/100000).toFixed(2) + 'L';
-                document.getElementById('emiTotal').textContent = '₹' + (totalPayment/100000).toFixed(2) + 'L';
+                document.getElementById('monthlyEMI').textContent = '₹' + Math.round(emi).toLocaleString('en-IN');
+                document.getElementById('totalEMIInterest').textContent = '₹' + Math.round(totalPayment - amount).toLocaleString('en-IN');
+                document.getElementById('totalEMIPayment').textContent = '₹' + Math.round(totalPayment).toLocaleString('en-IN');
+            };
+            
+            window.setEMIRate = function(rate) {
+                if (emiInterestRate) {
+                    emiInterestRate.value = rate;
+                    calculateEMI();
+                }
             };
             
             // Tab switching
@@ -2190,9 +1508,160 @@ I can help you with:
             };
             
             // Initialize calculators
-            calculateHomeLoan();
-            calculateSIP();
-            calculateEMI();
+            setTimeout(() => {
+                calculateHomeLoan();
+                calculateSIP();
+                calculateEMI();
+            }, 100);
+        }
+
+        // ---------- AI INVESTMENT PREDICTOR ----------
+        function initInvestmentPredictor() {
+            window.analyzeInvestment = function() {
+                const age = parseInt(document.getElementById('age')?.value) || 30;
+                const income = parseInt(document.getElementById('income')?.value) || 1000000;
+                const investment = parseInt(document.getElementById('investment')?.value) || 10000;
+                const risk = document.getElementById('risk')?.value || 'medium';
+                const horizon = parseInt(document.getElementById('horizon')?.value) || 10;
+                
+                // Validate inputs
+                if (age < 18 || age > 80) {
+                    alert('Please enter a valid age between 18 and 80.');
+                    return;
+                }
+                
+                if (investment < 1000) {
+                    alert('Minimum monthly investment should be ₹1,000.');
+                    return;
+                }
+                
+                if (horizon < 1 || horizon > 40) {
+                    alert('Investment horizon should be between 1 and 40 years.');
+                    return;
+                }
+                
+                // Calculate risk score
+                let riskScore = 50;
+                if (risk === 'low') riskScore = 30;
+                else if (risk === 'medium') riskScore = 65;
+                else if (risk === 'high') riskScore = 85;
+                
+                if (age < 30) riskScore += 10;
+                else if (age > 50) riskScore -= 15;
+                
+                if (horizon > 15) riskScore += 10;
+                else if (horizon < 5) riskScore -= 15;
+                
+                riskScore = Math.max(20, Math.min(95, riskScore));
+                
+                // Calculate returns
+                const expectedReturn = riskScore / 100 * 15 + 5;
+                const monthlyRate = expectedReturn / 12 / 100;
+                const months = horizon * 12;
+                const futureValue = investment * ((Math.pow(1 + monthlyRate, months) - 1) / monthlyRate) * (1 + monthlyRate);
+                
+                // Portfolio allocation
+                let equityPercent, debtPercent, othersPercent;
+                if (riskScore < 40) {
+                    equityPercent = 30;
+                    debtPercent = 60;
+                    othersPercent = 10;
+                } else if (riskScore < 70) {
+                    equityPercent = 60;
+                    debtPercent = 35;
+                    othersPercent = 5;
+                } else {
+                    equityPercent = 80;
+                    debtPercent = 15;
+                    othersPercent = 5;
+                }
+                
+                // Display results
+                document.getElementById('riskScore').textContent = riskScore;
+                document.getElementById('riskLevel').style.width = riskScore + '%';
+                
+                const resultDiv = document.getElementById('recommendationDetails');
+                resultDiv.innerHTML = `
+                    <div style="margin-top: 20px;">
+                        <h4 style="color: #00c853;">Investment Profile</h4>
+                        <p><strong>Age:</strong> ${age} years | <strong>Risk:</strong> ${risk.toUpperCase()} | <strong>Horizon:</strong> ${horizon} years</p>
+                        
+                        <h4 style="margin-top: 20px;">Portfolio Allocation</h4>
+                        <div style="display: flex; gap: 10px; margin: 15px 0;">
+                            <div style="flex:1; background: #2962ff; padding: 15px; border-radius: 10px; text-align: center;">
+                                <div>Equity</div>
+                                <div style="font-size: 24px; font-weight: bold;">${equityPercent}%</div>
+                            </div>
+                            <div style="flex:1; background: #00c853; padding: 15px; border-radius: 10px; text-align: center;">
+                                <div>Debt</div>
+                                <div style="font-size: 24px; font-weight: bold;">${debtPercent}%</div>
+                            </div>
+                            <div style="flex:1; background: #ff6b6b; padding: 15px; border-radius: 10px; text-align: center;">
+                                <div>Others</div>
+                                <div style="font-size: 24px; font-weight: bold;">${othersPercent}%</div>
+                            </div>
+                        </div>
+                        
+                        <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 10px; margin-top: 20px;">
+                            <h4>Projected Returns</h4>
+                            <p style="font-size: 28px; font-weight: bold; color: #00c853;">₹${Math.round(futureValue).toLocaleString('en-IN')}</p>
+                            <p>Monthly Investment: ₹${investment.toLocaleString('en-IN')} | Expected Return: ${expectedReturn.toFixed(1)}%</p>
+                        </div>
+                    </div>
+                `;
+                
+                document.getElementById('predictorResult').style.display = 'block';
+            };
+        }
+
+        // ---------- CONTACT FORM ----------
+        function initContactForm() {
+            window.sendAdvanced = function() {
+                const name = document.getElementById('cName')?.value;
+                const phone = document.getElementById('cPhone')?.value;
+                const email = document.getElementById('cEmail')?.value;
+                const service = document.getElementById('cService')?.value;
+                const message = document.getElementById('cMessage')?.value;
+                
+                if (!name || !phone || !email || !service || !message) {
+                    alert('Please fill in all fields');
+                    return;
+                }
+                
+                // Phone validation
+                const phoneRegex = /^[6-9]\d{9}$/;
+                if (!phoneRegex.test(phone)) {
+                    alert('Please enter a valid 10-digit Indian mobile number');
+                    return;
+                }
+                
+                // Email validation
+                const emailRegex = /^\S+@\S+\.\S+$/;
+                if (!emailRegex.test(email)) {
+                    alert('Please enter a valid email address');
+                    return;
+                }
+                
+                alert(`✅ Thank you ${name}! Our team will contact you within 24 hours.`);
+                document.getElementById('contactForm').reset();
+            };
+            
+            window.subscribeNewsletter = function() {
+                const email = document.getElementById('newsletterEmail')?.value;
+                if (!email) {
+                    alert('Please enter your email');
+                    return;
+                }
+                
+                const emailRegex = /^\S+@\S+\.\S+$/;
+                if (!emailRegex.test(email)) {
+                    alert('Please enter a valid email address');
+                    return;
+                }
+                
+                alert('✅ Thank you for subscribing to our newsletter!');
+                document.getElementById('newsletterEmail').value = '';
+            };
         }
 
         // ---------- SCROLL REVEAL ----------
@@ -2216,61 +1685,19 @@ I can help you with:
             setTimeout(reveal, 100);
         }
 
-        // ---------- CONTACT FORM ----------
-        function initContactForm() {
-            const form = document.getElementById('contactForm');
-            if (!form) return;
-            
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                const name = document.getElementById('name')?.value;
-                const phone = document.getElementById('phone')?.value;
-                const email = document.getElementById('email')?.value;
-                const service = document.getElementById('service')?.value;
-                const message = document.getElementById('message')?.value;
-                
-                if (!name || !phone || !email || !service || !message) {
-                    alert('Please fill in all fields');
-                    return;
+        // ---------- HEADER SCROLL ----------
+        function initHeaderScroll() {
+            window.addEventListener('scroll', function() {
+                const header = document.getElementById('mainHeader');
+                if (header) {
+                    if (window.scrollY > 50) {
+                        header.classList.add('scrolled');
+                    } else {
+                        header.classList.remove('scrolled');
+                    }
                 }
-                
-                // Phone validation
-                const phoneRegex = /^[6-9]\d{9}$/;
-                if (!phoneRegex.test(phone)) {
-                    alert('Please enter a valid 10-digit Indian mobile number');
-                    return;
-                }
-                
-                // Email validation
-                const emailRegex = /^\S+@\S+\.\S+$/;
-                if (!emailRegex.test(email)) {
-                    alert('Please enter a valid email address');
-                    return;
-                }
-                
-                alert('✅ Thank you! Our team will contact you within 24 hours.');
-                form.reset();
             });
         }
-
-        // ---------- NEWSLETTER ----------
-        window.subscribeNewsletter = function() {
-            const email = document.getElementById('newsletterEmail')?.value;
-            if (!email) {
-                alert('Please enter your email');
-                return;
-            }
-            
-            const emailRegex = /^\S+@\S+\.\S+$/;
-            if (!emailRegex.test(email)) {
-                alert('Please enter a valid email address');
-                return;
-            }
-            
-            alert('✅ Thank you for subscribing to our newsletter!');
-            document.getElementById('newsletterEmail').value = '';
-        };
 
         // ---------- NAVIGATION ----------
         window.goContact = function() {
@@ -2280,18 +1707,6 @@ I can help you with:
         window.goToAI = function() {
             document.getElementById('ai-assistant')?.scrollIntoView({ behavior: 'smooth' });
         };
-
-        // ---------- HEADER SCROLL EFFECT ----------
-        window.addEventListener('scroll', function() {
-            const header = document.getElementById('mainHeader');
-            if (header) {
-                if (window.scrollY > 50) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
-                }
-            }
-        });
     </script>
 </body>
 </html>
