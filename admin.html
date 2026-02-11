@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Admin Panel</title>
+<style>
+table{width:100%;border-collapse:collapse}
+th,td{border:1px solid #ccc;padding:8px}
+th{background:black;color:white}
+</style>
+</head>
+
+<body>
+
+<h2>All Leads</h2>
+
+<table id="table">
+<thead>
+<tr>
+<th>Name</th>
+<th>Phone</th>
+<th>Email</th>
+<th>Service</th>
+<th>Message</th>
+</tr>
+</thead>
+<tbody></tbody>
+</table>
+
+<script>
+fetch("http://localhost:5000/leads")
+.then(res=>res.json())
+.then(data=>{
+  const body=document.querySelector("tbody");
+
+  if(data.length===0){
+    body.innerHTML="<tr><td colspan='5'>No leads found</td></tr>";
+    return;
+  }
+
+  data.forEach(l=>{
+    body.innerHTML+=`
+    <tr>
+      <td>${l.name}</td>
+      <td>${l.phone}</td>
+      <td>${l.email}</td>
+      <td>${l.service}</td>
+      <td>${l.message}</td>
+    </tr>`;
+  });
+});
+</script>
+
+</body>
+</html>
