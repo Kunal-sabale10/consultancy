@@ -1116,3 +1116,331 @@ function downloadCreditReport() {
 // Add this to your load event listener
 // Find window.addEventListener('load', function() { ... }) and add this line inside:
 // calculateCreditScoreDefaults? Not needed, but ensure the section exists
+// ========================================
+// FIX CHATBOT INITIALIZATION
+// ========================================
+
+// Ensure chat messages container exists and add welcome message if not already added
+document.addEventListener('DOMContentLoaded', function() {
+    // Check if chat messages container exists and has no messages
+    const chatMessages = document.getElementById('chatMessages');
+    if (chatMessages && chatMessages.children.length === 0) {
+        addMessage("Welcome to Anagh Financial AI Assistant! 🎯\n\nI can help you with:\n• House loan calculations\n• SIP investment planning\n• Bank offer comparisons\n• Credit score checking\n• Insurance partners information\n\nTry asking me specific questions!");
+    }
+});
+
+// ========================================
+// CREDIT SCORE CHECKER FUNCTIONS
+// ========================================
+
+function checkCreditScore() {
+    // Get form values
+    const name = document.getElementById('csName').value.trim();
+    const pan = document.getElementById('csPan').value.trim().toUpperCase();
+    const dob = document.getElementById('csDob').value;
+    const mobile = document.getElementById('csMobile').value.trim();
+    const income = document.getElementById('csIncome').value;
+    const loans = document.getElementById('csLoans').value;
+    const cardUsage = document.getElementById('csCardUsage').value;
+    const consent = document.getElementById('csConsent').checked;
+    
+    // Validation
+    if (!name) {
+        alert('Please enter your full name');
+        return;
+    }
+    
+    if (!pan) {
+        alert('Please enter your PAN number');
+        return;
+    }
+    
+    // Simple PAN validation (10 characters, alphanumeric)
+    if (pan.length !== 10 || !/^[A-Z0-9]+$/.test(pan)) {
+        alert('Please enter a valid 10-digit PAN number (e.g., ABCDE1234F)');
+        return;
+    }
+    
+    if (!dob) {
+        alert('Please select your date of birth');
+        return;
+    }
+    
+    if (!mobile) {
+        alert('Please enter your mobile number');
+        return;
+    }
+    
+    if (mobile.length !== 10 || !/^[6-9]\d{9}$/.test(mobile)) {
+        alert('Please enter a valid 10-digit Indian mobile number');
+        return;
+    }
+    
+    if (!income) {
+        alert('Please select your monthly income range');
+        return;
+    }
+    
+    if (!consent) {
+        alert('Please agree to the Terms & Conditions');
+        return;
+    }
+    
+    // Show loading state
+    const checkBtn = event.target;
+    const originalText = checkBtn.innerHTML;
+    checkBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Checking Credit Score...';
+    checkBtn.disabled = true;
+    
+    // Simulate API call
+    setTimeout(() => {
+        // Calculate credit score based on inputs
+        let baseScore = 750; // Start with good score
+        
+        // Income impact
+        const incomeValue = parseInt(income);
+        if (incomeValue >= 100000) baseScore += 50;
+        else if (incomeValue >= 75000) baseScore += 30;
+        else if (incomeValue >= 50000) baseScore += 15;
+        else if (incomeValue <= 25000) baseScore -= 30;
+        
+        // Existing loans impact
+        const loanCount = parseInt(loans);
+        if (loanCount === 0) baseScore += 25;
+        else if (loanCount === 1) baseScore += 10;
+        else if (loanCount === 2) baseScore -= 15;
+        else if (loanCount >= 3) baseScore -= 40;
+        
+        // Credit card utilization impact
+        const usage = parseInt(cardUsage);
+        if (usage === 20) baseScore += 35;
+        else if (usage === 50) baseScore += 10;
+        else if (usage === 70) baseScore -= 20;
+        else if (usage === 90) baseScore -= 50;
+        else if (usage === 0) baseScore -= 10; // No credit history
+        
+        // Randomize slightly for realism (but keep consistent)
+        const randomFactor = Math.floor(Math.random() * 20) - 10;
+        let finalScore = baseScore + randomFactor;
+        
+        // Ensure score is between 300 and 900
+        finalScore = Math.min(900, Math.max(300, finalScore));
+        
+        // Determine rating
+        let rating = '';
+        let color = '';
+        let recommendations = [];
+        let breakdown = [];
+        
+        if (finalScore >= 750) {
+            rating = 'Excellent';
+            color = '#00c853';
+            recommendations = [
+                'You have an excellent credit score!',
+                'Eligible for premium credit cards',
+                'Get lowest interest rates on loans',
+                'Consider balance transfer for better rates'
+            ];
+            breakdown = [
+                '✓ Excellent credit health',
+                '✓ Instant loan approvals',
+                '✓ Best interest rates available',
+                '✓ High credit limits'
+            ];
+        } else if (finalScore >= 700) {
+            rating = 'Good';
+            color = '#2962ff';
+            recommendations = [
+                'Keep credit utilization below 30%',
+                'Pay all EMIs and bills on time',
+                'Avoid multiple loan applications',
+                'Consider increasing credit limit'
+            ];
+            breakdown = [
+                '✓ Good credit health',
+                '✓ Easy loan approvals',
+                '✓ Competitive interest rates',
+                '✓ Eligible for most cards'
+            ];
+        } else if (finalScore >= 650) {
+            rating = 'Fair';
+            color = '#ff6b00';
+            recommendations = [
+                'Reduce credit card utilization',
+                'Clear outstanding balances',
+                'Avoid new credit applications',
+                'Set up auto-pay for bills'
+            ];
+            breakdown = [
+                '✓ Fair credit health',
+                '⚠ May need additional documents',
+                '⚠ Moderate interest rates',
+                '⚠ Secured cards recommended'
+            ];
+        } else if (finalScore >= 550) {
+            rating = 'Poor';
+            color = '#ff3d00';
+            recommendations = [
+                'Pay all pending bills immediately',
+                'Keep credit utilization below 30%',
+                'Don\'t close old credit cards',
+                'Consider a secured credit card'
+            ];
+            breakdown = [
+                '⚠ Poor credit health',
+                '⚠ Loan approvals may be difficult',
+                '⚠ Higher interest rates',
+                '⚠ Credit improvement needed'
+            ];
+        } else {
+            rating = 'Very Poor';
+            color = '#d32f2f';
+            recommendations = [
+                'Get a secured credit card',
+                'Take a small loan and repay on time',
+                'Check credit report for errors',
+                'Consult our credit experts'
+            ];
+            breakdown = [
+                '⚠ Very poor credit health',
+                '⚠ Immediate action required',
+                '⚠ May need collateral for loans',
+                '⚠ Free credit counseling available'
+            ];
+        }
+        
+        // Display results
+        document.getElementById('scoreValue').textContent = finalScore;
+        document.getElementById('scoreRating').textContent = rating;
+        document.getElementById('scoreRating').style.color = color;
+        document.getElementById('scoreCircle').style.borderColor = color;
+        document.getElementById('scoreMeterFill').style.width = ((finalScore - 300) / 600 * 100) + '%';
+        document.getElementById('scoreMeterFill').style.background = color;
+        
+        // Update breakdown list
+        const breakdownList = document.getElementById('scoreBreakdown');
+        breakdownList.innerHTML = breakdown.map(item => {
+            const icon = item.includes('✓') ? 'fa-check-circle' : 'fa-exclamation-circle';
+            const iconColor = item.includes('✓') ? '#00c853' : '#ff6b00';
+            return `<li><i class="fas ${icon}" style="color: ${iconColor}"></i> ${item.replace('✓ ', '').replace('⚠ ', '')}</li>`;
+        }).join('');
+        
+        // Update recommendations
+        const recList = document.getElementById('scoreRecommendations');
+        recList.innerHTML = recommendations.map(item => `<li><i class="fas fa-arrow-up" style="color: ${color}"></i> ${item}</li>`).join('');
+        
+        // Show result section
+        document.getElementById('creditScoreResult').style.display = 'block';
+        
+        // Scroll to results
+        setTimeout(() => {
+            document.getElementById('creditScoreResult').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }, 100);
+        
+        // Restore button
+        checkBtn.innerHTML = originalText;
+        checkBtn.disabled = false;
+        
+    }, 2000);
+}
+
+function downloadCreditReport() {
+    const name = document.getElementById('csName').value.trim() || 'Customer';
+    const score = document.getElementById('scoreValue').textContent;
+    const rating = document.getElementById('scoreRating').textContent;
+    
+    alert(`📄 Credit Report for ${name}\n\nCredit Score: ${score} (${rating})\n\nA detailed report will be sent to your registered email address within 5 minutes.\n\nThank you for using Anagh Financial!`);
+    
+    // In real implementation, this would trigger a PDF download
+    // For now, we'll simulate a download
+    console.log('Downloading credit report...');
+}
+
+// ========================================
+// ADD PARTNER INFO TO CHATBOT
+// ========================================
+
+// Add partner information to AI responses
+aiResponses['partners'] = `🏢 **OUR INSURANCE PARTNERS**
+
+**Life Insurance:**
+• LIC of India - Top Partner
+• HDFC Life - Term & ULIP Plans
+• ICICI Prudential - Life & Savings
+• Max Life - Retirement Solutions
+• SBI Life - Smart Elite Plans
+• Bajaj Allianz - Life & Health
+
+**Health Insurance:**
+• Star Health - India's #1 Health Insurer
+• Apollo Munich - Comprehensive Health
+• Care Health - Critical Illness
+• Niva Bupa - International Coverage
+• Aditya Birla - Activ Health Plans
+• Manipal Cigna - Premium Health Plans
+
+**General Insurance:**
+• New India Assurance - Motor & Property
+• United India - Two Wheeler Insurance
+• Oriental Insurance - Commercial Vehicle
+• ICICI Lombard - Home & Travel
+• Bajaj Finserv - Travel Insurance
+• Digit Insurance - Cyber & Gadget
+
+**Want a quote?** Contact us for the best rates from all partners!`;
+
+aiResponses['our partners'] = aiResponses['partners'];
+aiResponses['insurance partners'] = aiResponses['partners'];
+aiResponses['partners list'] = aiResponses['partners'];
+
+// Add credit score info to chatbot
+aiResponses['credit score'] = `📊 **CREDIT SCORE CHECKER**
+
+Check your estimated credit score for FREE!
+
+**What is Credit Score?**
+A 3-digit number (300-900) that shows your creditworthiness.
+
+**Score Ranges:**
+• 750-900: Excellent - Best rates & instant approval
+• 700-749: Good - Easy approval, competitive rates
+• 650-699: Fair - Moderate rates, may need documents
+• 550-649: Poor - Higher rates, credit improvement needed
+• Below 550: Very Poor - Immediate action required
+
+**How to Improve:**
+✓ Pay all bills on time
+✓ Keep credit utilization below 30%
+✓ Don't apply for multiple loans
+✓ Check your score monthly
+
+**Try our Free Credit Score Checker below!** 👇
+Scroll down to the "Credit Score Checker" section.`;
+
+aiResponses['cibil'] = aiResponses['credit score'];
+aiResponses['check credit'] = aiResponses['credit score'];
+
+// ========================================
+// FIX EVENT LISTENER FOR CREDIT SCORE BUTTONS
+// ========================================
+
+// Add event listeners when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Add PAN input auto-formatting
+    const panInput = document.getElementById('csPan');
+    if (panInput) {
+        panInput.addEventListener('input', function(e) {
+            this.value = this.value.toUpperCase();
+        });
+    }
+    
+    // Add mobile number validation
+    const mobileInput = document.getElementById('csMobile');
+    if (mobileInput) {
+        mobileInput.addEventListener('input', function(e) {
+            this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);
+        });
+    }
+    
+    console.log('Credit Score Checker and Partners Section initialized!');
+});
