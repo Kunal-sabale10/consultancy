@@ -579,6 +579,123 @@
 
     <!-- AI Investment Predictor -->
     <section class="ai-predictor" id="ai-predictor">
+            <!-- CREDIT SCORE CHECKER - ADD THIS SECTION -->
+    <section class="credit-score-section" id="credit-score">
+        <div class="section-header reveal">
+            <h2>📊 Free Credit Score Checker</h2>
+            <p>Check your estimated CIBIL score instantly. No credit hit, completely free!</p>
+        </div>
+        
+        <div class="credit-score-container reveal">
+            <div class="credit-score-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="csName"><i class="fas fa-user"></i> Full Name</label>
+                        <input type="text" id="csName" placeholder="Enter your full name">
+                    </div>
+                    <div class="form-group">
+                        <label for="csPan"><i class="fas fa-id-card"></i> PAN Number</label>
+                        <input type="text" id="csPan" placeholder="ABCDE1234F" maxlength="10">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="csDob"><i class="fas fa-calendar"></i> Date of Birth</label>
+                        <input type="date" id="csDob">
+                    </div>
+                    <div class="form-group">
+                        <label for="csMobile"><i class="fas fa-mobile-alt"></i> Mobile Number</label>
+                        <input type="tel" id="csMobile" placeholder="9876543210" maxlength="10">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="csIncome"><i class="fas fa-rupee-sign"></i> Monthly Income</label>
+                        <select id="csIncome">
+                            <option value="">Select Income Range</option>
+                            <option value="25000">Below ₹25,000</option>
+                            <option value="50000">₹25,000 - ₹50,000</option>
+                            <option value="75000">₹50,000 - ₹75,000</option>
+                            <option value="100000">₹75,000 - ₹1,00,000</option>
+                            <option value="150000">Above ₹1,00,000</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="csLoans"><i class="fas fa-credit-card"></i> Existing Loans</label>
+                        <select id="csLoans">
+                            <option value="0">No existing loans</option>
+                            <option value="1">1 Loan</option>
+                            <option value="2">2 Loans</option>
+                            <option value="3">3+ Loans</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="csCardUsage"><i class="fas fa-chart-line"></i> Credit Card Utilization</label>
+                    <select id="csCardUsage">
+                        <option value="20">0-30% (Best)</option>
+                        <option value="50">30-50% (Good)</option>
+                        <option value="70">50-70% (Average)</option>
+                        <option value="90">70%+ (Poor)</option>
+                        <option value="0">Don't have credit card</option>
+                    </select>
+                </div>
+                
+                <div class="form-checkbox">
+                    <input type="checkbox" id="csConsent">
+                    <label for="csConsent">I agree to the Terms & Conditions and authorize Anagh Financial to check my credit eligibility</label>
+                </div>
+                
+                <button class="btn-primary" onclick="checkCreditScore()" style="width: 100%; margin-top: 20px;">
+                    <i class="fas fa-shield-alt"></i> Check Your CIBIL Score - Free
+                </button>
+                
+                <p class="credit-score-note">
+                    <i class="fas fa-lock"></i> 100% Secure | No impact on your credit score | Instant results
+                </p>
+            </div>
+            
+            <div class="credit-score-result" id="creditScoreResult" style="display: none;">
+                <div class="score-header">
+                    <h3>Your CIBIL Score</h3>
+                    <div class="score-circle" id="scoreCircle">
+                        <span id="scoreValue">750</span>
+                        <span class="score-label">Score</span>
+                    </div>
+                    <div class="score-rating" id="scoreRating">Good</div>
+                </div>
+                
+                <div class="score-details">
+                    <div class="score-meter">
+                        <div class="meter-bar">
+                            <div class="meter-fill" id="scoreMeterFill" style="width: 75%;"></div>
+                        </div>
+                        <div class="meter-labels">
+                            <span>300</span>
+                            <span>Poor</span>
+                            <span>Fair</span>
+                            <span>Good</span>
+                            <span>Excellent</span>
+                            <span>900</span>
+                        </div>
+                    </div>
+                    
+                    <div class="score-breakdown">
+                        <h4>📋 What this means:</h4>
+                        <ul id="scoreBreakdown"></ul>
+                    </div>
+                    
+                    <div class="score-recommendations">
+                        <h4>📈 How to improve:</h4>
+                        <ul id="scoreRecommendations"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
         <div class="section-header reveal">
             <h2>AI Investment Predictor</h2>
             <p>Get personalized investment recommendations based on your profile and market conditions</p>
@@ -821,6 +938,89 @@
 
     <!-- Testimonials -->
     <section class="testimonials" id="testimonials">
+            <!-- OUR PARTNERS SECTION - ADD THIS -->
+    <section class="partners-section" id="partners">
+        <div class="section-header reveal">
+            <h2>🏢 Our Trusted Partners</h2>
+            <p>We're associated with India's leading insurance companies and financial institutions</p>
+        </div>
+        
+        <div class="partners-categories">
+            <div class="partners-category reveal">
+                <h3><i class="fas fa-shield-alt"></i> Life Insurance Partners</h3>
+                <div class="partners-grid">
+                    <div class="partner-card">
+                        <div class="partner-logo"><i class="fas fa-building"></i></div>
+                        <h4>LIC of India</h4>
+                        <p>Life Insurance Corporation</p>
+                        <span class="partner-badge">Top Partner</span>
+                    </div>
+                    <div class="partner-card">
+                        <div class="partner-logo"><i class="fas fa-shield"></i></div>
+                        <h4>HDFC Life</h4>
+                        <p>Term & ULIP Plans</p>
+                    </div>
+                    <div class="partner-card">
+                        <div class="partner-logo"><i class="fas fa-umbrella"></i></div>
+                        <h4>ICICI Prudential</h4>
+                        <p>Life & Savings Plans</p>
+                    </div>
+                    <div class="partner-card">
+                        <div class="partner-logo"><i class="fas fa-leaf"></i></div>
+                        <h4>Max Life</h4>
+                        <p>Retirement Solutions</p>
+                    </div>
+                    <div class="partner-card">
+                        <div class="partner-logo"><i class="fas fa-star"></i></div>
+                        <h4>SBI Life</h4>
+                        <p>Smart Elite Plans</p>
+                    </div>
+                    <div class="partner-card">
+                        <div class="partner-logo"><i class="fas fa-gem"></i></div>
+                        <h4>Bajaj Allianz</h4>
+                        <p>Life & Health</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="partners-category reveal">
+                <h3><i class="fas fa-heartbeat"></i> Health Insurance Partners</h3>
+                <div class="partners-grid">
+                    <div class="partner-card">
+                        <div class="partner-logo"><i class="fas fa-ambulance"></i></div>
+                        <h4>Star Health</h4>
+                        <p>India's #1 Health Insurer</p>
+                        <span class="partner-badge">Recommended</span>
+                    </div>
+                    <div class="partner-card">
+                        <div class="partner-logo"><i class="fas fa-hospital"></i></div>
+                        <h4>Apollo Munich</h4>
+                        <p>Comprehensive Health</p>
+                    </div>
+                    <div class="partner-card">
+                        <div class="partner-logo"><i class="fas fa-heart"></i></div>
+                        <h4>Care Health</h4>
+                        <p>Critical Illness</p>
+                    </div>
+                    <div class="partner-card">
+                        <div class="partner-logo"><i class="fas fa-shield-virus"></i></div>
+                        <h4>Niva Bupa</h4>
+                        <p>International Coverage</p>
+                    </div>
+                    <div class="partner-card">
+                        <div class="partner-logo"><i class="fas fa-first-aid"></i></div>
+                        <h4>Aditya Birla</h4>
+                        <p>Activ Health Plans</p>
+                    </div>
+                    <div class="partner-card">
+                        <div class="partner-logo"><i class="fas fa-bolt"></i></div>
+                        <h4>Manipal Cigna</h4>
+                        <p>Premium Health Plans</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
         <div class="section-header reveal">
             <h2>What Our Clients Say</h2>
             <p>Trusted by over 5,000 clients across India</p>
@@ -1009,4 +1209,5 @@
     <script src="script.js"></script>
 </body>
 </html>
+
 
