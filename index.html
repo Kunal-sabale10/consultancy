@@ -745,6 +745,527 @@
         }
 
         /* ======================================== */
+/* INSURANCE PARTNERS SECTION - COMPLETE    */
+/* ======================================== */
+.insurance-partners {
+    padding: 60px 20px;
+    background: linear-gradient(145deg, #ffffff, #f8fafc);
+    position: relative;
+    overflow: hidden;
+}
+
+.insurance-partners::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--secondary), var(--accent));
+}
+
+.insurance-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.insurance-category {
+    background: white;
+    border-radius: 24px;
+    padding: 24px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+    border: 1px solid rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.insurance-category:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(41,98,255,0.08);
+    border-color: rgba(41,98,255,0.2);
+}
+
+.category-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid #f1f5f9;
+    flex-wrap: wrap;
+}
+
+.category-header i {
+    font-size: 28px;
+    color: var(--accent);
+    background: rgba(41,98,255,0.1);
+    padding: 12px;
+    border-radius: 16px;
+}
+
+.category-header h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--primary);
+    letter-spacing: 0.5px;
+    flex: 1;
+}
+
+.partner-count {
+    background: var(--gradient);
+    color: white;
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    box-shadow: 0 4px 10px rgba(41,98,255,0.2);
+}
+
+/* Company Grid */
+.company-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 12px;
+}
+
+.company-card {
+    background: #f8fafc;
+    border-radius: 16px;
+    padding: 12px 8px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0,0,0,0.03);
+}
+
+.company-card:hover {
+    background: white;
+    border-color: var(--accent);
+    transform: scale(1.02);
+    box-shadow: 0 8px 16px rgba(41,98,255,0.1);
+}
+
+.company-logo {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--dark);
+    text-align: center;
+    position: relative;
+    padding: 4px 0;
+}
+
+.company-logo::before {
+    content: '🏢';
+    display: block;
+    font-size: 20px;
+    margin-bottom: 6px;
+    opacity: 0.7;
+}
+
+/* Specialized Insurance Grid */
+.special-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 12px;
+}
+
+.special-item {
+    background: linear-gradient(145deg, #f8fafc, #ffffff);
+    border-radius: 16px;
+    padding: 16px 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid rgba(0,0,0,0.03);
+    transition: all 0.3s ease;
+}
+
+.special-item:hover {
+    background: var(--gradient);
+    border-color: transparent;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(41,98,255,0.2);
+}
+
+.special-item i {
+    font-size: 20px;
+    color: var(--accent);
+    transition: all 0.3s ease;
+}
+
+.special-item:hover i {
+    color: white;
+    transform: scale(1.1);
+}
+
+.special-item span {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--dark);
+    transition: all 0.3s ease;
+}
+
+.special-item:hover span {
+    color: white;
+}
+
+/* ======================================== */
+/* MEDIA QUERIES - MOBILE OPTIMIZATION      */
+/* ======================================== */
+
+/* Tablet - 768px and below */
+@media (max-width: 768px) {
+    .insurance-category {
+        padding: 20px;
+    }
+    
+    .category-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    
+    .category-header h3 {
+        font-size: 18px;
+    }
+    
+    .company-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+    }
+    
+    .special-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .company-card {
+        padding: 10px 6px;
+    }
+    
+    .company-logo {
+        font-size: 12px;
+    }
+    
+    .company-logo::before {
+        font-size: 18px;
+    }
+    
+    .special-item {
+        padding: 12px 10px;
+    }
+    
+    .special-item i {
+        font-size: 18px;
+    }
+    
+    .special-item span {
+        font-size: 12px;
+    }
+}
+
+/* Mobile - 480px and below */
+@media (max-width: 480px) {
+    .insurance-partners {
+        padding: 40px 16px;
+    }
+    
+    .insurance-category {
+        padding: 16px;
+    }
+    
+    .category-header i {
+        font-size: 24px;
+        padding: 10px;
+    }
+    
+    .category-header h3 {
+        font-size: 16px;
+    }
+    
+    .partner-count {
+        font-size: 11px;
+        padding: 4px 12px;
+    }
+    
+    .company-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+    
+    .company-card {
+        padding: 8px 4px;
+    }
+    
+    .company-logo {
+        font-size: 11px;
+    }
+    
+    .company-logo::before {
+        font-size: 16px;
+        margin-bottom: 4px;
+    }
+    
+    .special-grid {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+    
+    .special-item {
+        padding: 12px 12px;
+    }
+    
+    .special-item i {
+        font-size: 18px;
+        width: 24px;
+    }
+    
+    .special-item span {
+        font-size: 13px;
+    }
+}
+
+/* Small Mobile - 360px and below */
+@media (max-width: 360px) {
+    .company-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 6px;
+    }
+    
+    .company-card {
+        padding: 8px 4px;
+    }
+    
+    .category-header {
+        gap: 6px;
+    }
+    
+    .category-header i {
+        font-size: 22px;
+        padding: 8px;
+    }
+}
+
+/* Animation for cards */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.insurance-category {
+    animation: fadeInUp 0.6s ease backwards;
+}
+
+.insurance-category:nth-child(1) { animation-delay: 0.1s; }
+.insurance-category:nth-child(2) { animation-delay: 0.2s; }
+.insurance-category:nth-child(3) { animation-delay: 0.3s; }
+.insurance-category:nth-child(4) { animation-delay: 0.4s; }
+.insurance-category:nth-child(5) { animation-delay: 0.5s; }
+        <!-- Services Section -->
+        
+<section class="services" id="services">
+    ... existing services code ...
+</section>
+
+<!-- ======================================== -->
+<!-- NEW: Insurance Partners Section          -->
+<!-- ======================================== -->
+<section class="insurance-partners" id="insurance-partners">
+    ... copy the HTML code from above ...
+</section>
+
+<!-- AI Assistant Section -->
+<section class="ai-assistant" id="ai-assistant">
+    ... existing AI code ...
+</section>
+
+        <!-- ======================================== -->
+<!-- ALL INSURANCE COMPANIES SECTION         -->
+<!-- ======================================== -->
+<section class="insurance-partners" id="insurance-partners">
+    <div class="section-header reveal">
+        <h2>All Types of Insurance Under One Roof</h2>
+        <p>We partner with India's top insurance companies to give you the best coverage at the lowest premiums</p>
+    </div>
+    
+    <div class="insurance-container">
+        <!-- HEALTH INSURANCE -->
+        <div class="insurance-category reveal">
+            <div class="category-header">
+                <i class="fas fa-heartbeat"></i>
+                <h3>HEALTH INSURANCE</h3>
+                <span class="partner-count">9+ Partners</span>
+            </div>
+            <div class="company-grid">
+                <div class="company-card">
+                    <div class="company-logo">Care Health</div>
+                </div>
+                <div class="company-card">
+                    <div class="company-logo">Tata AIG</div>
+                </div>
+                <div class="company-card">
+                    <div class="company-logo">HDFC Ergo</div>
+                </div>
+                <div class="company-card">
+                    <div class="company-logo">Bajaj Health</div>
+                </div>
+                <div class="company-card">
+                    <div class="company-logo">ICICI Lombard</div>
+                </div>
+                <div class="company-card">
+                    <div class="company-logo">Aditya Birla</div>
+                </div>
+                <div class="company-card">
+                    <div class="company-logo">Niva Bupa</div>
+                </div>
+                <div class="company-card">
+                    <div class="company-logo">Star Health</div>
+                </div>
+                <div class="company-card">
+                    <div class="company-logo">Manipal Cigna</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- MOTOR INSURANCE -->
+        <div class="insurance-category reveal">
+            <div class="category-header">
+                <i class="fas fa-car"></i>
+                <h3>MOTOR INSURANCE</h3>
+                <span class="partner-count">7+ Partners</span>
+            </div>
+            <div class="company-grid">
+                <div class="company-card">
+                    <div class="company-logo">Tata Motor</div>
+                </div>
+                <div class="company-card">
+                    <div class="company-logo">ICICI Lombard</div>
+                </div>
+                <div class="company-card">
+                    <div class="company-logo">Go Digit</div>
+                </div>
+                <div class="company-card">
+                    <div class="company-logo">Iffco Tokio</div>
+                </div>
+                <div class="company-card">
+                    <div class="company-logo">Magma</div>
+                </div>
+                <div class="company-card">
+                    <div class="company-logo">Reliance</div>
+                </div>
+                <div class="company-card">
+                    <div class="company-logo">Bajaj</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- LIFE INSURANCE -->
+        <div class="insurance-category reveal">
+            <div class="category-header">
+                <i class="fas fa-shield-alt"></i>
+                <h3>LIFE INSURANCE</h3>
+                <span class="partner-count">7+ Partners</span>
+            </div>
+            <div class="company-grid">
+                <div class="company-card">
+                    <div class="company-logo">Kotak Life</div>
+                </div>
+                <div class="company-card">
+                    <div class="company-logo">Tata AIA</div>
+                </div>
+                <div class="company-card">
+                    <div class="company-logo">HDFC Life</div>
+                </div>
+                <div class="company-card">
+                    <div class="company-logo">ICICI Prudential</div>
+                </div>
+                <div class="company-card">
+                    <div class="company-logo">Go Digit Life</div>
+                </div>
+                <div class="company-card">
+                    <div class="company-logo">Axis Max Life</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- GENERAL INSURANCE -->
+        <div class="insurance-category reveal">
+            <div class="category-header">
+                <i class="fas fa-briefcase"></i>
+                <h3>GENERAL INSURANCE</h3>
+                <span class="partner-count">5+ Partners</span>
+            </div>
+            <div class="company-grid">
+                <div class="company-card">
+                    <div class="company-logo">Future Generali</div>
+                </div>
+                <div class="company-card">
+                    <div class="company-logo">Bajaj General</div>
+                </div>
+                <div class="company-card">
+                    <div class="company-logo">HDFC General</div>
+                </div>
+                <div class="company-card">
+                    <div class="company-logo">Reliance General</div>
+                </div>
+                <div class="company-card">
+                    <div class="company-logo">Shriram General</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- SPECIALIZED INSURANCE -->
+        <div class="insurance-category reveal">
+            <div class="category-header">
+                <i class="fas fa-star"></i>
+                <h3>SPECIALIZED INSURANCE</h3>
+                <span class="partner-count">8+ Products</span>
+            </div>
+            <div class="special-grid">
+                <div class="special-item">
+                    <i class="fas fa-home"></i>
+                    <span>Property Insurance</span>
+                </div>
+                <div class="special-item">
+                    <i class="fas fa-plane"></i>
+                    <span>Travel Insurance</span>
+                </div>
+                <div class="special-item">
+                    <i class="fas fa-ship"></i>
+                    <span>Marine Insurance</span>
+                </div>
+                <div class="special-item">
+                    <i class="fas fa-hard-hat"></i>
+                    <span>Workman Compensation</span>
+                </div>
+                <div class="special-item">
+                    <i class="fas fa-fire-extinguisher"></i>
+                    <span>Fire Insurance</span>
+                </div>
+                <div class="special-item">
+                    <i class="fas fa-briefcase"></i>
+                    <span>Professional Indemnity</span>
+                </div>
+                <div class="special-item">
+                    <i class="fas fa-shield-hooded"></i>
+                    <span>Cyber Security</span>
+                </div>
+                <div class="special-item">
+                    <i class="fas fa-bus"></i>
+                    <span>Domestic Travel</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+        /* ======================================== */
         /* CALCULATOR SECTION - Mobile Optimized   */
         /* ======================================== */
         .loan-calculator {
@@ -2366,3 +2887,4 @@
     </script>
 </body>
 </html>
+
