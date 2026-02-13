@@ -3,7 +3,7 @@ const fs = require("fs");
 const cors = require("cors");
 
 const app = express();
-const PORT = 5000;
+const PORT = 5500;
 
 app.use(cors());
 app.use(express.json());
@@ -51,6 +51,7 @@ app.get("/leads", (req, res) => {
   res.json(leads);
 });
 
-app.listen(5000, () => {
-  console.log("Server running at http://localhost:5000");
+app.listen(5500, () => {
+  console.log("Server running at http://localhost:5500");
 });
+
