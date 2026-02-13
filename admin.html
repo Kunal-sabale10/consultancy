@@ -27,7 +27,7 @@ th{background:black;color:white}
 </table>
 
 <script>
-fetch("http://localhost:5500/leads")
+fetch("http://localhost:5000/leads")
 .then(res=>res.json())
 .then(data=>{
   const body=document.querySelector("tbody");
@@ -52,4 +52,3 @@ fetch("http://localhost:5500/leads")
 
 </body>
 </html>
-
