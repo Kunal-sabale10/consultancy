@@ -1,5 +1,18 @@
+
 <!DOCTYPE html>
 <html lang="en">
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anagh Financial Consultancy</title>
+    
+    <!-- ADD THIS LINE for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -130,6 +143,19 @@
             </div>
         </div>
     </section>
+    <!-- ADD THIS - WhatsApp and Call buttons -->
+<div class="contact-buttons">
+  <a href="https://wa.me/919137426363?text=Hi%2C%20I%27m%20interested%20in%20your%20financial%20services" 
+     class="btn-whatsapp" 
+     target="_blank">
+    <i class="fab fa-whatsapp"></i> WhatsApp
+  </a>
+  
+  <a href="tel:+919137426363" 
+     class="btn-call">
+    <i class="fas fa-phone-alt"></i> Call Now
+  </a>
+</div>
 
     <!-- Services Section -->
     <section class="services" id="services">
@@ -1014,7 +1040,7 @@ function sendAdvanced() {
   const service = document.getElementById("cService").value;
   const message = document.getElementById("cMessage").value;
 
-  fetch("http://localhost:5500/contact", {
+  fetch("http://localhost:5000/contact", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -1036,6 +1062,22 @@ function sendAdvanced() {
   .catch(err => alert("Backend not running"));
 }
 </script>
+<!-- Floating WhatsApp & Call buttons - ADD BEFORE </body> -->
+<div class="floating-contact">
+  <a href="https://wa.me/919137426363?text=Hi%2C%20I%27m%20interested%20in%20your%20financial%20services" 
+     class="float-whatsapp" 
+     target="_blank">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+  
+  <a href="tel:+919137426363" 
+     class="float-call">
+    <i class="fas fa-phone-alt"></i>
+  </a>
+</div>
+
+</body>
+</html>
 
 </body>
 </html>
