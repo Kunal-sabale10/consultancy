@@ -1,3 +1,4 @@
+
 // Enhanced AI Financial Assistant with Detailed Information
 window.addEventListener('scroll', function() {
     const header = document.getElementById('mainHeader');
@@ -867,7 +868,7 @@ const email = document.getElementById("cEmail").value;
 const service = document.getElementById("cService").value;
 const message = document.getElementById("cMessage").value;
 
-fetch("http://localhost:5500/contact", {
+fetch("http://localhost:5000/contact", {
 method: "POST",
 headers: { "Content-Type": "application/json" },
 body: JSON.stringify({
