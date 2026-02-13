@@ -859,3 +859,29 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+function sendAdvanced() {
+
+const name = document.getElementById("cName").value;
+const phone = document.getElementById("cPhone").value;
+const email = document.getElementById("cEmail").value;
+const service = document.getElementById("cService").value;
+const message = document.getElementById("cMessage").value;
+
+fetch("http://localhost:5000/contact", {
+method: "POST",
+headers: { "Content-Type": "application/json" },
+body: JSON.stringify({
+name,
+phone,
+email,
+service,
+message
+})
+})
+.then(r => r.json())
+.then(data => {
+alert("Lead Saved!");
+window.open(data.whatsapp, "_blank");
+});
+}
+
