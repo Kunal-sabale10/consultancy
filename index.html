@@ -1014,7 +1014,7 @@ function sendAdvanced() {
   const service = document.getElementById("cService").value;
   const message = document.getElementById("cMessage").value;
 
-  fetch("http://localhost:5000/contact", {
+  fetch("http://localhost:5500/contact", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -1039,4 +1039,5 @@ function sendAdvanced() {
 
 </body>
 </html>
+
 
